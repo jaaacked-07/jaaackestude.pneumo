@@ -3,52 +3,52 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>PneumoResidência — Plataforma de Estudos | Jackeline Delfini</title>
+<title>PneumoAtlas — Plataforma de Estudos | Jackeline Delfini</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600;6..96,700;6..96,800;6..96,900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   PneumoResidência — Design System
+   PneumoAtlas — Design System
    Identidade: Oxigênio (teal/cyan) + Alvéolo (coral) sobre slate
    ============================================================ */
 :root{
-  --teal-50:#e6fbff; --teal-200:#7fe3ef; --teal-300:#43d4e6; --teal-400:#19bcd1;
-  --teal-500:#0aa3bd; --teal-600:#0a8499; --teal-700:#0c6b7d;
-  --coral-300:#ffb3a1; --coral-400:#ff8c73; --coral-500:#f96a4c;
+  --teal-50:#e8f7fe; --teal-200:#8fd6f4; --teal-300:#5cc6f0; --teal-400:#22b0e6;
+  --teal-500:#0aa1dd; --teal-600:#0883bb; --teal-700:#0a6a98;
+  --coral-300:#ffc1ab; --coral-400:#ff9d78; --coral-500:#ff7f50;
   --gold:#f5c451;
-  --ok:#2ec27e; --warn:#f0a32e; --bad:#ef5a5a; --info:#43d4e6;
+  --ok:#2ec27e; --warn:#f0a32e; --bad:#ef5a5a; --info:#5cc6f0;
   --r-sm:10px; --r-md:16px; --r-lg:22px; --r-xl:30px;
   --shadow-1:0 2px 8px rgba(0,0,0,.18);
   --shadow-2:0 10px 30px rgba(0,0,0,.28);
   --shadow-glow:0 0 0 1px var(--ring), 0 12px 40px -8px var(--glow);
   --speed:.32s cubic-bezier(.4,.0,.2,1);
-  --font-display:'Fraunces',Georgia,serif;
+  --font-display:'Bodoni Moda','Fraunces',Georgia,serif;
   --font-body:'Manrope',system-ui,sans-serif;
   --font-mono:'JetBrains Mono',monospace;
 }
 [data-theme="dark"]{
-  --bg-0:#070f17; --bg-1:#0b1620; --bg-2:#102230; --bg-3:#14303f;
-  --surface:rgba(18,38,52,.62); --surface-solid:#102230;
-  --glass:rgba(20,46,62,.55); --glass-brd:rgba(127,227,239,.14);
+  --bg-0:#060d14; --bg-1:#0a141d; --bg-2:#0f1f2c; --bg-3:#132c3a;
+  --surface:rgba(16,34,48,.60); --surface-solid:#0f1f2c;
+  --glass:rgba(18,42,58,.55); --glass-brd:rgba(143,214,244,.14);
   --txt-0:#eaf6fb; --txt-1:#b6cdd8; --txt-2:#7c97a4; --txt-3:#566a76;
-  --brand:var(--teal-300); --brand-2:var(--coral-400);
-  --line:rgba(127,227,239,.10); --line-2:rgba(255,255,255,.06);
-  --ring:rgba(67,212,230,.30); --glow:rgba(10,131,153,.45);
-  --hl-yellow:rgba(245,196,81,.30); --hl-teal:rgba(67,212,230,.22);
-  --grad-hero:radial-gradient(1200px 500px at 18% -10%,rgba(10,131,153,.40),transparent 60%),radial-gradient(900px 500px at 110% 10%,rgba(249,106,76,.16),transparent 55%);
+  --brand:var(--teal-300); --brand-2:var(--coral-500);
+  --line:rgba(143,214,244,.10); --line-2:rgba(255,255,255,.06);
+  --ring:rgba(92,198,240,.32); --glow:rgba(10,161,221,.50);
+  --hl-yellow:rgba(245,196,81,.30); --hl-teal:rgba(92,198,240,.20);
+  --grad-hero:radial-gradient(880px 620px at 10% -10%,rgba(10,161,221,.34),transparent 60%),radial-gradient(760px 560px at 102% 4%,rgba(255,127,80,.16),transparent 55%),radial-gradient(720px 720px at 88% 92%,rgba(34,176,230,.16),transparent 62%),radial-gradient(680px 620px at 22% 108%,rgba(10,161,221,.12),transparent 60%);
   --grad-brand:linear-gradient(135deg,var(--teal-400),var(--teal-600));
 }
 [data-theme="light"]{
-  --bg-0:#eef4f6; --bg-1:#f7fbfc; --bg-2:#ffffff; --bg-3:#eaf4f6;
-  --surface:rgba(255,255,255,.78); --surface-solid:#ffffff;
-  --glass:rgba(255,255,255,.7); --glass-brd:rgba(10,131,153,.14);
-  --txt-0:#0c2430; --txt-1:#2f4d59; --txt-2:#5a7782; --txt-3:#8aa1ab;
+  --bg-0:#eef5f9; --bg-1:#f6fafc; --bg-2:#ffffff; --bg-3:#e9f3f9;
+  --surface:rgba(255,255,255,.80); --surface-solid:#ffffff;
+  --glass:rgba(255,255,255,.72); --glass-brd:rgba(10,161,221,.14);
+  --txt-0:#0b2330; --txt-1:#2f4d59; --txt-2:#5a7782; --txt-3:#8aa1ab;
   --brand:var(--teal-600); --brand-2:var(--coral-500);
-  --line:rgba(10,131,153,.14); --line-2:rgba(10,36,48,.07);
-  --ring:rgba(10,131,153,.22); --glow:rgba(10,131,153,.20);
-  --hl-yellow:rgba(245,196,81,.45); --hl-teal:rgba(10,163,189,.16);
-  --grad-hero:radial-gradient(1100px 500px at 15% -12%,rgba(67,212,230,.30),transparent 60%),radial-gradient(800px 450px at 108% 8%,rgba(249,106,76,.14),transparent 55%);
+  --line:rgba(10,161,221,.14); --line-2:rgba(10,36,48,.07);
+  --ring:rgba(10,161,221,.22); --glow:rgba(10,161,221,.20);
+  --hl-yellow:rgba(245,196,81,.45); --hl-teal:rgba(10,161,221,.12);
+  --grad-hero:radial-gradient(1000px 520px at 12% -12%,rgba(92,198,240,.34),transparent 60%),radial-gradient(760px 480px at 104% 4%,rgba(255,127,80,.14),transparent 55%),radial-gradient(640px 640px at 90% 96%,rgba(10,161,221,.10),transparent 62%);
   --grad-brand:linear-gradient(135deg,var(--teal-500),var(--teal-700));
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -58,7 +58,17 @@ body{
   -webkit-font-smoothing:antialiased; line-height:1.6; overflow-x:hidden;
   transition:background var(--speed),color var(--speed);
 }
-body::before{content:"";position:fixed;inset:0;background:var(--grad-hero);pointer-events:none;z-index:0;transition:opacity var(--speed)}
+body::before{content:"";position:fixed;inset:-12%;background:var(--grad-hero);pointer-events:none;z-index:0;transition:opacity var(--speed);animation:meshDrift 32s ease-in-out infinite alternate;will-change:transform}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(rgba(255,255,255,.045) 1px,transparent 1.5px);background-size:42px 42px;
+  -webkit-mask-image:radial-gradient(75% 65% at 50% 22%,#000,transparent 80%);mask-image:radial-gradient(75% 65% at 50% 22%,#000,transparent 80%);opacity:.6}
+[data-theme="light"] body::after{opacity:.45;background-image:radial-gradient(rgba(10,161,221,.07) 1px,transparent 1.5px)}
+@keyframes meshDrift{0%{transform:translate3d(0,0,0) scale(1.02)}50%{transform:translate3d(1.6%,-1.6%,0) scale(1.07)}100%{transform:translate3d(-1.2%,1%,0) scale(1.04)}}
+.app,.veil{position:relative;z-index:1}
+.lung-box{position:relative}
+.lung-box svg{position:relative;z-index:1}
+.lung-box::after{content:"";position:absolute;left:50%;top:47%;width:122%;height:122%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(closest-side,var(--glow),transparent 70%);filter:blur(20px);z-index:0;pointer-events:none}
+[data-theme="dark"] .lung-box::after{background:radial-gradient(closest-side,rgba(34,176,230,.42),rgba(255,127,80,.12) 56%,transparent 76%)}
 ::-webkit-scrollbar{width:11px;height:11px}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:var(--bg-3);border-radius:20px;border:3px solid transparent;background-clip:content-box}
@@ -72,7 +82,7 @@ input,textarea,select{font-family:var(--font-body);color:var(--txt-0)}
 
 /* ---------- GATE + AUTH ---------- */
 .veil{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px;
-  background:radial-gradient(1000px 600px at 50% -10%,rgba(10,131,153,.5),transparent 60%),var(--bg-0)}
+  background:radial-gradient(1000px 600px at 50% -10%,rgba(10,161,221,.5),transparent 60%),var(--bg-0)}
 .veil-card{width:100%;max-width:430px;background:var(--surface);backdrop-filter:blur(26px) saturate(140%);
   border:1px solid var(--glass-brd);border-radius:var(--r-xl);padding:42px 34px;box-shadow:var(--shadow-2);
   animation:rise .6s cubic-bezier(.16,1,.3,1)}
@@ -181,7 +191,7 @@ input,textarea,select{font-family:var(--font-body);color:var(--txt-0)}
 .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:300px;height:300px;background:var(--grad-brand);opacity:.10;border-radius:50%;filter:blur(20px)}
 .hero h2{font-size:1.7rem;font-weight:900}
 .author-badge{display:inline-flex;align-items:center;gap:10px;padding:9px 16px;border-radius:30px;
-  background:linear-gradient(135deg,rgba(67,212,230,.16),rgba(249,106,76,.12));border:1px solid var(--glass-brd);
+  background:linear-gradient(135deg,rgba(92,198,240,.16),rgba(255,127,80,.12));border:1px solid var(--glass-brd);
   font-size:.86rem;font-weight:700;color:var(--txt-1);backdrop-filter:blur(8px)}
 .author-badge svg{width:18px;height:18px;color:var(--brand-2)}
 .author-badge b{background:var(--grad-brand);-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -191,14 +201,14 @@ input,textarea,select{font-family:var(--font-body);color:var(--txt-0)}
 .bar.coral>span{background:linear-gradient(135deg,var(--coral-400),var(--coral-500))}
 
 .pill{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:30px;font-size:.74rem;font-weight:700}
-.pill.teal{background:var(--hl-teal);color:var(--brand)} .pill.coral{background:rgba(249,106,76,.16);color:var(--brand-2)}
+.pill.teal{background:var(--hl-teal);color:var(--brand)} .pill.coral{background:rgba(255,127,80,.16);color:var(--brand-2)}
 .pill.gold{background:rgba(245,196,81,.18);color:var(--gold)} .pill.ok{background:rgba(46,194,126,.16);color:var(--ok)}
 .pill.bad{background:rgba(239,90,90,.16);color:var(--bad)} .pill.warn{background:rgba(240,163,46,.16);color:var(--warn)}
 
 /* ---------- MODULES ---------- */
 .mod-card{cursor:pointer}
 .mod-card .ic{width:54px;height:54px;border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:1.7rem;margin-bottom:14px;
-  background:linear-gradient(135deg,var(--hl-teal),rgba(249,106,76,.12))}
+  background:linear-gradient(135deg,var(--hl-teal),rgba(255,127,80,.12))}
 .mod-card h3{font-size:1.12rem;margin-bottom:6px}
 .mod-card p{font-size:.85rem;color:var(--txt-2);margin-bottom:14px;min-height:38px}
 .mod-card .foot{display:flex;align-items:center;justify-content:space-between;font-size:.78rem;color:var(--txt-2)}
@@ -356,7 +366,7 @@ mark{background:var(--hl-yellow);color:inherit;padding:1px 4px;border-radius:4px
 /* CALENDAR */
 .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
 .cal .d{aspect-ratio:1;border-radius:9px;background:var(--bg-2);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;color:var(--txt-2);border:1px solid transparent}
-.cal .d.l1{background:rgba(67,212,230,.2)} .cal .d.l2{background:rgba(67,212,230,.4)} .cal .d.l3{background:rgba(67,212,230,.7);color:#fff}
+.cal .d.l1{background:rgba(92,198,240,.2)} .cal .d.l2{background:rgba(92,198,240,.4)} .cal .d.l3{background:rgba(92,198,240,.7);color:#fff}
 .cal .d.today{border-color:var(--brand-2)}
 
 @keyframes rise{from{transform:translateY(24px);opacity:0}to{transform:translateY(0);opacity:1}}
@@ -390,10 +400,10 @@ mark{background:var(--hl-yellow);color:inherit;padding:1px 4px;border-radius:4px
 <div class="veil" id="gate">
   <div class="veil-card">
     <div class="veil-logo">
-      <svg viewBox="0 0 64 64" fill="none"><path d="M32 10c-2 0-3 1.5-3 4v9c-3-3-7-4-11-3-6 2-9 9-8 18 1 8 5 13 9 13 3 0 4-3 4-8 0-6 1-9 3-11v5c0 2 2 4 6 4s6-2 6-4v-5c2 2 3 5 3 11 0 5 1 8 4 8 4 0 8-5 9-13 1-9-2-16-8-18-4-1-8 0-11 3v-9c0-2.5-1-4-3-4z" fill="url(#gg)" stroke="var(--teal-200)" stroke-width="1.4"/><defs><linearGradient id="gg" x1="0" y1="0" x2="64" y2="64"><stop stop-color="#43d4e6"/><stop offset="1" stop-color="#0a8499"/></linearGradient></defs></svg>
-      <div><div class="t" style="font-family:var(--font-display);font-weight:900;font-size:1.4rem">PneumoResidência</div></div>
+      <svg viewBox="0 0 64 64" fill="none"><path d="M32 10c-2 0-3 1.5-3 4v9c-3-3-7-4-11-3-6 2-9 9-8 18 1 8 5 13 9 13 3 0 4-3 4-8 0-6 1-9 3-11v5c0 2 2 4 6 4s6-2 6-4v-5c2 2 3 5 3 11 0 5 1 8 4 8 4 0 8-5 9-13 1-9-2-16-8-18-4-1-8 0-11 3v-9c0-2.5-1-4-3-4z" fill="url(#gg)" stroke="var(--teal-200)" stroke-width="1.4"/><defs><linearGradient id="gg" x1="0" y1="0" x2="64" y2="64"><stop stop-color="#5cc6f0"/><stop offset="1" stop-color="#0883bb"/></linearGradient></defs></svg>
+      <div><div class="t" style="font-family:var(--font-display);font-weight:900;font-size:1.4rem">PneumoAtlas</div></div>
     </div>
-    <p class="sub">Acesso restrito · Plataforma de estudos para residência médica</p>
+    <p class="sub">Acesso restrito · Depois desta etapa você entra com seu <b>e-mail e senha pessoais</b> — suas anotações ficam só na sua conta</p>
     <div class="field">
       <label>Senha de acesso</label>
       <input type="password" id="gatePass" placeholder="Digite a senha de convidado" onkeydown="if(event.key==='Enter')checkGate()">
@@ -408,9 +418,9 @@ mark{background:var(--hl-yellow);color:inherit;padding:1px 4px;border-radius:4px
 <div class="veil hidden" id="auth">
   <div class="veil-card">
     <div class="veil-logo">
-      <svg viewBox="0 0 64 64" fill="none"><path d="M32 10c-2 0-3 1.5-3 4v9c-3-3-7-4-11-3-6 2-9 9-8 18 1 8 5 13 9 13 3 0 4-3 4-8 0-6 1-9 3-11v5c0 2 2 4 6 4s6-2 6-4v-5c2 2 3 5 3 11 0 5 1 8 4 8 4 0 8-5 9-13 1-9-2-16-8-18-4-1-8 0-11 3v-9c0-2.5-1-4-3-4z" fill="url(#gg2)" stroke="var(--teal-200)" stroke-width="1.4"/><defs><linearGradient id="gg2" x1="0" y1="0" x2="64" y2="64"><stop stop-color="#43d4e6"/><stop offset="1" stop-color="#0a8499"/></linearGradient></defs></svg>
+      <svg viewBox="0 0 64 64" fill="none"><path d="M32 10c-2 0-3 1.5-3 4v9c-3-3-7-4-11-3-6 2-9 9-8 18 1 8 5 13 9 13 3 0 4-3 4-8 0-6 1-9 3-11v5c0 2 2 4 6 4s6-2 6-4v-5c2 2 3 5 3 11 0 5 1 8 4 8 4 0 8-5 9-13 1-9-2-16-8-18-4-1-8 0-11 3v-9c0-2.5-1-4-3-4z" fill="url(#gg2)" stroke="var(--teal-200)" stroke-width="1.4"/><defs><linearGradient id="gg2" x1="0" y1="0" x2="64" y2="64"><stop stop-color="#5cc6f0"/><stop offset="1" stop-color="#0883bb"/></linearGradient></defs></svg>
     </div>
-    <h1><span class="grad-txt">PneumoResidência</span></h1>
+    <h1><span class="grad-txt">PneumoAtlas</span></h1>
     <p class="sub">Sua jornada rumo à aprovação começa aqui</p>
     <div class="tabs-auth">
       <button id="tabLogin" class="active" onclick="switchAuth('login')">Entrar</button>
@@ -440,8 +450,8 @@ mark{background:var(--hl-yellow);color:inherit;padding:1px 4px;border-radius:4px
   <!-- SIDEBAR -->
   <aside class="sidebar" id="sidebar">
     <div class="sb-head">
-      <svg class="mark" viewBox="0 0 64 64" fill="none"><path d="M32 10c-2 0-3 1.5-3 4v9c-3-3-7-4-11-3-6 2-9 9-8 18 1 8 5 13 9 13 3 0 4-3 4-8 0-6 1-9 3-11v5c0 2 2 4 6 4s6-2 6-4v-5c2 2 3 5 3 11 0 5 1 8 4 8 4 0 8-5 9-13 1-9-2-16-8-18-4-1-8 0-11 3v-9c0-2.5-1-4-3-4z" fill="url(#sg)" stroke="var(--teal-200)" stroke-width="1.4"/><defs><linearGradient id="sg" x1="0" y1="0" x2="64" y2="64"><stop stop-color="#43d4e6"/><stop offset="1" stop-color="#0a8499"/></linearGradient></defs></svg>
-      <div class="sb-brand"><div class="t">PneumoResidência</div><div class="s">Residência Médica</div></div>
+      <svg class="mark" viewBox="0 0 64 64" fill="none"><path d="M32 10c-2 0-3 1.5-3 4v9c-3-3-7-4-11-3-6 2-9 9-8 18 1 8 5 13 9 13 3 0 4-3 4-8 0-6 1-9 3-11v5c0 2 2 4 6 4s6-2 6-4v-5c2 2 3 5 3 11 0 5 1 8 4 8 4 0 8-5 9-13 1-9-2-16-8-18-4-1-8 0-11 3v-9c0-2.5-1-4-3-4z" fill="url(#sg)" stroke="var(--teal-200)" stroke-width="1.4"/><defs><linearGradient id="sg" x1="0" y1="0" x2="64" y2="64"><stop stop-color="#5cc6f0"/><stop offset="1" stop-color="#0883bb"/></linearGradient></defs></svg>
+      <div class="sb-brand"><div class="t">PneumoAtlas</div><div class="s">Residência Médica</div></div>
     </div>
     <button class="sb-toggle" onclick="toggleSidebar()" title="Recolher menu">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
@@ -928,8 +938,7 @@ const ASMA_SUMMARY = `
 <li>Tratar crise: O₂ (93–95%) + SABA repetido + ipratrópio + <b>corticoide sistêmico precoce</b> ± MgSO₄ IV.</li>
 </ul></div>`;
 
-const ASMA_SVG = `
-<h3>Esquemas visuais</h3>
+const SVG_BRONCO = `
 <div class="svg-fig">
 <svg viewBox="0 0 460 220" xmlns="http://www.w3.org/2000/svg">
   <text x="115" y="20" text-anchor="middle" fill="var(--txt-1)" font-size="13" font-weight="700">Brônquio normal</text>
@@ -945,8 +954,9 @@ const ASMA_SVG = `
   <text x="345" y="210" text-anchor="middle" fill="var(--coral-400)" font-size="10">↑músculo + edema + muco</text>
 </svg>
 <div class="cap">Na asma: hipertrofia do músculo liso (espessamento externo), edema da mucosa e tampão de muco reduzem drasticamente o lúmen — obstrução reversível.</div>
-</div>
+</div>`;
 
+const SVG_TH2 = `
 <div class="svg-fig">
 <svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg">
   <rect x="10" y="80" width="70" height="40" rx="8" fill="var(--hl-teal)" stroke="var(--brand)"/>
@@ -958,16 +968,17 @@ const ASMA_SVG = `
   <text x="216" y="105" font-size="16" fill="var(--brand)">→</text>
   <rect x="236" y="55" width="92" height="30" rx="6" fill="rgba(245,196,81,.18)" stroke="var(--gold)"/>
   <text x="282" y="74" text-anchor="middle" font-size="10" fill="var(--txt-0)">IL-4/IL-13 → IgE</text>
-  <rect x="236" y="115" width="92" height="30" rx="6" fill="rgba(249,106,76,.18)" stroke="var(--coral-400)"/>
+  <rect x="236" y="115" width="92" height="30" rx="6" fill="rgba(255,127,80,.18)" stroke="var(--coral-400)"/>
   <text x="282" y="134" text-anchor="middle" font-size="10" fill="var(--txt-0)">IL-5 → eosinófilo</text>
   <text x="338" y="105" font-size="16" fill="var(--coral-400)">→</text>
-  <rect x="360" y="80" width="108" height="40" rx="8" fill="rgba(249,106,76,.2)" stroke="var(--coral-500)"/>
+  <rect x="360" y="80" width="108" height="40" rx="8" fill="rgba(255,127,80,.2)" stroke="var(--coral-500)"/>
   <text x="414" y="98" text-anchor="middle" font-size="10" fill="var(--txt-0)">Mastócito/inflam.</text>
   <text x="414" y="113" text-anchor="middle" font-size="10" fill="var(--coral-400)">broncoespasmo</text>
 </svg>
 <div class="cap">Cascata Th2 da asma alérgica: IL-4/13 geram IgE; IL-5 recruta eosinófilos. Base dos imunobiológicos (anti-IgE, anti-IL5).</div>
-</div>
+</div>`;
 
+const SVG_FLOW = `
 <div class="svg-fig">
 <svg viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg">
   <line x1="50" y1="200" x2="400" y2="200" stroke="var(--txt-3)" stroke-width="1.5"/>
@@ -983,6 +994,35 @@ const ASMA_SVG = `
 </svg>
 <div class="cap">Curva fluxo-volume: na obstrução a alça expiratória fica <b>côncava ("escavada")</b>. Pós-broncodilatador, melhora (reversibilidade) na asma.</div>
 </div>`;
+
+// Escada de etapas do GINA (manutenção)
+const SVG_GINALADDER = `
+<div class="svg-fig">
+<svg viewBox="0 0 480 220" xmlns="http://www.w3.org/2000/svg">
+  <defs><linearGradient id="lad" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="var(--teal-500)"/><stop offset="1" stop-color="var(--coral-500)"/></linearGradient></defs>
+  <line x1="40" y1="190" x2="450" y2="190" stroke="var(--txt-3)" stroke-width="1.5"/>
+  ${[0,1,2,3,4].map(i=>{const x=48+i*82,h=26+i*30,y=190-h;const lbl=["CI-formo s/n","CI-formo dose baixa s/n","CI-formo diário baixo","CI-formo médio","CI alta + LABA → biológicos"][i];return `<rect x="${x}" y="${y}" width="64" height="${h}" rx="7" fill="url(#lad)" opacity="${0.45+i*0.13}"/><text x="${x+32}" y="${y-7}" text-anchor="middle" font-size="12" font-weight="800" fill="var(--brand)">Etapa ${i+1}</text><text x="${x+32}" y="206" text-anchor="middle" font-size="7.4" fill="var(--txt-2)">${lbl}</text>`;}).join("")}
+  <text x="245" y="16" text-anchor="middle" font-size="12" font-weight="700" fill="var(--txt-1)">Subir o degrau se não controlada · descer se controlada ≥3 meses</text>
+</svg>
+<div class="cap">Escada do GINA: o tratamento sobe ou desce conforme o <b>controle</b>. Todo asmático recebe <b>corticoide inalatório</b> — o alívio preferencial é <b>CI-formoterol</b>.</div>
+</div>`;
+
+// Red-flags da crise grave (medidor visual)
+const SVG_REDFLAGS = `
+<div class="svg-fig">
+<svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg">
+  <defs><linearGradient id="gauge" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="var(--ok)"/><stop offset=".5" stop-color="var(--warn)"/><stop offset="1" stop-color="var(--bad)"/></linearGradient></defs>
+  <rect x="40" y="46" width="400" height="16" rx="8" fill="url(#gauge)"/>
+  <text x="60" y="40" font-size="11" font-weight="700" fill="var(--ok)">Leve</text>
+  <text x="225" y="40" font-size="11" font-weight="700" fill="var(--warn)">Grave</text>
+  <text x="360" y="40" font-size="11" font-weight="700" fill="var(--bad)">Iminência de PCR</text>
+  <polygon points="430,40 424,30 436,30" fill="var(--bad)"/>
+  ${[["Fala frases→palavras→não fala",95],["Sibilos → tórax SILENCIOSO",118],["Lúcido → sonolento/confuso",141],["PaCO₂ baixa → 'normal'/alta = ALARME",164]].map(r=>`<circle cx="52" cy="${r[1]-4}" r="4" fill="var(--bad)"/><text x="66" y="${r[1]}" font-size="11.5" fill="var(--txt-1)">${r[0]}</text>`).join("")}
+</svg>
+<div class="cap"><b>Sinais de gravidade extrema</b>: tórax silencioso, bradicardia, sonolência e PaCO₂ "normal/alta" — NÃO são melhora. Prepare a via aérea.</div>
+</div>`;
+
+const ASMA_SVG = SVG_BRONCO + SVG_TH2 + SVG_FLOW;
 
 const ASMA_COMPARE = `
 <h3>Tabela comparativa & diagnósticos diferenciais</h3>
@@ -1141,8 +1181,7 @@ const ASMA_CONTENT = {
     {id:"grave",t:"Asma grave"},{id:"status",t:"Status asmático"},{id:"hosp",t:"Manejo hospitalar"},
     {id:"ped",t:"Peculiaridades pediátricas"},{id:"prova",t:"Questões clássicas de prova"}
   ],
-  teach: ASMA_TEACH + ASMA_DX + ASMA_GINA + ASMA_CRISE,
-  svg: ASMA_SVG,
+  teach: ASMA_TEACH + SVG_BRONCO + SVG_TH2 + ASMA_DX + SVG_FLOW + ASMA_GINA + SVG_GINALADDER + ASMA_CRISE + SVG_REDFLAGS,
   compare: ASMA_COMPARE,
   erros: ASMA_ERROS,
   summary: ASMA_SUMMARY,
@@ -1304,12 +1343,45 @@ window.delCard=function(cid,modId,topId){
   renderFcList(modId,topId); refreshFcCounts(modId,topId);
 };
 function refreshFcCounts(modId,topId){
-  const el=document.getElementById("fcCounts"); if(!el)return;
   const cards=cardsForTopic(modId,topId);
   const dom=cards.filter(c=>isMastered(c.id)).length;
   const t=todayKey(); const pend=cards.filter(c=>{const s=STATE.srs[c.id];return !s||s.due<=t;}).length;
-  el.innerHTML=`<span class="b">📇 Existem <b>${cards.length}</b></span><span class="b">✅ Dominados <b>${dom}</b></span><span class="b">⏳ Pendentes <b>${pend}</b></span>`;
+  const el=document.getElementById("fcCounts");
+  if(el) el.innerHTML=`<span class="b">📇 Existem <b>${cards.length}</b></span><span class="b">✅ Dominados <b>${dom}</b></span><span class="b">⏳ Pendentes <b>${pend}</b></span>`;
+  const tc=document.getElementById("fcThemeCount");
+  if(tc) tc.textContent=`${cards.length} card(s) · ${dom} dominado(s) · ${pend} para revisar`;
 }
+/* ---- CRIADOR RÁPIDO (dentro da aula, sem trocar de aba) ---- */
+function fcQuickHTML(modId,topId){
+  return `<div class="fc-creator" style="margin:26px 0 8px;border-style:solid;border-color:var(--ring)">
+    <div class="ch">🧠 Criar flashcard sem sair da aula</div>
+    <p style="font-size:.8rem;color:var(--txt-2);margin:-6px 0 10px">Capture o que acabou de ler. O card entra na aba Flashcards, na Revisão Espaçada e nos Estudos do Dia.</p>
+    <div class="fmt-bar">
+      <button title="Negrito" onmousedown="event.preventDefault()" onclick="fcFmt('bold')"><b>B</b></button>
+      <button title="Azul" onmousedown="event.preventDefault()" onclick="fcFmt('foreColor','#0aa1dd')" style="color:#0aa1dd"><b>A</b></button>
+      <button title="Vermelho" onmousedown="event.preventDefault()" onclick="fcFmt('foreColor','#e23b3b')" style="color:#e23b3b"><b>A</b></button>
+      <button title="Coral" onmousedown="event.preventDefault()" onclick="fcFmt('foreColor','#ff7f50')" style="color:#ff7f50"><b>A</b></button>
+      <button title="Inserir imagem por URL" onmousedown="event.preventDefault()" onclick="fcInsertImg('fcFrontQ')">🖼</button>
+    </div>
+    <label style="font-size:.8rem;font-weight:700;color:var(--txt-2)">Frente</label>
+    <div id="fcFrontQ" contenteditable="true" onpaste="fcPaste(event)" style="min-height:54px;background:var(--bg-2);border:1px solid var(--line);border-radius:11px;padding:11px;margin:6px 0 10px;white-space:pre-wrap;line-height:1.6;outline:none"></div>
+    <label style="font-size:.8rem;font-weight:700;color:var(--txt-2)">Verso</label>
+    <div id="fcBackQ" contenteditable="true" onpaste="fcPaste(event)" style="min-height:54px;background:var(--bg-2);border:1px solid var(--line);border-radius:11px;padding:11px;margin:6px 0 10px;white-space:pre-wrap;line-height:1.6;outline:none"></div>
+    <button class="btn btn-primary" style="padding:10px 18px" onclick="addCardQuick('${modId}','${topId}')">+ Adicionar flashcard</button>
+  </div>`;
+}
+window.addCardQuick=function(modId,topId){
+  ensure();
+  const m=MODULES.find(x=>x.id===modId), t=m.topics.find(x=>x.id===topId);
+  const fEl=document.getElementById("fcFrontQ"), bEl=document.getElementById("fcBackQ");
+  const front=(fEl?fEl.innerHTML:"").trim(); const back=(bEl?bEl.innerHTML:"").trim();
+  if(!front){ toast("⚠","Escreva a frente do card","achv"); return; }
+  const card={ id:"u"+Date.now()+Math.floor(Math.random()*999), type:"basic", front, back, matId:modId, mat:m.title, topId, tema:t.title, created:todayKey(), reps:0 };
+  STATE.flashcards.push(card); STATE.srs[card.id]={ease:2.5,interval:0,due:todayKey(),reps:0,lapses:0};
+  if(fEl)fEl.innerHTML=""; if(bEl)bEl.innerHTML="";
+  awardXp(5,"Flashcard criado"); queueSave(); toast("🧠","Flashcard salvo!","achv");
+  if(document.getElementById("fcList")){ renderFcList(modId,topId); refreshFcCounts(modId,topId); }
+};
 function fcCreatorHTML(modId,topId){
   return `<div class="fc-creator">
     <div class="ch">🧠 Flashcards Inteligentes — crie enquanto estuda</div>
@@ -1373,9 +1445,28 @@ window.flowReset=function(key){ const flow=window.__FLOWS[key]; const cont=docum
 
 /* ---- MAPA MENTAL ---- */
 function mindHTML(mind){
-  return `<div class="mindmap"><div class="mm-center">${mind.center}</div>`+
-    mind.branches.map((b,i)=>`<div class="mm-branch"><div class="h" onclick="this.nextElementSibling.classList.toggle('open')"><span class="ic">${b.ic||"•"}</span>${b.h} <span style="margin-left:auto;color:var(--txt-3);font-size:.8rem">▾</span></div><div class="mm-children${i===0?" open":""}">${b.leaves.map(l=>`<div class="leaf">${l}</div>`).join("")}</div></div>`).join("")
-    +`</div>`;
+  const N=mind.branches.length, cx=520, cy=400, R=250, bw=248, bh=152;
+  const nodes=mind.branches.map((b,i)=>{ const a=(-90 + i*(360/N))*Math.PI/180; return {b,x:cx+Math.cos(a)*R,y:cy+Math.sin(a)*R}; });
+  const lines=nodes.map(p=>`<line x1="${cx}" y1="${cy}" x2="${p.x.toFixed(0)}" y2="${p.y.toFixed(0)}" stroke="var(--ring)" stroke-width="2"/><circle cx="${p.x.toFixed(0)}" cy="${p.y.toFixed(0)}" r="5" fill="var(--brand)"/>`).join("");
+  const boxes=nodes.map(p=>{
+    const left = Math.abs(p.x-cx)<50 ? p.x-bw/2 : (p.x<cx ? p.x-bw : p.x);
+    const top  = Math.abs(p.y-cy)<50 ? p.y-bh/2 : (p.y<cy ? p.y-bh : p.y);
+    const leaves=p.b.leaves.map(l=>`<div style="font-size:10.5px;line-height:1.38;color:var(--txt-1);margin:3px 0;padding-left:8px;border-left:2px solid var(--line)">${l}</div>`).join("");
+    return `<foreignObject x="${left.toFixed(0)}" y="${top.toFixed(0)}" width="${bw}" height="${bh}">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:var(--font-body)">
+        <div style="display:inline-flex;align-items:center;gap:6px;font-weight:800;color:var(--brand);font-size:12.5px;background:var(--hl-teal);padding:4px 11px;border-radius:20px;margin-bottom:5px">${p.b.ic||"•"} ${p.b.h}</div>
+        ${leaves}
+      </div></foreignObject>`;
+  }).join("");
+  return `<p style="color:var(--txt-2);font-size:.88rem;margin-bottom:6px">Visão radial — o tema no centro e os pilares ao redor para você bater o olho e lembrar.</p>
+  <div style="overflow:auto;border-radius:16px"><svg viewBox="0 0 1040 820" style="min-width:780px;width:100%" xmlns="http://www.w3.org/2000/svg">
+    <defs><linearGradient id="mmc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--teal-400)"/><stop offset="1" stop-color="var(--teal-600)"/></linearGradient></defs>
+    ${lines}
+    <circle cx="${cx}" cy="${cy}" r="64" fill="url(#mmc)"/>
+    <circle cx="${cx}" cy="${cy}" r="64" fill="none" stroke="var(--coral-500)" stroke-width="2" opacity=".5"/>
+    <text x="${cx}" y="${cy+7}" text-anchor="middle" font-size="22" font-weight="900" fill="#fff" font-family="var(--font-display)">${mind.center}</text>
+    ${boxes}
+  </svg></div>`;
 }
 
 /* ---- PULMÃO EVOLUTIVO (SVG por %) ---- */
@@ -1414,7 +1505,7 @@ function lungSVG(pct){
       <circle cx="120" cy="210" r="5"/><circle cx="146" cy="222" r="5"/><circle cx="160" cy="240" r="5"/><circle cx="240" cy="210" r="5"/><circle cx="214" cy="222" r="5"/><circle cx="200" cy="240" r="5"/>
     </g>
     <!-- 85% detalhamento anatômico -->
-    <g opacity="${op(85)}" style="transition:opacity .8s" fill="var(--teal-300,#7fe6f0)">
+    <g opacity="${op(85)}" style="transition:opacity .8s" fill="var(--teal-300,#5cc6f0)">
       <circle cx="108" cy="232" r="4"/><circle cx="132" cy="248" r="4"/><circle cx="152" cy="262" r="4"/><circle cx="252" cy="232" r="4"/><circle cx="228" cy="248" r="4"/><circle cx="208" cy="262" r="4"/>
     </g>
     <!-- 95% iluminado / 100% premium -->
@@ -1555,7 +1646,6 @@ window.renderTopic=function(arg){
   // Tabs disponíveis
   const tabs=[];
   tabs.push(["Aula","aula"]);
-  if(c.svg) tabs.push(["Esquemas (SVG)","svg"]);
   tabs.push(["Questões","q"]);
   tabs.push(["Flashcards","fc"]);
   tabs.push(["Casos clínicos","case"]);
@@ -1571,16 +1661,18 @@ window.renderTopic=function(arg){
   const tabbar = `<div class="tabbar">`+tabs.map((tb,i)=>`<button class="${i===0?"active":""}" onclick="switchTab(this,'p-${tb[1]}')">${tb[0]}</button>`).join("")+`</div>`;
 
   // Painéis
-  const aula = full
+  const aula = (full
     ? `<div class="prose">${c.teach}</div>`
     : `<div class="note key"><div class="nh">📚 Conteúdo em expansão</div>A aula completa (nível residência, passo a passo) deste módulo está sendo desenvolvida na mesma profundidade do módulo <b>Asma</b>. Abaixo, os subtópicos que serão cobertos — e você já pode criar flashcards, usar o checklist e anotar.</div>
-       <div class="grid g-2" style="margin-top:14px">${subs.map(s=>`<div class="card" style="padding:14px"><b>${s.t}</b></div>`).join("")}</div>`;
+       <div class="grid g-2" style="margin-top:14px">${subs.map(s=>`<div class="card" style="padding:14px"><b>${s.t}</b></div>`).join("")}</div>`)
+    + fcQuickHTML(modId,topId);
 
   const panels = {
     aula,
-    svg: c.svg?`<div class="prose">${c.svg}</div>`:"",
     q: questionsHTML(modId,topId,c.questions),
-    fc: `<div class="note tip"><div class="nh">🧠 Captura rápida</div>A área de criação fica sempre visível abaixo. Os cards alimentam automaticamente a Revisão Espaçada, os Estudos do Dia e suas estatísticas.</div>${fcCreatorHTML(modId,topId)}`,
+    fc: `<div class="note tip"><div class="nh">🧠 Leia → questione → fixe</div>Treine os flashcards deste tema e crie os seus. Tudo se soma e alimenta a Revisão Espaçada e os Estudos do Dia.</div>
+      <div class="card" style="margin-bottom:14px"><div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px"><div><b>Flashcards deste tema</b><div id="fcThemeCount" style="font-size:.84rem;color:var(--txt-2)">—</div></div><button class="btn btn-primary" style="width:auto;padding:10px 18px" onclick="startReview(cardsForTopic('${modId}','${topId}'))">▶ Treinar flashcards do tema</button></div><div id="revArea" style="margin-top:14px"></div></div>
+      ${fcCreatorHTML(modId,topId)}`,
     case: casesHTML(modId,topId,c.cases),
     fdx: c.flowDx?flowHTML(c.flowDx,"dx_"+modId+"_"+topId):"",
     fcd: c.flowCond?flowHTML(c.flowCond,"cd_"+modId+"_"+topId):"",
