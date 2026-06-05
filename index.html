@@ -6,7 +6,7 @@
 <title>PneumoAtlas — Plataforma de Estudos | Jackeline Delfini</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600;6..96,700;6..96,800;6..96,900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
    PneumoAtlas — Design System
@@ -23,7 +23,7 @@
   --shadow-2:0 10px 30px rgba(0,0,0,.28);
   --shadow-glow:0 0 0 1px var(--ring), 0 12px 40px -8px var(--glow);
   --speed:.32s cubic-bezier(.4,.0,.2,1);
-  --font-display:'Bodoni Moda','Fraunces',Georgia,serif;
+  --font-display:'Jost','Century Gothic','Poppins',sans-serif;
   --font-body:'Manrope',system-ui,sans-serif;
   --font-mono:'JetBrains Mono',monospace;
 }
@@ -35,9 +35,11 @@
   --brand:var(--teal-300); --brand-2:var(--coral-500);
   --line:rgba(143,214,244,.10); --line-2:rgba(255,255,255,.06);
   --ring:rgba(92,198,240,.32); --glow:rgba(10,161,221,.50);
-  --hl-yellow:rgba(245,196,81,.30); --hl-teal:rgba(92,198,240,.20);
-  --grad-hero:radial-gradient(880px 620px at 10% -10%,rgba(10,161,221,.34),transparent 60%),radial-gradient(760px 560px at 102% 4%,rgba(255,127,80,.16),transparent 55%),radial-gradient(720px 720px at 88% 92%,rgba(34,176,230,.16),transparent 62%),radial-gradient(680px 620px at 22% 108%,rgba(10,161,221,.12),transparent 60%);
+  --hl-yellow:rgba(245,196,81,.30); --hl-teal:rgba(92,198,240,.20); --hl-coral:rgba(255,127,80,.20);
+  --grad-hero:radial-gradient(880px 620px at 10% -10%,rgba(10,161,221,.34),transparent 60%),radial-gradient(760px 560px at 102% 4%,rgba(255,127,80,.18),transparent 55%),radial-gradient(720px 720px at 88% 92%,rgba(34,176,230,.16),transparent 62%),radial-gradient(680px 620px at 22% 108%,rgba(255,127,80,.12),transparent 60%);
   --grad-brand:linear-gradient(135deg,var(--teal-400),var(--teal-600));
+  --grad-coral:linear-gradient(135deg,#ff9d78,#ff7f50);
+  --bg-mesh:radial-gradient(at 0% 0%,rgba(10,161,221,.22),transparent 46%),radial-gradient(at 100% 0%,rgba(255,127,80,.18),transparent 44%),radial-gradient(at 100% 100%,rgba(34,176,230,.18),transparent 46%),radial-gradient(at 0% 100%,rgba(255,127,80,.13),transparent 46%),radial-gradient(at 55% 45%,rgba(92,198,240,.10),transparent 55%),linear-gradient(155deg,#07111a 0%,#0a1723 48%,#08131e 100%);
 }
 [data-theme="light"]{
   --bg-0:#eef5f9; --bg-1:#f6fafc; --bg-2:#ffffff; --bg-3:#e9f3f9;
@@ -47,18 +49,21 @@
   --brand:var(--teal-600); --brand-2:var(--coral-500);
   --line:rgba(10,161,221,.14); --line-2:rgba(10,36,48,.07);
   --ring:rgba(10,161,221,.22); --glow:rgba(10,161,221,.20);
-  --hl-yellow:rgba(245,196,81,.45); --hl-teal:rgba(10,161,221,.12);
-  --grad-hero:radial-gradient(1000px 520px at 12% -12%,rgba(92,198,240,.34),transparent 60%),radial-gradient(760px 480px at 104% 4%,rgba(255,127,80,.14),transparent 55%),radial-gradient(640px 640px at 90% 96%,rgba(10,161,221,.10),transparent 62%);
+  --hl-yellow:rgba(245,196,81,.45); --hl-teal:rgba(10,161,221,.12); --hl-coral:rgba(255,127,80,.16);
+  --grad-hero:radial-gradient(1000px 520px at 12% -12%,rgba(92,198,240,.34),transparent 60%),radial-gradient(760px 480px at 104% 4%,rgba(255,127,80,.18),transparent 55%),radial-gradient(640px 640px at 90% 96%,rgba(255,127,80,.12),transparent 62%);
   --grad-brand:linear-gradient(135deg,var(--teal-500),var(--teal-700));
+  --grad-coral:linear-gradient(135deg,#ff9d78,#ff6a3d);
+  --bg-mesh:radial-gradient(at 0% 0%,rgba(92,198,240,.34),transparent 46%),radial-gradient(at 100% 0%,rgba(255,127,80,.20),transparent 42%),radial-gradient(at 100% 100%,rgba(10,161,221,.16),transparent 46%),radial-gradient(at 0% 100%,rgba(255,159,122,.18),transparent 46%),radial-gradient(at 55% 50%,rgba(92,198,240,.08),transparent 55%),linear-gradient(155deg,#eef6fb 0%,#f5f9fc 48%,#fdf3ee 100%);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{
-  font-family:var(--font-body); background:var(--bg-0); color:var(--txt-0);
+  font-family:var(--font-body); background:var(--bg-mesh) fixed,var(--bg-0); color:var(--txt-0);
+  background-attachment:fixed;
   -webkit-font-smoothing:antialiased; line-height:1.6; overflow-x:hidden;
-  transition:background var(--speed),color var(--speed);
+  transition:color var(--speed);
 }
-body::before{content:"";position:fixed;inset:-12%;background:var(--grad-hero);pointer-events:none;z-index:0;transition:opacity var(--speed);animation:meshDrift 32s ease-in-out infinite alternate;will-change:transform}
+body::before{content:"";position:fixed;inset:-12%;background:var(--grad-hero);pointer-events:none;z-index:0;opacity:.7;transition:opacity var(--speed);animation:meshDrift 32s ease-in-out infinite alternate;will-change:transform}
 body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
   background-image:radial-gradient(rgba(255,255,255,.045) 1px,transparent 1.5px);background-size:42px 42px;
   -webkit-mask-image:radial-gradient(75% 65% at 50% 22%,#000,transparent 80%);mask-image:radial-gradient(75% 65% at 50% 22%,#000,transparent 80%);opacity:.6}
@@ -181,6 +186,7 @@ input,textarea,select{font-family:var(--font-body);color:var(--txt-0)}
 .g-4{grid-template-columns:repeat(4,1fr)} .g-3{grid-template-columns:repeat(3,1fr)} .g-2{grid-template-columns:repeat(2,1fr)}
 .stat{display:flex;flex-direction:column;gap:4px}
 .stat .ic{width:44px;height:44px;border-radius:13px;background:var(--hl-teal);display:flex;align-items:center;justify-content:center;color:var(--brand);margin-bottom:8px}
+.grid.g-4 .card:nth-child(2n) .stat .ic,.grid.g-3 .card:nth-child(3n) .stat .ic{background:var(--hl-coral);color:var(--brand-2)}
 .stat .ic svg{width:23px;height:23px}
 .stat .v{font-size:2rem;font-weight:900;font-family:var(--font-display);line-height:1}
 .stat .l{font-size:.82rem;color:var(--txt-2);font-weight:600}
@@ -189,6 +195,7 @@ input,textarea,select{font-family:var(--font-body);color:var(--txt-0)}
 .hero{background:var(--surface);backdrop-filter:blur(18px);border:1px solid var(--glass-brd);border-radius:var(--r-xl);
   padding:30px 32px;position:relative;overflow:hidden;box-shadow:var(--shadow-1)}
 .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:300px;height:300px;background:var(--grad-brand);opacity:.10;border-radius:50%;filter:blur(20px)}
+.hero::before{content:"";position:absolute;left:-50px;bottom:-70px;width:260px;height:260px;background:var(--grad-coral);opacity:.14;border-radius:50%;filter:blur(26px);pointer-events:none}
 .hero h2{font-size:1.7rem;font-weight:900}
 .author-badge{display:inline-flex;align-items:center;gap:10px;padding:9px 16px;border-radius:30px;
   background:linear-gradient(135deg,rgba(92,198,240,.16),rgba(255,127,80,.12));border:1px solid var(--glass-brd);
@@ -219,6 +226,13 @@ input,textarea,select{font-family:var(--font-body);color:var(--txt-0)}
 .topic-nav a{display:block;padding:9px 12px;border-radius:9px;font-size:.86rem;color:var(--txt-1);font-weight:600;cursor:pointer;transition:all .2s}
 .topic-nav a:hover{background:var(--bg-2)} .topic-nav a.active{background:var(--grad-brand);color:#fff}
 .tabbar{display:flex;gap:6px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--glass-brd);border-radius:14px;padding:7px;margin-bottom:22px;position:sticky;top:78px;z-index:30;backdrop-filter:blur(16px)}
+.subtabbar{display:flex;gap:6px;flex-wrap:wrap;margin:2px 0 18px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.subtabbar button{padding:7px 14px;border-radius:30px;font-weight:700;font-size:.82rem;color:var(--txt-2);white-space:nowrap;border:1px solid var(--line);background:var(--bg-2);transition:all .2s}
+.subtabbar button:hover{color:var(--txt-0);border-color:var(--brand)}
+.subtabbar button.active{background:var(--grad-brand);color:#fff;border-color:transparent;box-shadow:var(--shadow-1)}
+.subtabbar button.active:nth-child(even){background:var(--grad-coral)}
+.subtab-panel{animation:fade .3s ease}
+.aula-pin{position:relative;margin-top:8px}
 .tabbar button{padding:9px 15px;border-radius:9px;font-weight:700;font-size:.86rem;color:var(--txt-2);white-space:nowrap;transition:all .2s}
 .tabbar button:hover{color:var(--txt-0);background:var(--bg-2)}
 .tabbar button.active{background:var(--grad-brand);color:#fff;box-shadow:var(--shadow-1)}
@@ -227,7 +241,7 @@ input,textarea,select{font-family:var(--font-body);color:var(--txt-0)}
 /* teaching prose */
 .prose{font-size:1rem;line-height:1.78;color:var(--txt-1)}
 .prose h3{font-size:1.5rem;margin:30px 0 12px;color:var(--txt-0);position:relative;padding-left:16px}
-.prose h3::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:5px;border-radius:5px;background:var(--grad-brand)}
+.prose h3::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:5px;border-radius:5px;background:linear-gradient(180deg,var(--teal-400),var(--coral-500))}
 .prose h4{font-size:1.15rem;margin:22px 0 8px;color:var(--brand)}
 .prose p{margin:12px 0}
 .prose ul,.prose ol{margin:12px 0 12px 4px;padding-left:22px}
@@ -1337,6 +1351,7 @@ window.addCard=function(modId,topId){
   awardXp(5,"Flashcard criado"); queueSave();
   toast("🧠","Flashcard salvo!","achv");
   renderFcList(modId,topId); refreshFcCounts(modId,topId);
+  if(document.getElementById("revArea")) startReview(cardsForTopic(modId,topId));
 };
 window.delCard=function(cid,modId,topId){
   STATE.flashcards=STATE.flashcards.filter(c=>c.id!==cid); delete STATE.srs[cid]; queueSave();
@@ -1586,8 +1601,31 @@ window.switchTab=function(btn,panelId){
   const bar=btn.parentNode; bar.querySelectorAll("button").forEach(b=>b.classList.remove("active")); btn.classList.add("active");
   const wrap=document.getElementById("tabPanels"); wrap.querySelectorAll(".tab-panel").forEach(p=>p.style.display="none");
   const p=document.getElementById(panelId); if(p)p.style.display="block";
-  if(panelId.startsWith("p-fc")){ const[,,modId,topId]=p.dataset.k.split("|"); setTimeout(()=>{renderFcList(modId,topId);refreshFcCounts(modId,topId);},10); }
+  if(panelId.startsWith("p-fc")){ const[,,modId,topId]=p.dataset.k.split("|"); setTimeout(()=>{renderFcList(modId,topId);refreshFcCounts(modId,topId);const deck=cardsForTopic(modId,topId);const ra=document.getElementById("revArea");if(deck.length)startReview(deck);else if(ra)ra.innerHTML="<p style='color:var(--txt-2);font-size:.9rem'>Ainda não há flashcards deste tema. Crie o primeiro abaixo — ele aparece aqui na hora. 👇</p>";},10); }
 };
+/* Sub-abas da aula teórica */
+window.switchSub=function(btn,panelId){
+  const bar=btn.parentNode; bar.querySelectorAll("button").forEach(b=>b.classList.remove("active")); btn.classList.add("active");
+  const host=document.getElementById("subPanels"); if(!host)return;
+  host.querySelectorAll(".subtab-panel").forEach(p=>p.style.display="none");
+  const p=document.getElementById(panelId); if(p){ p.style.display="block"; p.scrollIntoView({behavior:"smooth",block:"nearest"}); }
+};
+/* Divide a aula (HTML único) em seções pelos <h3>, gerando sub-abas */
+function splitTeachSections(html){
+  const parts=html.split(/(?=<h3)/g).filter(s=>s.trim());
+  if(parts.length<=1) return [{t:"Aula",html}];
+  const out=[]; let pre="";
+  parts.forEach(chunk=>{
+    const m=chunk.match(/<h3[^>]*>([\s\S]*?)<\/h3>/);
+    if(!m){ pre+=chunk; return; }
+    let label=m[1].replace(/<[^>]+>/g,"").replace(/^\s*\d+\.\s*/,"").trim();
+    label=label.split(/\s+[—–-]\s+/)[0].split(/\s*\(/)[0].trim();
+    if(label.length>26) label=label.slice(0,25).trim()+"…";
+    out.push({t:label,html:(pre+chunk)}); pre="";
+  });
+  if(pre && out.length) out[0].html = pre + out[0].html;
+  return out;
+}
 
 function questionsHTML(modId,topId,qs){
   if(!qs||!qs.length) return `<div class="note key"><div class="nh">📝 Banco em expansão</div>Este módulo terá questões comentadas estilo ENARE/Revalida na próxima atualização de conteúdo. Use os flashcards e o checklist por enquanto.</div>`;
@@ -1661,17 +1699,22 @@ window.renderTopic=function(arg){
   const tabbar = `<div class="tabbar">`+tabs.map((tb,i)=>`<button class="${i===0?"active":""}" onclick="switchTab(this,'p-${tb[1]}')">${tb[0]}</button>`).join("")+`</div>`;
 
   // Painéis
-  const aula = (full
-    ? `<div class="prose">${c.teach}</div>`
-    : `<div class="note key"><div class="nh">📚 Conteúdo em expansão</div>A aula completa (nível residência, passo a passo) deste módulo está sendo desenvolvida na mesma profundidade do módulo <b>Asma</b>. Abaixo, os subtópicos que serão cobertos — e você já pode criar flashcards, usar o checklist e anotar.</div>
-       <div class="grid g-2" style="margin-top:14px">${subs.map(s=>`<div class="card" style="padding:14px"><b>${s.t}</b></div>`).join("")}</div>`)
-    + fcQuickHTML(modId,topId);
+  let aula;
+  if(full){
+    const secs=splitTeachSections(c.teach);
+    const subbar=`<div class="subtabbar">`+secs.map((s,i)=>`<button class="${i===0?"active":""}" onclick="switchSub(this,'sub-${modId}-${topId}-${i}')">${s.t}</button>`).join("")+`</div>`;
+    const subpanels=`<div id="subPanels">`+secs.map((s,i)=>`<div class="subtab-panel" id="sub-${modId}-${topId}-${i}" style="display:${i===0?"block":"none"}"><div class="prose">${s.html}</div></div>`).join("")+`</div>`;
+    aula = subbar + subpanels + `<div class="aula-pin">${fcQuickHTML(modId,topId)}</div>`;
+  } else {
+    aula = `<div class="note key"><div class="nh">📚 Conteúdo em expansão</div>A aula completa (nível residência, passo a passo) deste módulo está sendo desenvolvida na mesma profundidade do módulo <b>Asma</b>. Abaixo, os subtópicos que serão cobertos — e você já pode criar flashcards, usar o checklist e anotar.</div>
+       <div class="grid g-2" style="margin-top:14px">${subs.map(s=>`<div class="card" style="padding:14px"><b>${s.t}</b></div>`).join("")}</div>` + fcQuickHTML(modId,topId);
+  }
 
   const panels = {
     aula,
     q: questionsHTML(modId,topId,c.questions),
-    fc: `<div class="note tip"><div class="nh">🧠 Leia → questione → fixe</div>Treine os flashcards deste tema e crie os seus. Tudo se soma e alimenta a Revisão Espaçada e os Estudos do Dia.</div>
-      <div class="card" style="margin-bottom:14px"><div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px"><div><b>Flashcards deste tema</b><div id="fcThemeCount" style="font-size:.84rem;color:var(--txt-2)">—</div></div><button class="btn btn-primary" style="width:auto;padding:10px 18px" onclick="startReview(cardsForTopic('${modId}','${topId}'))">▶ Treinar flashcards do tema</button></div><div id="revArea" style="margin-top:14px"></div></div>
+    fc: `<div class="note tip"><div class="nh">🧠 Baralho do tema — pronto para treinar</div>Os flashcards desta matéria já estão abaixo: vire o card e avalie com <b>Errei / Difícil / Bom / Fácil</b>. Os que você criar entram automaticamente neste mesmo baralho, na Revisão Espaçada e nos Estudos do Dia.</div>
+      <div class="card" style="margin-bottom:14px"><div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px"><div><b>Flashcards deste tema</b><div id="fcThemeCount" style="font-size:.84rem;color:var(--txt-2)">—</div></div><button class="btn btn-ghost" style="width:auto;padding:9px 16px" onclick="startReview(cardsForTopic('${modId}','${topId}'))">↻ Reiniciar baralho</button></div><div id="revArea" style="margin-top:14px"></div></div>
       ${fcCreatorHTML(modId,topId)}`,
     case: casesHTML(modId,topId,c.cases),
     fdx: c.flowDx?flowHTML(c.flowDx,"dx_"+modId+"_"+topId):"",
@@ -1774,7 +1817,7 @@ const ROUTES = {
         ${stat("🔥",STATE.studyStreak,"Dias seguidos")}
       </div>
       ${H("Comece por aqui — Asma 🌬️","<span class='pill coral'>Altíssima incidência</span>")}
-      <div class="card hover" style="cursor:pointer;margin-bottom:22px;display:flex;gap:16px;align-items:center;flex-wrap:wrap" onclick="go('topic',{mod:'asma',top:'asma'})">
+      <div class="card hover" style="cursor:pointer;margin-bottom:22px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;border-left:4px solid var(--coral-500)" onclick="go('topic',{mod:'asma',top:'asma'})">
         <div style="font-size:2.6rem">🌬️</div>
         <div style="flex:1;min-width:220px"><h3 style="font-size:1.2rem">Asma — aula completa</h3><p style="color:var(--txt-2);font-size:.9rem">Diagnóstico, espirometria, controle GINA, crise e manejo hospitalar. 10 questões, 12 flashcards, 3 casos clínicos, fluxogramas e mapa mental.</p></div>
         <button class="btn btn-primary">Estudar agora →</button>
