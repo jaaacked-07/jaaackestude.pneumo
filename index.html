@@ -2627,6 +2627,787 @@ const TB_CONTENT = {
 };
 
 
+/* ============================================================
+   INTERSTICIAIS · DERRAME PLEURAL · PNEUMOTÓRAX · VENTILAÇÃO MECÂNICA
+   ============================================================ */
+
+/* ---------------- DOENÇAS INTERSTICIAIS (DPI) ---------------- */
+const SVG_INT = `
+<div class="svg-fig">
+<svg viewBox="0 0 460 200" xmlns="http://www.w3.org/2000/svg">
+  <text x="115" y="18" text-anchor="middle" font-size="12" font-weight="700" fill="var(--brand)">Septo normal (fino)</text>
+  <text x="345" y="18" text-anchor="middle" font-size="12" font-weight="700" fill="var(--coral-500)">Septo fibrótico (espesso)</text>
+  <circle cx="80" cy="90" r="34" fill="var(--surface)" stroke="var(--teal-500)" stroke-width="2"/>
+  <circle cx="150" cy="90" r="34" fill="var(--surface)" stroke="var(--teal-500)" stroke-width="2"/>
+  <line x1="114" y1="90" x2="116" y2="90" stroke="var(--teal-400)" stroke-width="2"/>
+  <text x="115" y="150" text-anchor="middle" font-size="9" fill="var(--txt-2)">O₂ cruza fácil</text>
+  <circle cx="310" cy="90" r="30" fill="var(--surface)" stroke="var(--coral-500)" stroke-width="8"/>
+  <circle cx="380" cy="90" r="30" fill="var(--surface)" stroke="var(--coral-500)" stroke-width="8"/>
+  <text x="345" y="150" text-anchor="middle" font-size="9" fill="var(--coral-500)">parede espessa → O₂ não cruza · pulmão "duro"</text>
+</svg>
+<div class="cap">Nas DPI, a doença está na <b>parede entre os alvéolos</b> (o interstício): inflamação e <b>fibrose</b> a espessam. O pulmão fica <b>rígido</b> (difícil de expandir → padrão <b>restritivo</b>) e a troca de O₂ piora (<b>DLCO baixa</b>).</div>
+</div>`;
+
+const INT_TEACH = `
+<h3>Entendendo do zero</h3>
+<p class="lead">A ideia central, sem jargão.</p>
+<p>Pense no pulmão como milhões de balõezinhos (alvéolos) separados por <b>paredes finíssimas</b> — é por essas paredes que o oxigênio passa para o sangue. O conjunto dessas paredes e do "tecido de sustentação" entre os balões chama-se <b>interstício</b>. Nas <b>doenças intersticiais (DPI)</b>, o problema não é "entupir o cano" (como na asma/DPOC), e sim <b>engrossar e endurecer essas paredes</b> com inflamação e cicatriz (<b>fibrose</b>).</p>
+<p>Duas consequências: o pulmão fica <b>"duro"</b> e custa a encher (por isso o padrão é <b>restritivo</b>: cabe menos ar) e o oxigênio tem <b>mais dificuldade de atravessar</b> a parede espessa (queda da capacidade de difusão, a <b>DLCO</b>). O paciente típico tem <b>falta de ar que piora aos poucos</b>, <b>tosse seca</b> e, ao exame, "estalidos" finos como abrir um velcro. Pense numa <b>bexiga vs. uma bolsa de couro rígida</b>: a bexiga enche fácil; o couro, não.</p>
+<div class="note tip"><div class="nh">💡 Guarde esta frase</div>DPI = doença das <b>paredes</b> do pulmão → pulmão <b>rígido</b> (restritivo) + <b>DLCO baixa</b> + tosse seca, estertores em velcro e, às vezes, baqueteamento. O exame que enxerga isso é a <b>tomografia de alta resolução (TCAR)</b>.</div>
+
+<h3>1. O que são e como se classificam</h3>
+<p>As doenças pulmonares intersticiais são um grupo grande e heterogêneo que acomete o interstício (e frequentemente alvéolos e pequenos vasos), com inflamação e/ou fibrose. A divisão prática separa as de <b>causa conhecida</b> das <b>idiopáticas</b>:</p>
+<ul>
+<li><b>Causa conhecida / associada</b>: relacionadas a <b>colagenoses</b> (AR, esclerose sistêmica, dermatomiosite), <b>pneumonite de hipersensibilidade</b> (exposição a antígenos orgânicos — "pulmão do criador de pássaros", mofo), <b>pneumoconioses</b> (silicose, asbestose), induzidas por <b>fármacos/radiação</b>.</li>
+<li><b>Pneumonias intersticiais idiopáticas</b>: a mais importante é a <b>fibrose pulmonar idiopática (FPI)</b>, de padrão UIP.</li>
+<li><b>Granulomatosas</b>: <b>sarcoidose</b> (granuloma não caseoso).</li>
+</ul>
+
+<h3>2. Fisiopatologia</h3>
+<p>O gatilho (autoimune, exposição, idiopático) provoca lesão epitelial alveolar e uma resposta de reparo <b>desregulada</b>: fibroblastos depositam matriz/colágeno em excesso → <b>fibrose</b>. O resultado é redução da complacência (pulmão rígido), <b>distúrbio restritivo</b> (↓ volumes) e <b>redução da difusão</b> (DLCO) por espessamento da barreira alvéolo-capilar. Na fibrose avançada surge o <b>faveolamento</b> ("favo de mel") e hipertensão pulmonar.</p>
+` + SVG_INT + `
+
+<h3>3. Quadro clínico</h3>
+<p><b>Dispneia progressiva</b> aos esforços e <b>tosse seca</b> persistente são a regra. Ao exame: <b>estertores crepitantes finos "em velcro"</b> (típicos, predominam em bases na FPI) e <b>baqueteamento digital</b> (sobretudo na FPI). Procure pistas da causa: artralgias/fenômeno de Raynaud/esclerodactilia (colagenose), exposição ocupacional (sílica, asbesto) ou ambiental (aves, mofo). Sintomas extrapulmonares ajudam na sarcoidose (uveíte, eritema nodoso, adenopatias).</p>
+
+<h3>4. Diagnóstico</h3>
+<ul>
+<li><b>Prova de função pulmonar</b>: padrão <b>restritivo</b> — ↓ CVF e ↓ CPT com relação VEF₁/CVF <b>normal ou aumentada</b>; <b>DLCO reduzida</b> (marcador sensível e precoce).</li>
+<li><b>TCAR (tomografia de alta resolução)</b>: exame central. O padrão <b>UIP</b> (reticulado e <b>faveolamento</b> subpleural/basal, com bronquiectasias de tração) sugere fortemente FPI. Outros padrões orientam outras DPI.</li>
+<li><b>Investigação da causa</b>: autoanticorpos (FAN, FR, anti-CCP, painel de miosite), história ocupacional/ambiental, e — quando necessário — <b>lavado broncoalveolar</b> e <b>biópsia</b>. O diagnóstico ideal é por <b>discussão multidisciplinar (MDD)</b> integrando clínica, TCAR e patologia.</li>
+</ul>
+<div class="note warn"><div class="nh">⚠️ FPI — reconheça o padrão</div>Homem &gt; 60 anos, fumante, dispneia progressiva, <b>velcro</b> em bases e <b>baqueteamento</b>, com TCAR de <b>UIP</b> (faveolamento basal/subpleural) e <b>sem causa secundária</b> = fibrose pulmonar idiopática. É a DPI de pior prognóstico.</div>
+
+<h3>5. Principais doenças (o que cai)</h3>
+<ul>
+<li><b>FPI</b>: idiopática, padrão UIP, progressiva. Tratamento <b>antifibrótico</b>.</li>
+<li><b>Sarcoidose</b>: granuloma <b>não caseoso</b>; clássico é <b>adenopatia hilar bilateral</b> (estágio I de Scadding); pode ter hipercalcemia e elevação da ECA. Muitas remitem; tratar com corticoide se órgão-alvo/sintomas.</li>
+<li><b>Pneumonite de hipersensibilidade</b>: exposição a antígeno orgânico; afastar a exposição é parte do tratamento.</li>
+<li><b>Pneumoconioses</b>: <b>silicose</b> (sílica; risco de TB!) e <b>asbestose</b> (asbesto; placas pleurais; risco de mesotelioma/câncer).</li>
+<li><b>DPI das colagenosas</b>: tratar a doença de base (imunossupressão).</li>
+</ul>
+
+<h3>6. Tratamento (atualizado)</h3>
+<p>A conduta depende do fenótipo — <b>inflamatório</b> (responde a imunossupressão) vs <b>fibrótico progressivo</b> (antifibróticos):</p>
+<ul>
+<li><b>FPI</b>: <b>antifibróticos</b> — <b>pirfenidona</b> ou <b>nintedanibe</b> — retardam a queda da CVF. Corticoide/imunossupressor <b>não</b> beneficiam a FPI (podem piorar).</li>
+<li><b>Fibrose pulmonar progressiva (qualquer DPI fibrosante que progride)</b>: o <b>nintedanibe</b> também é indicado.</li>
+<li><b>DPI inflamatórias/colagenosas/sarcoidose sintomática</b>: <b>corticoide ± imunossupressor</b> (micofenolato, azatioprina); na sarcoidose, tratar quando há sintomas/órgão-alvo.</li>
+<li><b>Pneumonite de hipersensibilidade</b>: <b>afastar a exposição</b> (essencial) ± corticoide.</li>
+<li>Suporte transversal: <b>cessação do tabagismo</b>, vacinas, <b>oxigenoterapia</b> se hipoxemia, <b>reabilitação pulmonar</b>, tratar refluxo e, em doença avançada, <b>transplante pulmonar</b>.</li>
+</ul>
+`;
+const INT_SCORES = `
+<h3>Padrão restritivo (espirometria/PFP)</h3>
+<table class="t"><thead><tr><th>Parâmetro</th><th>Na DPI restritiva</th></tr></thead><tbody>
+<tr><td>VEF₁/CVF</td><td><b>Normal ou ↑</b></td></tr>
+<tr><td>CVF e CPT</td><td><b>Reduzidos</b></td></tr>
+<tr><td>DLCO</td><td><b>Reduzida</b> (precoce e sensível)</td></tr>
+</tbody></table>
+<div class="note mne"><div class="nh">💡 Obstrutivo x restritivo</div>Obstrutivo (asma/DPOC): VEF₁/CVF <b>baixo</b>. Restritivo (DPI): VEF₁/CVF <b>normal/alto</b> com volumes <b>baixos</b>.</div>
+
+<h3>Padrão UIP na TCAR (sugere FPI)</h3>
+<div class="note key"><div class="nh">🔑 Achados</div>Reticulado com <b>faveolamento</b> de distribuição <b>subpleural e basal</b>, bronquiectasias de tração, <b>sem</b> achados que sugiram outra causa. Diagnóstico de FPI = padrão UIP + exclusão de causas secundárias (idealmente em MDD).</div>
+
+<h3>GAP index (prognóstico da FPI)</h3>
+<p>Combina <b>G</b>ênero, <b>A</b>idade (idade) e <b>P</b> fisiologia (CVF e DLCO) para estimar mortalidade — quanto maior, pior.</p>
+
+<h3>Estadiamento de Scadding (sarcoidose, RX)</h3>
+<table class="t"><thead><tr><th>Estágio</th><th>Radiografia</th></tr></thead><tbody>
+<tr><td>0</td><td>Normal</td></tr>
+<tr><td>I</td><td><b>Adenopatia hilar bilateral</b> isolada</td></tr>
+<tr><td>II</td><td>Adenopatia + infiltrado pulmonar</td></tr>
+<tr><td>III</td><td>Infiltrado pulmonar sem adenopatia</td></tr>
+<tr><td>IV</td><td>Fibrose</td></tr>
+</tbody></table>`;
+const INT_COMPARE = `
+<h3>DPI x DPOC/asma</h3>
+<table class="t"><thead><tr><th></th><th>DPI (restritivo)</th><th>DPOC/asma (obstrutivo)</th></tr></thead><tbody>
+<tr><td>VEF₁/CVF</td><td>Normal/alto</td><td>Baixo (&lt;0,7)</td></tr>
+<tr><td>Volumes</td><td>Reduzidos</td><td>Aprisionamento/hiperinsuflação</td></tr>
+<tr><td>Ausculta</td><td>Estertores em <b>velcro</b></td><td>Sibilos</td></tr>
+<tr><td>Tosse</td><td>Seca</td><td>Produtiva (DPOC)</td></tr>
+</tbody></table>
+<h4>DDx da dispneia + infiltrado intersticial</h4>
+<p>Congestão (ICC), infecção atípica/viral, linfangite carcinomatosa, vasculites. A <b>história</b> (exposições, colagenose, fármacos) é decisiva.</p>`;
+const INT_ERROS = `
+<h3>❌ Erros mais comuns</h3>
+<ul>
+<li><b>Tratar FPI com corticoide/imunossupressor</b> — não beneficia e pode piorar; FPI = <b>antifibrótico</b>.</li>
+<li><b>Esquecer a DLCO</b> — é o marcador mais sensível/precoce de DPI.</li>
+<li><b>Confundir restritivo com obstrutivo</b> (na DPI a relação VEF₁/CVF é normal/alta).</li>
+<li><b>Não buscar a causa</b> (colagenose, exposição, fármaco) antes de rotular "idiopática".</li>
+<li><b>Não afastar a exposição</b> na pneumonite de hipersensibilidade.</li>
+<li><b>Ignorar o risco de TB</b> na silicose.</li>
+</ul>`;
+const INT_SUMMARY = `
+<h3>⚡ Resumo Ultra-Rápido</h3>
+<div class="note key"><div class="nh">🕸️ O essencial</div>
+<ul style="margin:6px 0 0">
+<li>DPI = doença das <b>paredes</b> → <b>restritivo</b> (VEF₁/CVF normal/alto, volumes baixos) + <b>DLCO baixa</b>.</li>
+<li>Clínica: dispneia progressiva, <b>tosse seca</b>, <b>velcro</b>, baqueteamento.</li>
+<li>Exame-chave: <b>TCAR</b>. Padrão <b>UIP</b> (faveolamento basal/subpleural) + sem causa = <b>FPI</b>.</li>
+<li>Sarcoidose: granuloma <b>não caseoso</b>, <b>adenopatia hilar bilateral</b> (Scadding I), ↑ECA/cálcio.</li>
+<li>Tratamento: <b>FPI → antifibrótico</b> (pirfenidona/nintedanibe); inflamatórias → corticoide/imunossupressor; afastar exposição; O₂/reabilitação/transplante.</li>
+</ul></div>`;
+const INT_Q = [
+{stem:"Homem de 65 anos, ex-tabagista, com dispneia progressiva e tosse seca há 1 ano. Estertores 'em velcro' em bases e baqueteamento. TCAR: faveolamento subpleural e basal (padrão UIP), sem causa secundária. Diagnóstico e tratamento?",
+opts:["Asma; corticoide inalatório","FPI; antifibrótico (pirfenidona ou nintedanibe)","Pneumonia; antibiótico","DPOC; LABA+LAMA","Sarcoidose; corticoide"],
+correct:1, expl:"Quadro clássico de <b>fibrose pulmonar idiopática</b> (UIP, velcro, baqueteamento, sem causa). Tratamento é <b>antifibrótico</b> — corticoide não beneficia a FPI."},
+{stem:"Qual padrão de função pulmonar é esperado nas doenças intersticiais?",
+opts:["Obstrutivo (VEF₁/CVF baixo)","Restritivo (VEF₁/CVF normal/alto, volumes baixos, DLCO reduzida)","Misto sempre","Normal","Apenas DLCO aumentada"],
+correct:1, expl:"DPI cursa com <b>padrão restritivo</b>: CVF/CPT reduzidos, relação VEF₁/CVF normal ou alta, e <b>DLCO reduzida</b>."},
+{stem:"Mulher de 30 anos com adenopatia hilar bilateral no RX, eritema nodoso e biópsia com granuloma não caseoso. Diagnóstico?",
+opts:["Tuberculose","Sarcoidose","Linfoma","Silicose","FPI"],
+correct:1, expl:"Granuloma <b>não caseoso</b> + <b>adenopatia hilar bilateral</b> + eritema nodoso = <b>sarcoidose</b> (estágio I de Scadding)."},
+{stem:"Sobre a DLCO nas DPI, é correto:",
+opts:["Costuma estar aumentada","É marcador precoce e sensível, tipicamente reduzida","Não tem utilidade","Só altera na asma","Equivale ao VEF₁"],
+correct:1, expl:"A <b>DLCO</b> reflete a troca alvéolo-capilar e costuma <b>cair precocemente</b> nas DPI."},
+{stem:"Paciente com pneumonite de hipersensibilidade por exposição a aves. Além de corticoide eventual, qual medida é essencial?",
+opts:["Antifibrótico de imediato","Afastar a exposição ao antígeno","Antibiótico prolongado","Broncodilatador","Nenhuma"],
+correct:1, expl:"O pilar é <b>afastar a exposição</b> ao antígeno; o corticoide é adjuvante em casos sintomáticos."},
+{stem:"Trabalhador de jateamento de areia com DPI nodular nos lobos superiores. Qual associação importante deve ser rastreada?",
+opts:["Tuberculose","Diabetes","Asma","Hipertensão","Anemia"],
+correct:0, expl:"A <b>silicose</b> aumenta o risco de <b>tuberculose</b> — deve ser ativamente rastreada."},
+{stem:"Qual achado de TCAR sugere fortemente padrão UIP/FPI?",
+opts:["Vidro fosco difuso isolado","Faveolamento subpleural e basal com bronquiectasias de tração","Consolidação lobar","Nódulo solitário","Derrame pleural"],
+correct:1, expl:"O <b>faveolamento</b> de predomínio <b>subpleural/basal</b> com bronquiectasias de tração caracteriza o padrão <b>UIP</b>."},
+{stem:"Em uma DPI fibrosante que progride apesar do tratamento da causa, qual fármaco é indicado?",
+opts:["Pirfenidona apenas na FPI","Nintedanibe (fibrose pulmonar progressiva)","Azitromicina","Oseltamivir","Nenhum"],
+correct:1, expl:"O <b>nintedanibe</b> é indicado na <b>fibrose pulmonar progressiva</b>, além da FPI."}
+];
+const INT_FC = [
+{type:"basic",front:"Padrão funcional das DPI",back:"<b>Restritivo</b>: VEF₁/CVF normal/alto, CVF/CPT ↓, <b>DLCO ↓</b>."},
+{type:"basic",front:"Exame de imagem central nas DPI",back:"<b>TCAR</b> (tomografia de alta resolução)."},
+{type:"basic",front:"Padrão UIP",back:"Faveolamento <b>subpleural e basal</b> + bronquiectasias de tração → sugere <b>FPI</b>."},
+{type:"truefalse",front:"V ou F: corticoide é o tratamento da FPI.",back:"<b>FALSO.</b> FPI = <b>antifibrótico</b> (pirfenidona/nintedanibe). Corticoide não beneficia."},
+{type:"basic",front:"Sarcoidose — marca histológica e RX",back:"Granuloma <b>não caseoso</b>; <b>adenopatia hilar bilateral</b> (Scadding I); ↑ECA/cálcio."},
+{type:"basic",front:"Estertores em 'velcro' + baqueteamento",color:"red",back:"Sugerem <b>fibrose pulmonar (FPI)</b>, predomínio basal."},
+{type:"basic",front:"Silicose — associação importante",back:"Risco aumentado de <b>tuberculose</b>."},
+{type:"basic",front:"Asbestose — achados/risco",back:"Placas pleurais; risco de <b>mesotelioma</b> e câncer de pulmão."},
+{type:"cloze",front:"Marcador precoce e sensível de DPI: {{DLCO}}.",back:"DLCO (capacidade de difusão)."},
+{type:"basic",front:"Pneumonite de hipersensibilidade — pilar do tratamento",back:"<b>Afastar a exposição</b> ao antígeno ± corticoide."},
+{type:"basic",front:"Antifibróticos",back:"Pirfenidona e nintedanibe — retardam queda da CVF na FPI/fibrose progressiva."},
+{type:"basic",front:"DPI das colagenoses — conduta",back:"Tratar a doença de base com <b>imunossupressão</b>."}
+];
+const INT_CASES = [
+{title:"Caso 1 — Dispneia progressiva no idoso",
+hist:"Homem, 68 anos, ex-tabagista, dispneia aos esforços há 14 meses e tosse seca.",
+exam:"Estertores crepitantes 'em velcro' em bases; baqueteamento digital.",
+exams:"PFP: restritivo (CVF 62%), DLCO 45%. TCAR: faveolamento subpleural/basal (UIP). Autoanticorpos negativos.",
+reason:"Padrão UIP típico, sem causa secundária, com restrição e DLCO baixa → FPI. Discussão multidisciplinar reforça o diagnóstico.",
+dx:"Fibrose pulmonar idiopática (FPI).",
+tto:"Iniciar <b>antifibrótico</b> (pirfenidona ou nintedanibe); cessação do tabaco, vacinas, <b>oxigenoterapia</b> se hipoxemia, <b>reabilitação pulmonar</b>, tratar refluxo; avaliar <b>transplante</b> em doença progressiva."},
+{title:"Caso 2 — Adenopatia hilar bilateral",
+hist:"Mulher, 32 anos, com tosse seca, fadiga e eritema nodoso.",
+exam:"Lesões nodulares eritematosas em pernas; sem febre alta.",
+exams:"RX: adenopatia hilar bilateral. Cálcio elevado; ECA aumentada. Biópsia: granuloma não caseoso.",
+reason:"Adenopatia hilar bilateral + granuloma não caseoso + eritema nodoso = sarcoidose (Scadding I).",
+dx:"Sarcoidose pulmonar (estágio I).",
+tto:"Muitas remitem espontaneamente — observar se assintomática. Tratar com <b>corticoide</b> se sintomas importantes, hipercalcemia, ou acometimento de órgão nobre (cardíaco, neurológico, ocular)."}
+];
+const INT_FLOW_DX = {start:"a",nodes:{
+  a:{t:"Dispneia progressiva + tosse seca + estertores em velcro",type:"q",opts:[{l:"Investigar DPI",to:"b"}]},
+  b:{t:"PFP (restritivo? DLCO?) + TCAR + buscar causa (autoanticorpos, exposição, fármacos)",type:"q",opts:[{l:"Padrão UIP + sem causa",to:"fpi"},{l:"Causa identificada / outro padrão",to:"sec"}]},
+  fpi:{t:"Provável FPI (idealmente confirmar em discussão multidisciplinar) → antifibrótico",type:"end"},
+  sec:{t:"DPI secundária (colagenose, PH, pneumoconiose, fármaco) → tratar a causa/afastar exposição",type:"end"}
+}};
+const INT_FLOW_COND = {start:"a",nodes:{
+  a:{t:"DPI definida — qual fenótipo?",type:"q",opts:[{l:"FPI / fibrose progressiva",to:"af"},{l:"Inflamatória (colagenose/sarcoidose)",to:"imuno"},{l:"Hipersensibilidade",to:"ph"}]},
+  af:{t:"Antifibrótico (pirfenidona/nintedanibe) + O₂/reabilitação; avaliar transplante",type:"end"},
+  imuno:{t:"Corticoide ± imunossupressor; sarcoidose: tratar se sintomas/órgão-alvo",type:"end"},
+  ph:{t:"Afastar a exposição ao antígeno ± corticoide",type:"end"}
+}};
+const INT_MIND = {center:"DPI",branches:[
+  {h:"Conceito",ic:"🕸️",leaves:["Doença das <b>paredes</b>/interstício","<b>Restritivo</b> + <b>DLCO ↓</b>","Pulmão rígido"]},
+  {h:"Clínica",ic:"🩺",leaves:["Dispneia progressiva","Tosse seca","<b>Velcro</b> + baqueteamento"]},
+  {h:"Diagnóstico",ic:"🩻",leaves:["<b>TCAR</b> (UIP)","PFP/DLCO","Autoanticorpos/exposição","MDD"]},
+  {h:"Doenças",ic:"📚",leaves:["<b>FPI</b> (UIP)","<b>Sarcoidose</b> (granuloma não caseoso)","PH; pneumoconioses (silicose→TB)"]},
+  {h:"Tratamento",ic:"💊",leaves:["<b>FPI → antifibrótico</b>","Inflamatória → corticoide/imunossup.","Afastar exposição","O₂/reabilitação/transplante"]}
+]};
+const INT_CONTENT = {
+  subtopics:[{id:"def",t:"Definição/classificação"},{id:"fisio",t:"Fisiopatologia"},{id:"clin",t:"Quadro clínico"},{id:"dx",t:"Diagnóstico (TCAR/DLCO)"},{id:"doencas",t:"Principais doenças"},{id:"fpi",t:"FPI"},{id:"sarc",t:"Sarcoidose"},{id:"tto",t:"Tratamento"},{id:"prova",t:"Pegadinhas de prova"}],
+  teach:INT_TEACH, scores:INT_SCORES, compare:INT_COMPARE, erros:INT_ERROS, summary:INT_SUMMARY,
+  questions:INT_Q, flashcards:INT_FC, cases:INT_CASES, flowDx:INT_FLOW_DX, flowCond:INT_FLOW_COND, mind:INT_MIND, vespera:INT_SUMMARY,
+  checklist:["Sei diferenciar restritivo x obstrutivo","Sei interpretar TCAR/DLCO","Sei reconhecer FPI e sarcoidose","Sei tratar (antifibrótico x imunossupressão)","Dominei o tema"]
+};
+
+/* ---------------- DERRAME PLEURAL ---------------- */
+const SVG_PLE = `
+<div class="svg-fig">
+<svg viewBox="0 0 460 200" xmlns="http://www.w3.org/2000/svg">
+  <path d="M120 30 C70 30 50 90 60 150 C66 180 110 180 120 150 L120 30Z" fill="var(--surface)" stroke="var(--teal-500)" stroke-width="2.5"/>
+  <path d="M60 150 C66 180 110 180 120 150 L120 120 C90 132 70 140 60 150Z" fill="var(--brand)" opacity=".35"/>
+  <path d="M60 150 Q90 142 120 150" stroke="var(--brand)" stroke-width="2" fill="none"/>
+  <text x="90" y="172" text-anchor="middle" font-size="9" fill="var(--brand)">líquido</text>
+  <text x="90" y="195" text-anchor="middle" font-size="9.5" fill="var(--txt-2)">derrame comprime o pulmão</text>
+  <rect x="210" y="40" width="230" height="30" rx="8" fill="var(--teal-500)" opacity=".5"/>
+  <text x="325" y="60" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">Critérios de LIGHT</text>
+  <text x="220" y="92" font-size="10" fill="var(--txt-1)">Proteína LP/soro &gt; 0,5</text>
+  <text x="220" y="112" font-size="10" fill="var(--txt-1)">LDH LP/soro &gt; 0,6</text>
+  <text x="220" y="132" font-size="10" fill="var(--txt-1)">LDH LP &gt; 2/3 do limite sérico</text>
+  <text x="220" y="158" font-size="10" font-weight="700" fill="var(--coral-500)">≥1 positivo → EXSUDATO</text>
+</svg>
+<div class="cap">Derrame pleural = <b>líquido a mais</b> entre o pulmão e a parede do tórax. O primeiro passo após a punção é classificar em <b>transudato</b> x <b>exsudato</b> pelos <b>critérios de Light</b>.</div>
+</div>`;
+const PLE_TEACH = `
+<h3>Entendendo do zero</h3>
+<p class="lead">A ideia central, sem termos técnicos.</p>
+<p>Entre o pulmão e a parede do peito existem <b>duas "películas" lisas</b> (as pleuras) com uma fina camada de líquido no meio, que serve de <b>lubrificante</b> para o pulmão deslizar ao respirar — como duas folhas de plástico úmidas que escorregam uma sobre a outra. Normalmente é pouquíssimo líquido. No <b>derrame pleural</b>, acumula líquido demais nesse espaço; ele <b>comprime o pulmão</b> por fora e causa <b>falta de ar</b> e dor.</p>
+<p>A pergunta central é: <b>por que esse líquido se acumulou?</b> Há dois grandes motivos. Ou é um problema de <b>"pressão"</b> (o corpo "vaza" líquido por desequilíbrio de pressões, como na insuficiência cardíaca) — o líquido é "ralo", chamado <b>transudato</b>; ou é um problema <b>"local"</b> (inflamação/infecção/tumor irritam a pleura e deixam vazar proteínas) — o líquido é "rico", chamado <b>exsudato</b>. Separar os dois (com os <b>critérios de Light</b>) é o que direciona toda a investigação.</p>
+<div class="note tip"><div class="nh">💡 Guarde esta frase</div>Derrame = líquido a mais na pleura. Puncionou? Classifique: <b>transudato</b> (problema de pressão: ICC, cirrose) x <b>exsudato</b> (problema local: pneumonia, câncer, TB) pelos <b>critérios de Light</b>.</div>
+
+<h3>1. Anatomia e fisiologia (como o líquido se forma)</h3>
+<p>A pleura parietal (parede) e a visceral (pulmão) delimitam o <b>espaço pleural</b>, com ~10–20 mL de líquido. Ele é continuamente <b>produzido</b> (capilares da pleura parietal) e <b>absorvido</b> (linfáticos). O derrame surge quando há <b>excesso de produção</b> (↑ pressão hidrostática, ↑ permeabilidade) ou <b>déficit de absorção</b> (bloqueio linfático, ↓ pressão oncótica).</p>
+
+<h3>2. Transudato x exsudato — critérios de Light</h3>
+<p>É a divisão mais importante e a mais cobrada. Após a toracocentese, dosa-se proteína e LDH no líquido e no soro:</p>
+` + SVG_PLE + `
+<div class="note key"><div class="nh">🔑 Critérios de Light</div>É <b>exsudato</b> se <b>pelo menos um</b>: (1) proteína líquido/soro &gt; <b>0,5</b>; (2) LDH líquido/soro &gt; <b>0,6</b>; (3) LDH do líquido &gt; <b>2/3</b> do limite superior sérico. Se <b>nenhum</b> → <b>transudato</b>. (Light é muito sensível para exsudato, mas pode classificar erroneamente como exsudato alguns transudatos em uso de diurético — nesses casos, o gradiente de albumina soro–líquido &gt; 1,2 g/dL sugere transudato.)</div>
+
+<h3>3. Etiologias</h3>
+<ul>
+<li><b>Transudato</b> (problema sistêmico/pressão): <b>insuficiência cardíaca</b> (causa nº 1 de transudato), <b>cirrose</b> (hidrotórax hepático), síndrome nefrótica, hipoalbuminemia, diálise peritoneal.</li>
+<li><b>Exsudato</b> (problema local): <b>derrame parapneumônico/empiema</b>, <b>neoplasia</b> (a causa mais comum de exsudato volumoso/recidivante), <b>tuberculose</b> (no Brasil, causa importante de exsudato linfocítico com <b>ADA elevada</b>), <b>TEP</b>, colagenoses, pancreatite (amilase alta), quilotórax (triglicérides altos).</li>
+</ul>
+
+<h3>4. Quadro clínico e exame</h3>
+<p><b>Dispneia</b>, <b>dor pleurítica</b> e tosse seca. No exame da área do derrame: <b>murmúrio vesicular abolido</b>, <b>macicez à percussão</b>, <b>frêmito toracovocal reduzido</b> e, na borda superior, pode haver egofonia. Derrames volumosos podem desviar o mediastino para o lado oposto.</p>
+
+<h3>5. Diagnóstico</h3>
+<ul>
+<li><b>Radiografia</b>: obliteração do <b>seio costofrênico</b> (a partir de ~200–300 mL); derrames livres formam menisco; a incidência em <b>decúbito lateral (Laurell)</b> mostra livre fluência.</li>
+<li><b>Ultrassom</b>: mais sensível, guia a punção, detecta septações (sugerem empiema/complicado).</li>
+<li><b>Toracocentese diagnóstica</b>: indicada em quase todo derrame de causa não óbvia (e em todo parapneumônico significativo). Em ICC típica bilateral, pode-se tratar e observar antes de puncionar.</li>
+</ul>
+
+<h3>6. Análise do líquido e conduta</h3>
+<p>No líquido, peça: proteína, LDH (Light), <b>celularidade/citologia</b> (neoplasia), <b>pH e glicose</b> (empiema), <b>ADA</b> (TB), Gram/cultura, amilase, triglicérides (quilotórax), hematócrito (hemotórax).</p>
+<div class="note key"><div class="nh">🔑 Conduta por cenário</div>
+<ul style="margin:6px 0 0">
+<li><b>Transudato</b> → tratar a <b>causa de base</b> (ex.: otimizar ICC); toracocentese de alívio se muito sintomático.</li>
+<li><b>Parapneumônico complicado / empiema</b> (pus, <b>pH &lt; 7,2</b>, glicose baixa, Gram/cultura positivos, septações) → <b>drenagem torácica</b> + antibiótico (± fibrinolítico/DNase intrapleural ou cirurgia/VATS).</li>
+<li><b>Neoplásico recidivante</b> → toracocentese de alívio repetida; <b>pleurodese</b> ou cateter pleural de longa permanência.</li>
+<li><b>TB pleural</b> → tratamento da TB (esquema RHZE).</li>
+<li><b>Hemotórax</b> (Ht do líquido &gt; 50% do sérico) → drenagem; cirurgia se sangramento volumoso/persistente.</li>
+</ul></div>
+`;
+const PLE_SCORES = `
+<h3>Critérios de Light (exsudato se ≥ 1)</h3>
+<table class="t"><thead><tr><th>Critério</th><th>Exsudato se</th></tr></thead><tbody>
+<tr><td>Proteína líquido/soro</td><td>&gt; 0,5</td></tr>
+<tr><td>LDH líquido/soro</td><td>&gt; 0,6</td></tr>
+<tr><td>LDH do líquido</td><td>&gt; 2/3 do limite superior sérico</td></tr>
+</tbody></table>
+<div class="note mne"><div class="nh">💡 Pseudoexsudato (diurético)</div>Se clínica de ICC mas Light = exsudato, calcule o <b>gradiente de albumina (soro − líquido)</b>: &gt; 1,2 g/dL sugere <b>transudato</b>.</div>
+
+<h3>Marcadores no líquido pleural</h3>
+<table class="t"><thead><tr><th>Marcador</th><th>Sugere</th></tr></thead><tbody>
+<tr><td><b>ADA</b> elevada + linfocitário</td><td>Tuberculose pleural</td></tr>
+<tr><td><b>pH &lt; 7,2</b> / glicose baixa</td><td>Derrame complicado / empiema</td></tr>
+<tr><td>Citologia positiva</td><td>Neoplasia</td></tr>
+<tr><td>Amilase elevada</td><td>Pancreatite / ruptura esofágica</td></tr>
+<tr><td>Triglicérides altos</td><td>Quilotórax</td></tr>
+<tr><td>Hematócrito &gt; 50% do sérico</td><td>Hemotórax</td></tr>
+</tbody></table>
+
+<h3>Indicação de drenagem (parapneumônico)</h3>
+<div class="note key"><div class="nh">Drenar se</div>Pus franco (empiema), <b>pH &lt; 7,2</b>, glicose baixa, Gram/cultura positivos ou loculações/septações.</div>`;
+const PLE_COMPARE = `
+<h3>Transudato x exsudato</h3>
+<table class="t"><thead><tr><th></th><th>Transudato</th><th>Exsudato</th></tr></thead><tbody>
+<tr><td>Mecanismo</td><td>Pressão (sistêmico)</td><td>Local (inflamação/permeabilidade)</td></tr>
+<tr><td>Light</td><td>Nenhum critério</td><td>≥ 1 critério</td></tr>
+<tr><td>Causas</td><td>ICC, cirrose, nefrótica</td><td>Pneumonia, câncer, TB, TEP</td></tr>
+</tbody></table>`;
+const PLE_ERROS = `
+<h3>❌ Erros mais comuns</h3>
+<ul>
+<li><b>Não puncionar</b> derrame de causa não óbvia ou parapneumônico significativo.</li>
+<li><b>Esquecer pH/glicose</b> no parapneumônico (definem drenagem).</li>
+<li><b>Não pedir ADA</b> em exsudato linfocítico (TB).</li>
+<li><b>Drenar transudato de ICC</b> em vez de tratar a causa.</li>
+<li><b>Não considerar pseudoexsudato</b> por diurético (gradiente de albumina).</li>
+<li><b>Tratar empiema só com antibiótico</b> — exige <b>drenagem</b>.</li>
+</ul>`;
+const PLE_SUMMARY = `
+<h3>⚡ Resumo Ultra-Rápido</h3>
+<div class="note key"><div class="nh">💧 O essencial</div>
+<ul style="margin:6px 0 0">
+<li>Puncionou → <b>Light</b>: exsudato se proteína LP/soro &gt;0,5, LDH LP/soro &gt;0,6, ou LDH LP &gt; 2/3 sérico.</li>
+<li>Transudato: <b>ICC</b> (nº1), cirrose, nefrótica → tratar a causa.</li>
+<li>Exsudato: pneumonia, <b>câncer</b>, TB (<b>ADA↑</b>), TEP.</li>
+<li>Empiema/complicado (<b>pH&lt;7,2</b>, pus, glicose baixa) → <b>drenar</b> + ATB.</li>
+<li>Neoplásico recidivante → pleurodese/cateter; hemotórax → drenar.</li>
+</ul></div>`;
+const PLE_Q = [
+{stem:"Líquido pleural com proteína LP/soro 0,7 e LDH LP/soro 0,8. Como se classifica e o que sugere?",
+opts:["Transudato; ICC","Exsudato; investigar causa local (infecção, câncer, TB)","Normal","Quilotórax","Hemotórax"],
+correct:1, expl:"Light positivo (≥1 critério) = <b>exsudato</b> → investigar causa local: parapneumônico, neoplasia, TB, TEP."},
+{stem:"Paciente com pneumonia e derrame; líquido com pH 7,10, glicose baixa e Gram positivo. Conduta?",
+opts:["Apenas antibiótico","Toracocentese de alívio única","Drenagem torácica + antibiótico","Pleurodese","Observação"],
+correct:2, expl:"Derrame <b>parapneumônico complicado/empiema</b> (pH &lt; 7,2, glicose baixa, bactéria) → <b>drenagem</b> torácica associada ao antibiótico."},
+{stem:"Exsudato linfocítico com ADA muito elevada, em paciente jovem. Principal hipótese no Brasil?",
+opts:["ICC","Tuberculose pleural","Quilotórax","Pancreatite","TEP"],
+correct:1, expl:"Exsudato <b>linfocítico</b> com <b>ADA elevada</b> sugere fortemente <b>tuberculose pleural</b>."},
+{stem:"Causa mais comum de transudato pleural?",
+opts:["Neoplasia","Tuberculose","Insuficiência cardíaca","Pneumonia","TEP"],
+correct:2, expl:"A <b>insuficiência cardíaca</b> é a causa mais comum de <b>transudato</b>."},
+{stem:"Derrame com clínica de ICC mas Light = exsudato (em uso de diurético). Qual teste ajuda?",
+opts:["ADA","Gradiente de albumina soro–líquido (&gt;1,2 g/dL sugere transudato)","Amilase","Triglicérides","Citologia"],
+correct:1, expl:"Diuréticos podem gerar <b>pseudoexsudato</b>; o <b>gradiente de albumina</b> &gt; 1,2 g/dL aponta transudato."},
+{stem:"Qual achado define hemotórax na análise do líquido?",
+opts:["pH baixo","Triglicérides altos","Hematócrito do líquido &gt; 50% do sérico","ADA alta","Amilase alta"],
+correct:2, expl:"<b>Hemotórax</b>: hematócrito do líquido &gt; 50% do hematócrito sérico → drenagem (cirurgia se volumoso/persistente)."},
+{stem:"Derrame neoplásico volumoso e recidivante, sintomático. Opção de manejo definitivo?",
+opts:["Apenas observação","Pleurodese ou cateter pleural de longa permanência","Antibiótico","Antifibrótico","Diurético isolado"],
+correct:1, expl:"No derrame neoplásico recidivante, <b>pleurodese</b> ou <b>cateter pleural</b> de longa permanência controlam a recidiva."},
+{stem:"Triglicérides muito elevados no líquido pleural indicam:",
+opts:["Empiema","Quilotórax","Hemotórax","Transudato","TB"],
+correct:1, expl:"Triglicérides altos = <b>quilotórax</b> (extravasamento de linfa, ex.: lesão do ducto torácico, linfoma)."}
+];
+const PLE_FC = [
+{type:"basic",front:"Critérios de Light (exsudato se ≥1)",back:"Prot LP/soro &gt;0,5 · LDH LP/soro &gt;0,6 · LDH LP &gt; 2/3 do limite sérico."},
+{type:"basic",front:"Causa nº1 de transudato",back:"<b>Insuficiência cardíaca</b>."},
+{type:"basic",front:"ADA elevada (exsudato linfocítico)",color:"red",back:"Sugere <b>tuberculose pleural</b>."},
+{type:"basic",front:"Empiema/derrame complicado — define drenagem",back:"Pus, <b>pH &lt; 7,2</b>, glicose baixa, Gram/cultura+, septações."},
+{type:"basic",front:"Citologia positiva no líquido",back:"Indica <b>neoplasia</b> (causa comum de exsudato volumoso/recidivante)."},
+{type:"truefalse",front:"V ou F: empiema trata-se só com antibiótico.",back:"<b>FALSO.</b> Exige <b>drenagem</b> torácica (± fibrinolítico/cirurgia)."},
+{type:"cloze",front:"Pseudoexsudato por diurético: gradiente de albumina &gt; {{1,2}} g/dL sugere transudato.",back:"1,2 g/dL."},
+{type:"basic",front:"Hemotórax (definição laboratorial)",back:"Ht do líquido &gt; 50% do Ht sérico."},
+{type:"basic",front:"Quilotórax",back:"Triglicérides altos no líquido (lesão do ducto torácico, linfoma)."},
+{type:"basic",front:"Achado radiográfico do derrame",back:"Obliteração do <b>seio costofrênico</b>; Laurell mostra livre fluência."},
+{type:"basic",front:"Derrame neoplásico recidivante — manejo",back:"Pleurodese ou cateter pleural de longa permanência."},
+{type:"basic",front:"Exsudato — principais causas",back:"Parapneumônico/empiema, câncer, TB, TEP, colagenoses, pancreatite."}
+];
+const PLE_CASES = [
+{title:"Caso 1 — Derrame parapneumônico",
+hist:"Homem, 55 anos, com pneumonia e piora da dispneia; dor torácica à direita.",
+exam:"MV abolido em base direita, macicez e FTV reduzido.",
+exams:"USG: derrame com septações. Toracocentese: pH 7,05, glicose baixa, Gram com cocos. Light = exsudato.",
+reason:"Exsudato com pH &lt; 7,2, glicose baixa e bactéria + loculações = derrame parapneumônico complicado/empiema.",
+dx:"Empiema / derrame parapneumônico complicado.",
+tto:"<b>Drenagem torácica</b> + antibiótico para pneumonia; considerar fibrinolítico/DNase intrapleural ou <b>VATS</b> se loculado/insucesso."},
+{title:"Caso 2 — Derrame no cardiopata",
+hist:"Mulher, 72 anos, com insuficiência cardíaca, dispneia e edema, derrame bilateral.",
+exam:"Estertores bibasais, turgência jugular, edema de MMII.",
+exams:"RX: derrame bilateral. Toracocentese (do lado maior): Light = transudato.",
+reason:"Quadro clínico de ICC + derrame bilateral transudativo → tratar a causa, não drenar de rotina.",
+dx:"Derrame pleural transudativo por insuficiência cardíaca.",
+tto:"Otimizar tratamento da <b>ICC</b> (diurético, controle volêmico); toracocentese de alívio apenas se muito sintomático."}
+];
+const PLE_FLOW_DX = {start:"a",nodes:{
+  a:{t:"Derrame pleural confirmado (RX/USG)",type:"q",opts:[{l:"Causa não óbvia / parapneumônico",to:"punc"},{l:"ICC típica bilateral",to:"icc"}]},
+  punc:{t:"Toracocentese diagnóstica → aplicar critérios de Light",type:"q",opts:[{l:"Exsudato",to:"exs"},{l:"Transudato",to:"trans"}]},
+  icc:{t:"Tratar ICC e observar; puncionar se atípico ou não melhora",type:"end"},
+  exs:{t:"Exsudato → citologia, ADA, pH/glicose, cultura: pneumonia/empiema, câncer, TB, TEP",type:"end"},
+  trans:{t:"Transudato → tratar causa de base (ICC, cirrose, nefrótica)",type:"end"}
+}};
+const PLE_FLOW_COND = {start:"a",nodes:{
+  a:{t:"Definida a natureza do derrame",type:"q",opts:[{l:"Empiema/complicado",to:"dren"},{l:"Neoplásico recidivante",to:"neo"},{l:"Transudato",to:"causa"}]},
+  dren:{t:"Drenagem torácica + ATB (± fibrinolítico/VATS)",type:"end"},
+  neo:{t:"Toracocentese de alívio; pleurodese ou cateter de longa permanência",type:"end"},
+  causa:{t:"Tratar a causa de base; alívio se muito sintomático",type:"end"}
+}};
+const PLE_MIND = {center:"Derrame",branches:[
+  {h:"Mecanismo",ic:"💧",leaves:["Produção x absorção","Transudato (pressão)","Exsudato (local)"]},
+  {h:"Light",ic:"🧪",leaves:["Prot LP/soro &gt;0,5","LDH LP/soro &gt;0,6","LDH LP &gt; 2/3 sérico","≥1 → exsudato"]},
+  {h:"Causas",ic:"📚",leaves:["Transudato: ICC, cirrose","Exsudato: pneumonia, câncer, <b>TB (ADA)</b>, TEP"]},
+  {h:"Líquido",ic:"🔬",leaves:["pH/glicose (empiema)","ADA (TB)","Citologia (câncer)","TG (quilo), Ht (hemo)"]},
+  {h:"Conduta",ic:"💊",leaves:["Transudato → tratar causa","Empiema → <b>drenar</b>","Neoplásico → pleurodese","Hemotórax → drenar"]}
+]};
+const PLE_CONTENT = {
+  subtopics:[{id:"anat",t:"Anatomia/fisiologia"},{id:"light",t:"Transudato x exsudato (Light)"},{id:"etio",t:"Etiologias"},{id:"clin",t:"Quadro clínico"},{id:"dx",t:"Diagnóstico"},{id:"liq",t:"Análise do líquido"},{id:"emp",t:"Empiema/complicado"},{id:"neo",t:"Neoplásico/hemotórax/quilotórax"},{id:"prova",t:"Pegadinhas de prova"}],
+  teach:PLE_TEACH, scores:PLE_SCORES, compare:PLE_COMPARE, erros:PLE_ERROS, summary:PLE_SUMMARY,
+  questions:PLE_Q, flashcards:PLE_FC, cases:PLE_CASES, flowDx:PLE_FLOW_DX, flowCond:PLE_FLOW_COND, mind:PLE_MIND, vespera:PLE_SUMMARY,
+  checklist:["Sei aplicar os critérios de Light","Sei investigar o líquido","Sei manejar empiema","Sei conduzir neoplásico/hemotórax","Dominei o tema"]
+};
+
+/* ---------------- PNEUMOTÓRAX ---------------- */
+const SVG_PTX = `
+<div class="svg-fig">
+<svg viewBox="0 0 460 200" xmlns="http://www.w3.org/2000/svg">
+  <text x="115" y="18" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--brand)">Pneumotórax simples</text>
+  <rect x="60" y="30" width="110" height="150" rx="10" fill="none" stroke="var(--txt-3)" stroke-width="2"/>
+  <path d="M95 60 C80 60 78 110 95 140 C110 150 120 120 120 90 C120 68 110 60 95 60Z" fill="var(--hl-teal)" stroke="var(--teal-500)" stroke-width="2"/>
+  <text x="148" y="48" font-size="9" fill="var(--coral-500)">ar</text>
+  <text x="115" y="195" text-anchor="middle" font-size="9" fill="var(--txt-2)">pulmão colapsa</text>
+  <text x="345" y="18" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--bad)">Hipertensivo (EMERGÊNCIA)</text>
+  <rect x="290" y="30" width="120" height="150" rx="10" fill="none" stroke="var(--txt-3)" stroke-width="2"/>
+  <path d="M360 70 C350 70 348 110 360 135 C372 140 378 115 378 95 C378 78 370 70 360 70Z" fill="var(--hl-coral)" stroke="var(--coral-500)" stroke-width="2"/>
+  <line x1="330" y1="30" x2="320" y2="180" stroke="var(--bad)" stroke-width="3"/>
+  <text x="300" y="105" font-size="9" fill="var(--bad)">desvio do</text><text x="300" y="116" font-size="9" fill="var(--bad)">mediastino</text>
+  <path d="M295 60 l10 6 l-10 6" stroke="var(--bad)" fill="none" stroke-width="2"/>
+</svg>
+<div class="cap">Pneumotórax = <b>ar no espaço pleural</b> → o pulmão colapsa. No <b>hipertensivo</b>, o ar entra e não sai (válvula), a pressão sobe, <b>desvia o mediastino</b> e colapsa o retorno venoso → choque. É diagnóstico <b>clínico</b> e tratamento <b>imediato</b>.</div>
+</div>`;
+const PTX_TEACH = `
+<h3>Entendendo do zero</h3>
+<p class="lead">A ideia central, sem jargão.</p>
+<p>O pulmão fica "grudado" à parede do tórax por um <b>vácuo</b> dentro do espaço pleural — é esse vácuo que o mantém aberto, como uma <b>ventosa</b>. No <b>pneumotórax</b>, entra <b>ar</b> nesse espaço (por uma bolha que estoura ou um furo na parede) e o vácuo se perde: o pulmão <b>"murcha"</b> e colapsa, como um balão que se solta da parede. O paciente sente <b>dor súbita no peito</b> e <b>falta de ar</b>.</p>
+<p>Há uma forma que mata em minutos: o <b>pneumotórax hipertensivo</b>. Imagine uma <b>válvula de mão única</b> — a cada respiração entra ar, mas nenhum sai. A pressão sobe tanto que <b>empurra o coração e os grandes vasos para o outro lado</b> (desvio do mediastino), impedindo o sangue de voltar ao coração → <b>choque e parada</b>. Por isso o hipertensivo é <b>diagnóstico clínico</b> e se trata <b>na hora</b>, sem esperar raio-X.</p>
+<div class="note tip"><div class="nh">💡 Guarde esta frase</div>Pneumotórax = <b>ar na pleura</b> → pulmão colapsa. O <b>hipertensivo</b> (instável, hipotenso, traqueia desviada, veias do pescoço cheias, timpanismo, MV abolido) é <b>emergência</b>: <b>descomprimir já</b>, depois drenar.</div>
+
+<h3>1. Tipos</h3>
+<ul>
+<li><b>Espontâneo primário</b>: sem doença pulmonar conhecida — clássico no <b>jovem alto, magro, do sexo masculino, fumante</b> (ruptura de bolhas subpleurais).</li>
+<li><b>Espontâneo secundário</b>: sobre doença pulmonar (<b>DPOC/enfisema</b>, fibrose, infecções) — mais grave porque a reserva já é baixa.</li>
+<li><b>Traumático</b>: trauma de tórax (aberto ou fechado).</li>
+<li><b>Iatrogênico</b>: punção venosa central, biópsia, ventilação mecânica (barotrauma), toracocentese.</li>
+<li><b>Hipertensivo</b>: qualquer um que evolua com mecanismo de válvula → emergência.</li>
+</ul>
+
+<h3>2. Fisiopatologia</h3>
+<p>O ar que entra na pleura iguala a pressão pleural à atmosférica, anulando o vácuo e levando ao <b>colapso pulmonar</b> proporcional ao volume de ar. No <b>hipertensivo</b>, o mecanismo valvular faz a pressão intratorácica subir progressivamente, comprimindo o pulmão contralateral, desviando o mediastino e reduzindo o <b>retorno venoso</b> → queda do débito e <b>colapso hemodinâmico</b>.</p>
+` + SVG_PTX + `
+
+<h3>3. Quadro clínico</h3>
+<p><b>Dor torácica pleurítica súbita</b> e <b>dispneia</b>. No exame do lado afetado: <b>MV abolido/diminuído</b>, <b>timpanismo</b> à percussão e expansibilidade reduzida. No <b>hipertensivo</b>, somam-se sinais de gravidade: <b>hipotensão/taquicardia</b>, <b>turgência jugular</b>, <b>desvio de traqueia</b> para o lado contralateral e cianose.</p>
+<div class="note warn"><div class="nh">⚠️ Não atrase o hipertensivo</div>Suspeitou de pneumotórax <b>hipertensivo</b> em paciente instável? <b>Não espere o raio-X</b> — descomprima imediatamente. Confirmar por imagem vem depois da descompressão.</div>
+
+<h3>4. Diagnóstico</h3>
+<ul>
+<li><b>Clínico</b> nos casos típicos (e obrigatório no hipertensivo instável).</li>
+<li><b>Radiografia de tórax</b>: linha pleural visível com ausência de trama vascular além dela; melhor avaliada em <b>expiração</b>. Estima o tamanho.</li>
+<li><b>Ultrassom (POCUS)</b>: rápido e sensível à beira-leito (ausência de deslizamento pleural / "lung point"); útil no trauma/instável.</li>
+<li><b>TC</b>: mais sensível para pequenos pneumotórax e bolhas (planejamento), em casos selecionados.</li>
+</ul>
+
+<h3>5. Conduta e tratamento (atualizado)</h3>
+<ol>
+<li><b>Hipertensivo</b>: <b>descompressão imediata por agulha</b> (2º espaço intercostal na linha hemiclavicular, ou 4º/5º EIC na linha axilar anterior conforme protocolo), convertendo em pneumotórax simples, seguida de <b>drenagem torácica</b>.</li>
+<li><b>Espontâneo primário pequeno e assintomático/oligossintomático</b>: <b>observação + O₂</b> (acelera a reabsorção); reavaliar com imagem.</li>
+<li><b>Primário grande ou sintomático</b>: <b>aspiração com agulha/cateter</b> ou <b>dreno torácico</b> de pequeno calibre.</li>
+<li><b>Secundário</b> (DPOC, etc.): tende a precisar de <b>drenagem</b> e internação (menos reserva).</li>
+<li><b>Cirurgia (VATS) / pleurodese</b>: recidiva, vazamento aéreo persistente, pneumotórax bilateral, profissões de risco (mergulhador, piloto).</li>
+</ol>
+<div class="note tip"><div class="nh">💡 Medidas gerais</div>Oxigênio suplementar acelera a reabsorção do ar; <b>cessação do tabagismo</b> reduz recidiva; orientar quanto a viagens aéreas/mergulho até resolução.</div>
+`;
+const PTX_SCORES = `
+<h3>Reconhecimento do pneumotórax hipertensivo (clínico)</h3>
+<div class="note key"><div class="nh">🔑 Tríade + instabilidade</div>Hipotensão/taquicardia + <b>desvio de traqueia</b> contralateral + <b>turgência jugular</b>, com <b>timpanismo</b> e <b>MV abolido</b> do lado afetado. <b>Tratar antes da imagem.</b></div>
+
+<h3>Tamanho e conduta (visão geral)</h3>
+<table class="t"><thead><tr><th>Situação</th><th>Conduta</th></tr></thead><tbody>
+<tr><td>Hipertensivo</td><td>Descompressão por agulha → dreno</td></tr>
+<tr><td>Primário pequeno, assintomático</td><td>Observação + O₂</td></tr>
+<tr><td>Primário grande/sintomático</td><td>Aspiração ou dreno</td></tr>
+<tr><td>Secundário</td><td>Dreno + internação</td></tr>
+<tr><td>Recidiva / vazamento persistente</td><td>VATS / pleurodese</td></tr>
+</tbody></table>
+
+<h3>Pontos de descompressão (agulha)</h3>
+<p><b>2º EIC na linha hemiclavicular</b> ou <b>4º–5º EIC na linha axilar anterior</b> (este último preferido por alguns protocolos em adultos). Sempre seguir com <b>drenagem torácica</b> definitiva.</p>`;
+const PTX_COMPARE = `
+<h3>Primário x secundário</h3>
+<table class="t"><thead><tr><th></th><th>Primário</th><th>Secundário</th></tr></thead><tbody>
+<tr><td>Pulmão de base</td><td>Sem doença</td><td>DPOC/fibrose/infecção</td></tr>
+<tr><td>Perfil</td><td>Jovem alto, magro, fumante</td><td>Mais velho, doença prévia</td></tr>
+<tr><td>Gravidade</td><td>Geralmente menor</td><td>Maior (pouca reserva)</td></tr>
+<tr><td>Tendência</td><td>Observação/aspiração</td><td>Drenagem/internação</td></tr>
+</tbody></table>
+<h4>DDx da dor torácica + dispneia súbitas</h4>
+<p>TEP, IAM, dissecção de aorta, pneumonia, crise asmática. O <b>timpanismo + MV abolido + desvio de traqueia</b> aponta para pneumotórax (hipertensivo).</p>`;
+const PTX_ERROS = `
+<h3>❌ Erros mais comuns</h3>
+<ul>
+<li><b>Pedir raio-X antes de descomprimir</b> um hipertensivo instável.</li>
+<li><b>Drenar todo pneumotórax</b> — o primário pequeno/assintomático pode ser observado com O₂.</li>
+<li><b>Subestimar o secundário</b> (DPOC) — costuma exigir dreno e internação.</li>
+<li><b>Esquecer a cessação do tabagismo</b> (recidiva) e a orientação sobre mergulho/voo.</li>
+<li><b>Não indicar VATS/pleurodese</b> em recidiva ou vazamento persistente.</li>
+</ul>`;
+const PTX_SUMMARY = `
+<h3>⚡ Resumo Ultra-Rápido</h3>
+<div class="note key"><div class="nh">🎈 O essencial</div>
+<ul style="margin:6px 0 0">
+<li>Pneumotórax = <b>ar na pleura</b> → colapso. Dor súbita + dispneia, <b>timpanismo</b> + MV abolido.</li>
+<li><b>Primário</b>: jovem alto magro fumante. <b>Secundário</b>: DPOC (mais grave).</li>
+<li><b>Hipertensivo</b> = emergência clínica: instável + desvio de traqueia + jugular cheia → <b>descomprimir já</b> (agulha) → dreno.</li>
+<li>Primário pequeno/assintomático → <b>observar + O₂</b>; grande/sintomático → aspiração/dreno; secundário → dreno.</li>
+<li>Recidiva/vazamento persistente → <b>VATS/pleurodese</b>. Parar de fumar reduz recidiva.</li>
+</ul></div>`;
+const PTX_Q = [
+{stem:"Homem jovem, alto e magro, fumante, com dor torácica súbita e dispneia. À direita: MV abolido e timpanismo, sem instabilidade. RX confirma pneumotórax grande. Conduta?",
+opts:["Apenas observação domiciliar","Aspiração ou drenagem torácica","Antibiótico","Pleurodese imediata sem dreno","Intubação"],
+correct:1, expl:"Pneumotórax espontâneo <b>primário grande/sintomático</b> → <b>aspiração</b> ou <b>dreno torácico</b>. Estável, não é hipertensivo."},
+{stem:"Paciente politraumatizado, hipotenso, taquicárdico, com traqueia desviada à esquerda, jugulares túrgidas e MV abolido à direita. Conduta imediata?",
+opts:["Solicitar RX e aguardar","Descompressão imediata por agulha (e depois dreno)","Iniciar antibiótico","TC de tórax primeiro","Apenas O₂"],
+correct:1, expl:"Quadro de <b>pneumotórax hipertensivo</b> → <b>descompressão imediata por agulha</b>, sem esperar imagem, seguida de drenagem torácica."},
+{stem:"Qual perfil é típico do pneumotórax espontâneo primário?",
+opts:["Idoso com DPOC","Jovem alto, magro, fumante, sem doença pulmonar","Criança com asma","Gestante","Paciente com ICC"],
+correct:1, expl:"O primário ocorre tipicamente em <b>jovem alto, magro, fumante</b>, por ruptura de bolhas subpleurais."},
+{stem:"Pneumotórax espontâneo secundário ocorre tipicamente em:",
+opts:["Pulmão normal","DPOC/enfisema e outras doenças pulmonares","Apenas trauma","Crianças hígidas","Ansiosos"],
+correct:1, expl:"O <b>secundário</b> surge sobre doença pulmonar (DPOC, fibrose, infecções) e é mais grave pela baixa reserva."},
+{stem:"Pequeno pneumotórax primário, assintomático, paciente estável. Conduta inicial razoável?",
+opts:["Drenagem obrigatória","Observação com oxigênio e reavaliação","Pleurodese","Cirurgia","Intubação"],
+correct:1, expl:"Pequeno e assintomático pode ser <b>observado com O₂</b> (acelera reabsorção), com reavaliação por imagem."},
+{stem:"Qual achado clínico ajuda a diferenciar pneumotórax de derrame ao exame físico?",
+opts:["Macicez à percussão","Timpanismo à percussão (pneumotórax) x macicez (derrame)","Sopro tubário","Estertores","Atrito"],
+correct:1, expl:"No pneumotórax há <b>timpanismo</b>; no derrame, <b>macicez</b>. Ambos com MV abolido e FTV reduzido."},
+{stem:"Indicação clássica de VATS/pleurodese no pneumotórax:",
+opts:["Primeiro episódio pequeno","Recidiva ou vazamento aéreo persistente","Sempre no primário","Nunca","Apenas em crianças"],
+correct:1, expl:"<b>Recidiva</b> e <b>vazamento aéreo persistente</b> (ou profissões de risco) indicam <b>VATS/pleurodese</b>."},
+{stem:"Medida que reduz a recidiva do pneumotórax espontâneo:",
+opts:["Manter tabagismo","Cessação do tabagismo","Antibiótico contínuo","Corticoide inalatório","Diurético"],
+correct:1, expl:"A <b>cessação do tabagismo</b> reduz a recidiva do pneumotórax espontâneo."}
+];
+const PTX_FC = [
+{type:"basic",front:"Pneumotórax — definição",back:"<b>Ar no espaço pleural</b> → colapso pulmonar. Dor súbita + dispneia."},
+{type:"basic",front:"Exame físico do pneumotórax",back:"<b>Timpanismo</b> + MV abolido + expansibilidade reduzida do lado afetado."},
+{type:"basic",front:"Pneumotórax hipertensivo — sinais",color:"red",back:"Instável + <b>desvio de traqueia</b> contralateral + turgência jugular + timpanismo/MV abolido."},
+{type:"truefalse",front:"V ou F: no hipertensivo, peça RX antes de tratar.",back:"<b>FALSO.</b> Diagnóstico <b>clínico</b> → <b>descomprimir já</b> (agulha), depois dreno e imagem."},
+{type:"basic",front:"Perfil do primário",back:"Jovem <b>alto, magro, fumante</b>, sem doença pulmonar."},
+{type:"basic",front:"Secundário — contexto e gravidade",back:"DPOC/fibrose; mais grave (pouca reserva) → drenar/internar."},
+{type:"cloze",front:"Descompressão por agulha: {{2º EIC na linha hemiclavicular}} (ou 4º–5º EIC axilar anterior).",back:"2º EIC linha hemiclavicular (ou 4º–5º EIC axilar anterior)."},
+{type:"basic",front:"Primário pequeno/assintomático — conduta",back:"<b>Observação + O₂</b> (acelera reabsorção)."},
+{type:"basic",front:"Primário grande/sintomático — conduta",back:"Aspiração com cateter ou <b>dreno torácico</b>."},
+{type:"basic",front:"Indicação de VATS/pleurodese",back:"Recidiva, vazamento aéreo persistente, bilateral, profissão de risco."},
+{type:"basic",front:"O₂ no pneumotórax",back:"Acelera a <b>reabsorção</b> do ar pleural."},
+{type:"basic",front:"Pneumotórax x derrame (percussão)",back:"Pneumotórax = <b>timpanismo</b>; derrame = <b>macicez</b>."}
+];
+const PTX_CASES = [
+{title:"Caso 1 — Pneumotórax hipertensivo",
+hist:"Homem, 40 anos, vítima de trauma torácico fechado, com dispneia intensa e piora rápida.",
+exam:"PA 80×50, FC 130, traqueia desviada à esquerda, turgência jugular, MV abolido e timpanismo à direita.",
+exams:"Instabilidade não permite aguardar imagem.",
+reason:"Sinais clássicos de pneumotórax hipertensivo com choque obstrutivo — diagnóstico clínico, tratamento imediato.",
+dx:"Pneumotórax hipertensivo à direita.",
+tto:"<b>Descompressão imediata por agulha</b> (2º EIC LHC ou 4º–5º EIC LAA) convertendo em simples; em seguida <b>drenagem torácica</b>. Suporte hemodinâmico. Confirmar com imagem após estabilizar."},
+{title:"Caso 2 — Espontâneo primário",
+hist:"Estudante de 22 anos, alto, magro, fumante, com dor torácica súbita à esquerda e leve dispneia. Estável.",
+exam:"MV diminuído e timpanismo à esquerda; sem instabilidade.",
+exams:"RX (expiração): pneumotórax moderado à esquerda, sem desvio de mediastino.",
+reason:"Pneumotórax espontâneo primário, estável; tamanho moderado e sintomático orienta aspiração/dreno.",
+dx:"Pneumotórax espontâneo primário à esquerda.",
+tto:"<b>Aspiração</b> com cateter ou <b>dreno</b> de pequeno calibre; oxigênio; <b>cessação do tabagismo</b>; orientar sobre recidiva e evitar mergulho/voo até resolução; VATS se recidivar."}
+];
+const PTX_FLOW_DX = {start:"a",nodes:{
+  a:{t:"Dor torácica súbita + dispneia + MV abolido/timpanismo",type:"q",opts:[{l:"Instável (suspeita de hipertensivo)",to:"hip"},{l:"Estável",to:"rx"}]},
+  hip:{t:"⚠ Não espere imagem → descompressão por agulha imediata → dreno",type:"end"},
+  rx:{t:"RX de tórax (expiração) / USG confirma e estima tamanho",type:"q",opts:[{l:"Confirmado",to:"sim"}]},
+  sim:{t:"Classificar: primário x secundário; pequeno x grande/sintomático",type:"end"}
+}};
+const PTX_FLOW_COND = {start:"a",nodes:{
+  a:{t:"Pneumotórax confirmado — qual cenário?",type:"q",opts:[{l:"Hipertensivo",to:"hip"},{l:"Primário pequeno/assintomático",to:"obs"},{l:"Grande/sintomático ou secundário",to:"dren"}]},
+  hip:{t:"Descompressão por agulha → dreno torácico + suporte",type:"end"},
+  obs:{t:"Observação + O₂; reavaliar por imagem",type:"end"},
+  dren:{t:"Aspiração/dreno torácico (secundário → internar). Recidiva/vazamento → VATS/pleurodese",type:"end"}
+}};
+const PTX_MIND = {center:"PTX",branches:[
+  {h:"Tipos",ic:"🎈",leaves:["Primário (jovem magro fumante)","Secundário (DPOC)","Traumático/iatrogênico","<b>Hipertensivo</b>"]},
+  {h:"Clínica",ic:"🩺",leaves:["Dor súbita + dispneia","<b>Timpanismo</b> + MV abolido","Hipertensivo: desvio de traqueia, jugular"]},
+  {h:"Diagnóstico",ic:"🩻",leaves:["Clínico (hipertensivo)","RX em expiração","USG/POCUS"]},
+  {h:"Conduta",ic:"💊",leaves:["Hipertensivo → <b>agulha já</b> → dreno","Pequeno/assint. → O₂/observar","Grande/secundário → dreno","Recidiva → VATS/pleurodese"]}
+]};
+const PTX_CONTENT = {
+  subtopics:[{id:"tipos",t:"Tipos"},{id:"fisio",t:"Fisiopatologia"},{id:"clin",t:"Quadro clínico"},{id:"hip",t:"Hipertensivo"},{id:"dx",t:"Diagnóstico"},{id:"cond",t:"Conduta/drenagem"},{id:"cir",t:"Indicações cirúrgicas"},{id:"prova",t:"Pegadinhas de prova"}],
+  teach:PTX_TEACH, scores:PTX_SCORES, compare:PTX_COMPARE, erros:PTX_ERROS, summary:PTX_SUMMARY,
+  questions:PTX_Q, flashcards:PTX_FC, cases:PTX_CASES, flowDx:PTX_FLOW_DX, flowCond:PTX_FLOW_COND, mind:PTX_MIND, vespera:PTX_SUMMARY,
+  checklist:["Sei reconhecer o hipertensivo","Sei diferenciar primário x secundário","Sei indicar observação x dreno","Sei indicar cirurgia","Dominei o tema"]
+};
+
+/* ---------------- VENTILAÇÃO MECÂNICA ---------------- */
+const SVG_VM = `
+<div class="svg-fig">
+<svg viewBox="0 0 460 180" xmlns="http://www.w3.org/2000/svg">
+  <rect x="30" y="30" width="180" height="120" rx="12" fill="var(--hl-teal)" stroke="var(--teal-500)" stroke-width="2"/>
+  <text x="120" y="54" text-anchor="middle" font-size="12.5" font-weight="800" fill="var(--brand)">OXIGENAÇÃO</text>
+  <text x="120" y="78" text-anchor="middle" font-size="11" fill="var(--txt-1)">↑ <b>FiO₂</b></text>
+  <text x="120" y="100" text-anchor="middle" font-size="11" fill="var(--txt-1)">↑ <b>PEEP</b></text>
+  <text x="120" y="128" text-anchor="middle" font-size="9.5" fill="var(--txt-2)">alvo: PaO₂ / SatO₂</text>
+  <rect x="250" y="30" width="180" height="120" rx="12" fill="var(--hl-coral)" stroke="var(--coral-500)" stroke-width="2"/>
+  <text x="340" y="54" text-anchor="middle" font-size="12.5" font-weight="800" fill="var(--brand-2)">VENTILAÇÃO</text>
+  <text x="340" y="78" text-anchor="middle" font-size="11" fill="var(--txt-1)">↑ <b>Volume corrente</b></text>
+  <text x="340" y="100" text-anchor="middle" font-size="11" fill="var(--txt-1)">↑ <b>Frequência</b></text>
+  <text x="340" y="128" text-anchor="middle" font-size="9.5" fill="var(--txt-2)">alvo: PaCO₂ / pH</text>
+</svg>
+<div class="cap">Os dois "botões" da VM: para corrigir o <b>oxigênio</b> mexa em <b>FiO₂ e PEEP</b>; para corrigir o <b>gás carbônico</b> mexa no <b>volume-minuto</b> (volume corrente × frequência).</div>
+</div>`;
+const VM_TEACH = `
+<h3>Entendendo do zero</h3>
+<p class="lead">A ideia central, sem jargão.</p>
+<p>A ventilação mecânica é uma <b>máquina que respira por (ou com) o paciente</b> quando ele não consegue sozinho. Diferente de nós — que <b>puxamos</b> o ar criando pressão negativa no tórax — o ventilador <b>empurra</b> o ar para dentro com <b>pressão positiva</b>, por um tubo na traqueia (invasiva) ou por máscara (não invasiva, VNI).</p>
+<p>Entender VM é separar dois objetivos que se controlam por "botões" diferentes: <b>oxigenar</b> (colocar O₂ no sangue) e <b>ventilar</b> (tirar o gás carbônico). Para subir o oxigênio, mexe-se na <b>FiO₂</b> (quanto de O₂ na mistura) e na <b>PEEP</b> (pressão que mantém os alvéolos abertos no fim da expiração). Para baixar o CO₂, aumenta-se o <b>volume-minuto</b> (volume corrente × frequência). E há uma regra de ouro moderna: ventilar com <b>volumes pequenos</b> para <b>não machucar</b> o pulmão.</p>
+<div class="note tip"><div class="nh">💡 Guarde esta frase</div>VM = pressão <b>positiva</b> que empurra o ar. <b>Oxigenação ↔ FiO₂/PEEP</b>; <b>CO₂ ↔ volume-minuto (VC × FR)</b>. E sempre <b>proteção pulmonar</b> (volumes baixos).</div>
+
+<h3>1. Indicações</h3>
+<ul>
+<li><b>Insuficiência respiratória hipoxêmica</b> (ex.: SDRA, pneumonia grave) — não corrige a oxigenação com suporte não invasivo.</li>
+<li><b>Insuficiência respiratória hipercápnica</b> (fadiga muscular, DPOC grave) — retenção de CO₂ com acidose.</li>
+<li><b>Proteção de via aérea</b> (rebaixamento, Glasgow baixo, risco de aspiração).</li>
+<li>Choque, pós-operatório de grande porte, controle de PIC, parada respiratória.</li>
+</ul>
+
+<h3>2. Conceitos e modos</h3>
+<p>O ventilador entrega ciclos definidos por <b>parâmetros</b>: <b>volume corrente (VC)</b>, <b>frequência (FR)</b>, <b>PEEP</b>, <b>FiO₂</b> e relação inspiração/expiração (I:E). Os modos básicos:</p>
+<ul>
+<li><b>VCV (volume controlado)</b>: entrega um <b>volume</b> fixo; a pressão é consequência (vigiar a pressão de platô).</li>
+<li><b>PCV (pressão controlada)</b>: entrega uma <b>pressão</b> fixa; o volume é consequência (vigiar o VC).</li>
+<li><b>PSV (pressão de suporte)</b>: o paciente dispara cada ciclo e a máquina "ajuda" com uma pressão — modo <b>espontâneo</b>, usado no desmame.</li>
+</ul>
+` + SVG_VM + `
+
+<h3>3. Como ajustar oxigenação e ventilação</h3>
+<ul>
+<li><b>Oxigenação (PaO₂/SatO₂)</b>: ajustada por <b>FiO₂</b> e <b>PEEP</b> (a PEEP recruta alvéolos e aumenta a área de troca). Objetivo: menor FiO₂ que mantenha o alvo, evitando toxicidade do O₂.</li>
+<li><b>Ventilação (PaCO₂/pH)</b>: ajustada pelo <b>volume-minuto</b> (VC × FR). Para baixar o CO₂, aumente a FR (preferível) ou o VC (com cautela pelos limites de proteção).</li>
+</ul>
+
+<h3>4. Ventilação protetora e SDRA</h3>
+<p>O conceito mais importante e mais cobrado: o ventilador pode <b>lesar</b> o pulmão (VILI) por volumes/pressões excessivos. Na <b>SDRA</b> (e como princípio geral), use <b>ventilação protetora</b>:</p>
+<div class="note key"><div class="nh">🔑 Metas da ventilação protetora</div>
+<ul style="margin:6px 0 0">
+<li><b>Volume corrente baixo: 6 mL/kg de peso predito</b> (calculado pela <b>altura</b>, não pelo peso real).</li>
+<li><b>Pressão de platô &lt; 30 cmH₂O</b> e <b>driving pressure (platô − PEEP) &lt; 15 cmH₂O</b>.</li>
+<li><b>PEEP titulada</b> (suficiente para manter alvéolos abertos) e FiO₂ ajustada a alvos de SatO₂.</li>
+<li><b>Hipercapnia permissiva</b>: tolerar PaCO₂ um pouco alta (pH ≥ ~7,20) para proteger o pulmão.</li>
+<li><b>Posição prona</b> na SDRA moderada-grave (PaO₂/FiO₂ baixa) — reduz mortalidade.</li>
+</ul></div>
+<p>A <b>SDRA</b> é definida pelos <b>critérios de Berlim</b>: início agudo (≤ 1 semana), <b>infiltrados bilaterais</b>, edema não explicado por causa cardíaca/hipervolemia, e hipoxemia pela relação <b>PaO₂/FiO₂</b> (leve 200–300, moderada 100–200, grave ≤ 100), com PEEP ≥ 5.</p>
+
+<h3>5. Monitorização e complicações</h3>
+<p>Acompanhe gasometria, mecânica respiratória (platô, complacência, driving pressure) e curvas (detectar <b>assincronias</b>). Complicações: <b>lesão induzida pela ventilação (VILI)</b>, <b>barotrauma/pneumotórax</b>, <b>pneumonia associada à ventilação (PAV)</b>, instabilidade hemodinâmica (a pressão positiva reduz o retorno venoso), atrofia diafragmática e toxicidade do O₂. Use sedação/analgesia tituladas (evitar excesso) e bloqueio neuromuscular apenas em casos selecionados (SDRA grave precoce).</p>
+
+<h3>6. Desmame e extubação</h3>
+<p><b>Desmamar</b> = retirar o suporte assim que a causa melhora. Avalie diariamente a prontidão: causa controlada, <b>FiO₂ ≤ 0,4 e PEEP ≤ 5–8</b>, hemodinâmica estável, despertar adequado, tosse eficaz.</p>
+<div class="note key"><div class="nh">🔑 Teste de respiração espontânea (TRE)</div>Se apto, faça um <b>TRE</b> (em PSV baixa ou tubo T por 30–120 min). O <b>índice de Tobin (RSBI = FR/VC em litros)</b> &lt; <b>105</b> prediz sucesso. TRE bem-sucedido + via aérea protegida (tosse, secreções controladas, nível de consciência) → <b>extubar</b>. A <b>VNI</b> pós-extubação ajuda a prevenir a falência em pacientes de risco (DPOC, hipercápnicos).</div>
+`;
+const VM_SCORES = `
+<h3>Critérios de Berlim (SDRA)</h3>
+<table class="t"><thead><tr><th>Critério</th><th>Definição</th></tr></thead><tbody>
+<tr><td>Tempo</td><td>≤ 1 semana do insulto</td></tr>
+<tr><td>Imagem</td><td>Infiltrados <b>bilaterais</b></td></tr>
+<tr><td>Origem do edema</td><td>Não explicado por ICC/hipervolemia</td></tr>
+<tr><td>Hipoxemia (PEEP ≥ 5)</td><td>Leve P/F 200–300 · Moderada 100–200 · Grave ≤ 100</td></tr>
+</tbody></table>
+
+<h3>Metas da ventilação protetora</h3>
+<table class="t"><thead><tr><th>Parâmetro</th><th>Alvo</th></tr></thead><tbody>
+<tr><td>Volume corrente</td><td><b>6 mL/kg</b> de peso predito (pela altura)</td></tr>
+<tr><td>Pressão de platô</td><td>&lt; 30 cmH₂O</td></tr>
+<tr><td>Driving pressure</td><td>&lt; 15 cmH₂O</td></tr>
+<tr><td>PaCO₂/pH</td><td>Hipercapnia permissiva (pH ≥ ~7,20)</td></tr>
+<tr><td>Prona</td><td>SDRA moderada–grave (P/F baixo)</td></tr>
+</tbody></table>
+
+<h3>Prontidão para desmame e índice de Tobin</h3>
+<div class="note key"><div class="nh">Critérios + TRE</div>Causa controlada, <b>FiO₂ ≤ 0,4</b>, <b>PEEP ≤ 5–8</b>, estável, desperto, tosse eficaz → <b>TRE</b>. <b>RSBI (FR/VC em L) &lt; 105</b> prediz sucesso. Sucesso + via aérea protegida → extubar (VNI pós-extubação em pacientes de risco).</div>`;
+const VM_COMPARE = `
+<h3>Oxigenação x ventilação (o que ajustar)</h3>
+<table class="t"><thead><tr><th>Problema</th><th>Botões</th><th>Alvo</th></tr></thead><tbody>
+<tr><td>Hipoxemia</td><td>↑ <b>FiO₂</b>, ↑ <b>PEEP</b></td><td>PaO₂ / SatO₂</td></tr>
+<tr><td>Hipercapnia</td><td>↑ <b>VC</b> e/ou ↑ <b>FR</b> (volume-minuto)</td><td>PaCO₂ / pH</td></tr>
+</tbody></table>
+<h4>VNI x invasiva</h4>
+<p><b>VNI</b> (máscara): exacerbação de DPOC com acidose, edema agudo de pulmão, imunossuprimidos — evita intubação em casos selecionados. <b>Invasiva</b>: rebaixamento, falência da VNI, instabilidade, necessidade de proteção de via aérea.</p>`;
+const VM_ERROS = `
+<h3>❌ Erros mais comuns</h3>
+<ul>
+<li><b>VC alto</b> (calcular pelo peso real em vez do <b>peso predito</b>) → VILI. Use <b>6 mL/kg</b> de peso predito.</li>
+<li><b>Ignorar platô/driving pressure</b> (manter platô &lt; 30 e driving &lt; 15).</li>
+<li><b>Hiperoxigenar</b> — buscar a menor FiO₂ que atinja o alvo.</li>
+<li><b>Confundir os botões</b>: CO₂ alto → mexer no volume-minuto, não na FiO₂.</li>
+<li><b>Não fazer prona</b> na SDRA moderada–grave.</li>
+<li><b>Não testar desmame diariamente</b> (prolonga VM, aumenta PAV).</li>
+<li><b>Esquecer a VNI pós-extubação</b> no paciente de risco (DPOC/hipercápnico).</li>
+</ul>`;
+const VM_SUMMARY = `
+<h3>⚡ Resumo Ultra-Rápido</h3>
+<div class="note key"><div class="nh">🫀 O essencial</div>
+<ul style="margin:6px 0 0">
+<li>VM = pressão <b>positiva</b>. <b>Oxigenação ↔ FiO₂/PEEP</b>; <b>CO₂ ↔ VC × FR</b>.</li>
+<li>Modos: VCV (volume fixo), PCV (pressão fixa), PSV (espontâneo, desmame).</li>
+<li><b>Proteção</b>: VC <b>6 mL/kg peso predito</b>, platô &lt;30, <b>driving &lt;15</b>, hipercapnia permissiva.</li>
+<li><b>SDRA</b> (Berlim): bilateral + P/F (≤100 grave); <b>prona</b> se moderada–grave.</li>
+<li>Desmame: critérios + <b>TRE</b>; <b>RSBI &lt; 105</b>; extubar se via aérea protegida; VNI pós-extubação no risco.</li>
+<li>Complicações: VILI, barotrauma/pneumotórax, PAV, ↓retorno venoso.</li>
+</ul></div>`;
+const VM_Q = [
+{stem:"Paciente com SDRA. Qual estratégia ventilatória reduz mortalidade?",
+opts:["Volume corrente alto (10–12 mL/kg)","Volume corrente baixo (6 mL/kg de peso predito) com platô &lt; 30","FiO₂ 100% contínua","PEEP zero","Hiperventilação para PaCO₂ baixa"],
+correct:1, expl:"A <b>ventilação protetora</b> (VC <b>6 mL/kg de peso predito</b>, platô &lt; 30, driving &lt; 15) reduz a lesão induzida pela ventilação e a mortalidade na SDRA."},
+{stem:"Paciente intubado com PaCO₂ alta e pH baixo, oxigenação adequada. O que ajustar para corrigir o CO₂?",
+opts:["Aumentar a FiO₂","Aumentar a PEEP","Aumentar o volume-minuto (VC e/ou FR)","Reduzir a FR","Reduzir o VC"],
+correct:2, expl:"O CO₂ depende do <b>volume-minuto</b> (VC × FR). Para baixá-lo, aumente FR e/ou VC (respeitando a proteção)."},
+{stem:"Para melhorar a oxigenação no paciente ventilado, os principais ajustes são:",
+opts:["FR e VC","FiO₂ e PEEP","I:E e sedação","Apenas sedação","Apenas FR"],
+correct:1, expl:"A oxigenação é ajustada por <b>FiO₂</b> e <b>PEEP</b> (recrutamento alveolar)."},
+{stem:"Sobre os critérios de Berlim para SDRA, assinale a correta:",
+opts:["Edema exclusivamente cardiogênico","Infiltrados bilaterais e hipoxemia pela relação PaO₂/FiO₂ com PEEP ≥5","Início após 1 mês","P/F &gt; 400 define grave","Não usa imagem"],
+correct:1, expl:"Berlim: início agudo, <b>infiltrados bilaterais</b>, edema não cardiogênico e hipoxemia por <b>PaO₂/FiO₂</b> com PEEP ≥ 5 (≤100 = grave)."},
+{stem:"Na SDRA moderada a grave (P/F baixo), qual medida reduz mortalidade?",
+opts:["Posição prona","FiO₂ 100% fixa","Volume corrente alto","PEEP zero","Hiperventilação"],
+correct:0, expl:"A <b>posição prona</b> melhora a oxigenação e reduz mortalidade na SDRA moderada–grave."},
+{stem:"Qual índice prediz sucesso no teste de respiração espontânea?",
+opts:["Índice de Tobin (RSBI = FR/VC) &lt; 105","CURB-65","Escore de Wells","sPESI","Glasgow"],
+correct:0, expl:"O <b>índice de respiração rápida e superficial (Tobin, RSBI = FR/VC em litros) &lt; 105</b> prediz sucesso do desmame."},
+{stem:"Modo ventilatório espontâneo, frequentemente usado no desmame:",
+opts:["VCV","PCV","PSV (pressão de suporte)","Apneia","Controlado total"],
+correct:2, expl:"A <b>pressão de suporte (PSV)</b> é um modo espontâneo, muito usado no desmame."},
+{stem:"Complicação direta da pressão positiva da VM sobre a hemodinâmica:",
+opts:["Aumento do retorno venoso","Redução do retorno venoso e do débito cardíaco","Bradicardia obrigatória","Hipertensão arterial","Não há efeito"],
+correct:1, expl:"A pressão positiva <b>reduz o retorno venoso</b> e pode baixar o débito cardíaco, especialmente no hipovolêmico."}
+];
+const VM_FC = [
+{type:"basic",front:"VM — princípio",back:"Pressão <b>positiva</b> que empurra o ar (≠ respiração normal, negativa)."},
+{type:"basic",front:"Botões da oxigenação",back:"<b>FiO₂</b> e <b>PEEP</b> (alvo: PaO₂/SatO₂)."},
+{type:"basic",front:"Botões da ventilação (CO₂)",back:"<b>Volume-minuto</b> = VC × FR (alvo: PaCO₂/pH)."},
+{type:"basic",front:"Ventilação protetora — VC",color:"red",back:"<b>6 mL/kg de peso predito</b> (calculado pela altura)."},
+{type:"basic",front:"Limites de pressão (proteção)",back:"Platô &lt; 30 cmH₂O e <b>driving pressure &lt; 15</b> cmH₂O."},
+{type:"truefalse",front:"V ou F: para baixar o CO₂ aumenta-se a FiO₂.",back:"<b>FALSO.</b> CO₂ depende do volume-minuto (VC × FR), não da FiO₂."},
+{type:"basic",front:"SDRA — critérios de Berlim",back:"Agudo + bilateral + edema não cardiogênico + P/F (≤100 grave) com PEEP ≥5."},
+{type:"basic",front:"SDRA moderada–grave — medida que reduz mortalidade",back:"<b>Posição prona</b>."},
+{type:"cloze",front:"Desmame: índice de Tobin (RSBI) &lt; {{105}} prediz sucesso.",back:"105."},
+{type:"basic",front:"Modos básicos",back:"VCV (volume fixo), PCV (pressão fixa), PSV (espontâneo/desmame)."},
+{type:"basic",front:"Complicações da VM",back:"VILI, barotrauma/pneumotórax, PAV, ↓retorno venoso."},
+{type:"basic",front:"VNI pós-extubação",back:"Previne falência em pacientes de risco (DPOC/hipercápnicos)."}
+];
+const VM_CASES = [
+{title:"Caso 1 — SDRA",
+hist:"Homem, 50 anos, com pneumonia grave evoluindo com hipoxemia refratária e necessidade de intubação.",
+exam:"FR alta, tiragem, SatO₂ 86% com máscara; após IOT, em VM.",
+exams:"RX: infiltrados bilaterais. Gasometria: PaO₂/FiO₂ 95, com PEEP 10. Edema não cardiogênico (eco normal).",
+reason:"Critérios de Berlim (agudo, bilateral, não cardiogênico, P/F 95) = SDRA grave → ventilação protetora e prona.",
+dx:"Síndrome do desconforto respiratório agudo (SDRA) grave.",
+tto:"<b>Ventilação protetora</b>: VC <b>6 mL/kg de peso predito</b>, platô &lt; 30, driving &lt; 15, <b>PEEP</b> titulada, hipercapnia permissiva (pH ≥ 7,20); <b>posição prona</b>; sedação/analgesia tituladas e bloqueio neuromuscular se necessário; tratar a causa de base."},
+{title:"Caso 2 — Prontidão para desmame",
+hist:"Mulher, 60 anos, no 5º dia de VM por pneumonia, com melhora clínica.",
+exam:"Desperta, colaborativa, tosse eficaz, hemodinâmica estável sem droga vasoativa.",
+exams:"FiO₂ 0,35, PEEP 5, gasometria adequada; causa controlada.",
+reason:"Preenche critérios de prontidão → realizar teste de respiração espontânea; RSBI &lt; 105 prediz sucesso.",
+dx:"Paciente apta para desmame da ventilação mecânica.",
+tto:"Realizar <b>TRE</b> (PSV baixa ou tubo T, 30–120 min). Se bem-sucedido e via aérea protegida → <b>extubar</b>; considerar <b>VNI pós-extubação</b> se risco de falência (DPOC/hipercapnia)."}
+];
+const VM_FLOW_DX = {start:"a",nodes:{
+  a:{t:"Insuficiência respiratória — qual problema predomina?",type:"q",opts:[{l:"Hipoxemia",to:"hipox"},{l:"Hipercapnia/fadiga",to:"hiper"},{l:"Proteção de via aérea",to:"prot"}]},
+  hipox:{t:"Otimizar oxigenação: O₂ alto fluxo/VNI; se refratária ou instável → intubar e VM (ajustar FiO₂/PEEP)",type:"end"},
+  hiper:{t:"VNI (ex.: DPOC com acidose); se falha/rebaixamento → IOT e VM",type:"end"},
+  prot:{t:"Rebaixamento / risco de aspiração → IOT e VM",type:"end"}
+}};
+const VM_FLOW_COND = {start:"a",nodes:{
+  a:{t:"Paciente em VM — objetivo do ajuste?",type:"q",opts:[{l:"Corrigir hipoxemia",to:"ox"},{l:"Corrigir CO₂/pH",to:"co2"},{l:"SDRA",to:"sdra"},{l:"Pronto para desmamar?",to:"des"}]},
+  ox:{t:"↑ FiO₂ e ↑ PEEP (menor FiO₂ possível para o alvo)",type:"end"},
+  co2:{t:"↑ volume-minuto (FR e/ou VC), respeitando proteção",type:"end"},
+  sdra:{t:"VC 6 mL/kg peso predito · platô &lt;30 · driving &lt;15 · PEEP titulada · prona se moderada–grave",type:"end"},
+  des:{t:"Critérios + TRE; RSBI &lt;105; extubar se via aérea protegida; VNI pós-extubação no risco",type:"end"}
+}};
+const VM_MIND = {center:"VM",branches:[
+  {h:"Indicações",ic:"🚨",leaves:["Hipoxêmica (SDRA)","Hipercápnica (fadiga/DPOC)","Proteção de via aérea","Choque/PCR"]},
+  {h:"Ajustes",ic:"🎛️",leaves:["Oxigenação: <b>FiO₂/PEEP</b>","CO₂: <b>VC × FR</b>","Modos: VCV/PCV/PSV"]},
+  {h:"Proteção",ic:"🛡️",leaves:["<b>6 mL/kg</b> peso predito","Platô &lt;30 · driving &lt;15","Hipercapnia permissiva","SDRA: <b>prona</b>"]},
+  {h:"Complicações",ic:"⚠️",leaves:["VILI / barotrauma","PAV","↓ retorno venoso"]},
+  {h:"Desmame",ic:"🎯",leaves:["Critérios + <b>TRE</b>","<b>RSBI &lt;105</b>","Via aérea protegida → extubar","VNI pós-extubação no risco"]}
+]};
+const VM_CONTENT = {
+  subtopics:[{id:"ind",t:"Indicações"},{id:"modos",t:"Modos"},{id:"params",t:"Parâmetros"},{id:"ox",t:"Oxigenação x ventilação"},{id:"prot",t:"Protetora/SDRA"},{id:"monit",t:"Monitorização/complicações"},{id:"desm",t:"Desmame"},{id:"prova",t:"Pegadinhas de prova"}],
+  teach:VM_TEACH, scores:VM_SCORES, compare:VM_COMPARE, erros:VM_ERROS, summary:VM_SUMMARY,
+  questions:VM_Q, flashcards:VM_FC, cases:VM_CASES, flowDx:VM_FLOW_DX, flowCond:VM_FLOW_COND, mind:VM_MIND, vespera:VM_SUMMARY,
+  checklist:["Sei indicar VM/VNI","Sei ajustar oxigenação x ventilação","Sei a ventilação protetora/SDRA","Sei conduzir o desmame","Dominei o tema"]
+};
+
+
 function subList(arr){ return {subtopics: arr.map((t,i)=>({id:"s"+i,t}))}; }
 
 const MODULES = [
@@ -2652,7 +3433,7 @@ const MODULES = [
 
   {id:"intersticiais",n:6,emoji:"🕸️",title:"Doenças Intersticiais",desc:"FPI, pneumonite de hipersensibilidade, sarcoidose, pneumoconioses.",
    prev:PREV(60,58,55,52,50,55),
-   topics:[{id:"intersticiais",title:"Doenças intersticiais",content:subList(["Fibrose pulmonar idiopática","Pneumonite de hipersensibilidade","Sarcoidose","Pneumoconioses","Asbestose","Silicose","Doenças autoimunes pulmonares"])}]},
+   topics:[{id:"intersticiais",title:"Doenças intersticiais — aula completa",content:INT_CONTENT}]},
 
   {id:"tep",n:7,emoji:"🩸",title:"Tromboembolismo Pulmonar",desc:"Wells, Genebra, D-dímero, angio-TC, anticoagulação.",
    prev:PREV(88,85,80,78,78,82),
@@ -2660,11 +3441,11 @@ const MODULES = [
 
   {id:"pleura",n:8,emoji:"💧",title:"Derrame Pleural",desc:"Critérios de Light, transudato x exsudato, toracocentese.",
    prev:PREV(78,76,72,70,70,74),
-   topics:[{id:"pleura",title:"Derrame pleural",content:subList(["Anatomia pleural","Formação do líquido","Transudato","Exsudato","Critérios de Light","Toracocentese","Empiema","Hemotórax","Quilotórax"])}]},
+   topics:[{id:"pleura",title:"Derrame pleural — aula completa",content:PLE_CONTENT}]},
 
   {id:"pneumotorax",n:9,emoji:"🎈",title:"Pneumotórax",desc:"Primário, secundário, hipertensivo e drenagem.",
    prev:PREV(72,70,68,66,65,68),
-   topics:[{id:"pneumotorax",title:"Pneumotórax",content:subList(["Primário","Secundário","Hipertensivo","Diagnóstico","Drenagem","Indicações cirúrgicas"])}]},
+   topics:[{id:"pneumotorax",title:"Pneumotórax — aula completa",content:PTX_CONTENT}]},
 
   {id:"cancer",n:10,emoji:"🎗️",title:"Câncer de Pulmão",desc:"Histologia, estadiamento TNM, rastreamento e tratamento.",
    prev:PREV(75,72,70,68,68,72),
@@ -2676,7 +3457,7 @@ const MODULES = [
 
   {id:"vm",n:12,emoji:"🫀",title:"Ventilação Mecânica",desc:"Modos, parâmetros, PEEP, desmame e complicações.",
    prev:PREV(82,78,80,76,75,78),
-   topics:[{id:"vm",title:"Ventilação mecânica",content:subList(["Conceitos básicos","Modos ventilatórios","Parâmetros","PEEP","Volume corrente","Desmame ventilatório","Complicações"])}]},
+   topics:[{id:"vm",title:"Ventilação mecânica — aula completa",content:VM_CONTENT}]},
 
   {id:"ir",n:13,emoji:"🆘",title:"Insuficiência Respiratória",desc:"Tipo I x II, oxigenoterapia, VNI e indicações de IOT.",
    prev:PREV(80,78,76,74,72,76),
@@ -3392,7 +4173,7 @@ const ROUTES = {
         <div class="bar" style="margin-bottom:8px"><span data-w="${pct}"></span></div>
         <div class="foot"><span>${done}/${subs.length} subtópicos</span><span style="color:var(--brand);font-weight:800">${pct}%</span></div></div>`;
     }).join("");
-    $("#view").innerHTML=`${H("📚 Módulos de Pneumologia")}${SUB("13 módulos cobrindo todo o conteúdo de Pneumologia para residência. <b>Asma</b>, <b>DPOC</b>, <b>TEP</b>, <b>Pneumonias</b> e <b>Tuberculose</b> estão 100% desenvolvidos (com 'Entendendo do zero', aula em sub-abas, escores, questões, flashcards, casos e fluxogramas); os demais serão aprofundados na mesma profundidade.")}<div class="grid g-3">${cards}</div>`;
+    $("#view").innerHTML=`${H("📚 Módulos de Pneumologia")}${SUB("13 módulos cobrindo todo o conteúdo de Pneumologia para residência. <b>9 dos 13 módulos</b> estão 100% desenvolvidos: Asma, DPOC, TEP, Pneumonias, Tuberculose, Doenças Intersticiais, Derrame Pleural, Pneumotórax e Ventilação Mecânica — cada um com Entendendo do zero, aula em sub-abas, escores, questões, flashcards, casos e fluxogramas. Os demais seguem na mesma profundidade.")}<div class="grid g-3">${cards}</div>`;
     animateBars();
   },
 
