@@ -1187,6 +1187,67 @@ const ASMA_MIND = {
 /* ============================================================
    MODULES — estrutura completa (13 módulos)
    ============================================================ */
+const ASMA_SCORES = `
+<h3>Reversibilidade na espirometria</h3>
+<div class="note key"><div class="nh">🔑 Critério (adulto)</div>Resposta significativa ao broncodilatador (favorece asma) = aumento do <b>VEF₁ ≥ 12% E ≥ 200 mL</b>. Em crianças: ↑ VEF₁ &gt; 12% do previsto.</div>
+<div class="svg-fig">
+<svg viewBox="0 0 460 120" xmlns="http://www.w3.org/2000/svg">
+  <text x="20" y="24" font-size="12" font-weight="700" fill="var(--txt-1)">Variação do VEF₁ pós-broncodilatador</text>
+  <rect x="20" y="44" width="420" height="20" rx="10" fill="var(--bg-3)"/>
+  <rect x="20" y="44" width="160" height="20" rx="10" fill="var(--bad)" opacity=".5"/>
+  <rect x="180" y="44" width="260" height="20" rx="10" fill="var(--ok)" opacity=".6"/>
+  <line x1="180" y1="36" x2="180" y2="76" stroke="var(--brand)" stroke-width="2.5"/>
+  <text x="180" y="92" text-anchor="middle" font-size="11" font-weight="800" fill="var(--brand)">≥12% e ≥200 mL</text>
+  <text x="90" y="92" text-anchor="middle" font-size="10" fill="var(--bad)">não reversível</text>
+  <text x="320" y="92" text-anchor="middle" font-size="10" fill="var(--ok)">reversível → asma</text>
+</svg>
+<div class="cap">À esquerda do limiar = sem reversibilidade significativa; à direita = reversibilidade que favorece asma.</div>
+</div>
+
+<h3>Controle da asma (GINA) — DDAL</h3>
+<p>Avalie as <b>últimas 4 semanas</b> (cada "sim" pontua):</p>
+<table class="t"><thead><tr><th>Pergunta</th><th>Sim/Não</th></tr></thead><tbody>
+<tr><td><b>D</b>iurno: sintomas &gt; 2x/semana</td><td>□</td></tr>
+<tr><td><b>D</b>espertar noturno pela asma</td><td>□</td></tr>
+<tr><td><b>A</b>lívio (SABA/CI-formo) &gt; 2x/semana</td><td>□</td></tr>
+<tr><td><b>L</b>imitação de atividade</td><td>□</td></tr>
+</tbody></table>
+<div class="svg-fig">
+<svg viewBox="0 0 420 130" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="90" cy="55" r="30" fill="var(--ok)"/><text x="90" y="60" text-anchor="middle" font-size="20" font-weight="900" fill="#06310f">0</text><text x="90" y="108" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ok)">Controlada</text>
+  <circle cx="210" cy="55" r="30" fill="var(--warn)"/><text x="210" y="60" text-anchor="middle" font-size="16" font-weight="900" fill="#3a2600">1–2</text><text x="210" y="108" text-anchor="middle" font-size="11" font-weight="700" fill="var(--warn)">Parcial</text>
+  <circle cx="330" cy="55" r="30" fill="var(--bad)"/><text x="330" y="60" text-anchor="middle" font-size="16" font-weight="900" fill="#3a0000">3–4</text><text x="330" y="108" text-anchor="middle" font-size="11" font-weight="700" fill="var(--bad)">Não controlada</text>
+</svg>
+<div class="cap">Some os "sim": 0 = controlada · 1–2 = parcialmente controlada · 3–4 = não controlada.</div>
+</div>
+
+<h3>Gravidade da crise (referência rápida)</h3>
+<table class="t"><thead><tr><th>Sinal</th><th>Grave</th><th>Iminência de PCR</th></tr></thead><tbody>
+<tr><td>Fala</td><td>Palavras</td><td>Não fala</td></tr>
+<tr><td>Consciência</td><td>Agitado</td><td><b>Sonolento/confuso</b></td></tr>
+<tr><td>SatO₂ ar ambiente</td><td>90–95%</td><td>&lt;90%</td></tr>
+<tr><td>PFE</td><td>≤50%</td><td>—</td></tr>
+<tr><td>Ausculta</td><td>Sibilos intensos</td><td><b>Tórax silencioso</b></td></tr>
+<tr><td>PaCO₂</td><td>Baixa (hipocapnia)</td><td><b>Normal/alta = alarme</b></td></tr>
+</tbody></table>
+
+<h3>Índice Preditivo de Asma (API) — &lt; 3 anos com sibilância recorrente</h3>
+<p>API positivo (alto risco de asma) = sibilância de repetição <b>+ 1 critério maior OU 2 menores</b>:</p>
+<table class="t"><thead><tr><th>Critérios maiores</th><th>Critérios menores</th></tr></thead><tbody>
+<tr><td>Asma em pai/mãe</td><td>Rinite alérgica diagnosticada</td></tr>
+<tr><td>Dermatite atópica (eczema)</td><td>Sibilância fora de resfriados</td></tr>
+<tr><td>Sensibilização a aeroalérgeno</td><td>Eosinofilia ≥ 4%</td></tr>
+</tbody></table>
+
+<h3>Fatores de risco para asma fatal / quase fatal</h3>
+<ul>
+<li>Internação ou <b>IOT prévia</b> por asma.</li>
+<li><b>Uso excessivo de SABA</b> (&gt; 1 frasco/mês).</li>
+<li>Uso atual/recente ou suspensão recente de corticoide oral.</li>
+<li>Má adesão e ausência de plano de ação escrito.</li>
+<li>Comorbidade psiquiátrica / problemas psicossociais; alergia alimentar.</li>
+</ul>`;
+
 const ASMA_CONTENT = {
   subtopics:[
     {id:"def",t:"Definição"},{id:"fisio",t:"Fisiopatologia"},{id:"remod",t:"Remodelamento brônquico"},
@@ -1196,6 +1257,7 @@ const ASMA_CONTENT = {
     {id:"ped",t:"Peculiaridades pediátricas"},{id:"prova",t:"Questões clássicas de prova"}
   ],
   teach: ASMA_TEACH + SVG_BRONCO + SVG_TH2 + ASMA_DX + SVG_FLOW + ASMA_GINA + SVG_GINALADDER + ASMA_CRISE + SVG_REDFLAGS,
+  scores: ASMA_SCORES,
   compare: ASMA_COMPARE,
   erros: ASMA_ERROS,
   summary: ASMA_SUMMARY,
@@ -1208,6 +1270,725 @@ const ASMA_CONTENT = {
   vespera: ASMA_SUMMARY,
   checklist:["Sei diagnosticar","Sei tratar","Sei diferenciar","Sei resolver questões","Dominei o tema"]
 };
+
+/* ============================================================
+   DPOC — módulo completo (mesmo padrão da Asma)
+   ============================================================ */
+// ---- SVGs estáticos (inline na aula) ----
+const SVG_DPOC_PHENO = `
+<div class="svg-fig">
+<svg viewBox="0 0 470 220" xmlns="http://www.w3.org/2000/svg">
+  <text x="120" y="20" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--brand-2)">Enfisema · "pink puffer"</text>
+  <text x="355" y="20" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--brand)">Bronquite crônica · "blue bloater"</text>
+  <path d="M120 40 C95 40 70 70 70 120 C70 170 95 195 120 195 C140 195 145 170 145 130 L145 60 C145 46 135 40 120 40Z" fill="none" stroke="var(--coral-500)" stroke-width="3"/>
+  <circle cx="105" cy="95" r="14" fill="none" stroke="var(--coral-400)" stroke-width="2"/>
+  <circle cx="125" cy="120" r="18" fill="none" stroke="var(--coral-400)" stroke-width="2"/>
+  <circle cx="100" cy="150" r="13" fill="none" stroke="var(--coral-400)" stroke-width="2"/>
+  <text x="120" y="212" text-anchor="middle" font-size="9.5" fill="var(--txt-2)">destruição alveolar · hiperinsuflação</text>
+  <path d="M355 40 C330 40 305 70 305 120 C305 170 330 195 355 195 C375 195 380 170 380 130 L380 60 C380 46 370 40 355 40Z" fill="var(--hl-teal)" stroke="var(--teal-500)" stroke-width="3"/>
+  <path d="M345 55 C345 80 360 95 350 120 C342 145 360 165 350 185" fill="none" stroke="var(--teal-500)" stroke-width="3"/>
+  <circle cx="338" cy="100" r="3" fill="var(--teal-500)"/><circle cx="360" cy="130" r="3" fill="var(--teal-500)"/><circle cx="345" cy="160" r="3" fill="var(--teal-500)"/>
+  <text x="355" y="212" text-anchor="middle" font-size="9.5" fill="var(--txt-2)">muco · tosse produtiva · hipoxemia</text>
+</svg>
+<div class="cap">Dois extremos clínicos: o <b>enfisematoso</b> (magro, dispneico, pouco cianótico) e o <b>bronquítico crônico</b> (tosse produtiva, hipoxêmico, edema/cor pulmonale). A maioria dos pacientes mistura os dois.</div>
+</div>`;
+
+const SVG_DPOC_FLOW = `
+<div class="svg-fig">
+<svg viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg">
+  <line x1="50" y1="200" x2="400" y2="200" stroke="var(--txt-3)" stroke-width="1.5"/>
+  <line x1="50" y1="200" x2="50" y2="20" stroke="var(--txt-3)" stroke-width="1.5"/>
+  <text x="225" y="232" text-anchor="middle" font-size="11" fill="var(--txt-2)">Volume</text>
+  <text x="20" y="110" text-anchor="middle" font-size="11" fill="var(--txt-2)" transform="rotate(-90 20 110)">Fluxo</text>
+  <path d="M50,200 L110,40 L400,200" fill="none" stroke="var(--teal-400)" stroke-width="2.5"/>
+  <path d="M50,200 C70,150 90,140 130,150 C220,170 320,195 400,200" fill="none" stroke="var(--coral-500)" stroke-width="2.5"/>
+  <path d="M50,200 C72,142 100,134 142,144 C235,162 325,193 400,200" fill="none" stroke="var(--gold)" stroke-width="2.2" stroke-dasharray="5 4"/>
+  <text x="120" y="35" font-size="10" fill="var(--teal-400)">Normal</text>
+  <text x="150" y="178" font-size="10" fill="var(--coral-500)">DPOC (côncavo)</text>
+  <text x="150" y="120" font-size="10" fill="var(--gold)">Pós-BD: pouca melhora</text>
+</svg>
+<div class="cap">Obstrução com alça côncava igual à asma, porém <b>fixa</b>: pós-broncodilatador a melhora é pequena (VEF₁/CVF permanece &lt; 0,7). Essa <b>irreversibilidade</b> é a marca da DPOC.</div>
+</div>`;
+
+const SVG_DPOC_GOLD = `
+<div class="svg-fig">
+<svg viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg">
+  <text x="210" y="18" text-anchor="middle" font-size="12" font-weight="700" fill="var(--txt-1)">Grupos GOLD (ABE)</text>
+  <line x1="70" y1="200" x2="390" y2="200" stroke="var(--txt-3)" stroke-width="1.5"/>
+  <line x1="70" y1="40" x2="70" y2="200" stroke="var(--txt-3)" stroke-width="1.5"/>
+  <text x="230" y="222" text-anchor="middle" font-size="10" fill="var(--txt-2)">Sintomas → (mMRC ≥2 ou CAT ≥10)</text>
+  <text x="58" y="120" text-anchor="middle" font-size="10" fill="var(--txt-2)" transform="rotate(-90 58 120)">Exacerbações ↑</text>
+  <rect x="72" y="50" width="316" height="60" rx="8" fill="var(--bad)" opacity=".22" stroke="var(--bad)"/>
+  <text x="230" y="86" text-anchor="middle" font-size="22" font-weight="900" fill="var(--bad)">E</text>
+  <text x="230" y="104" text-anchor="middle" font-size="9" fill="var(--txt-2)">≥2 exacerbações OU ≥1 hospitalização</text>
+  <rect x="72" y="120" width="155" height="78" rx="8" fill="var(--ok)" opacity=".18" stroke="var(--ok)"/>
+  <text x="149" y="158" text-anchor="middle" font-size="20" font-weight="900" fill="var(--ok)">A</text>
+  <text x="149" y="176" text-anchor="middle" font-size="9" fill="var(--txt-2)">poucos sintomas</text>
+  <rect x="233" y="120" width="155" height="78" rx="8" fill="var(--warn)" opacity=".18" stroke="var(--warn)"/>
+  <text x="310" y="158" text-anchor="middle" font-size="20" font-weight="900" fill="var(--warn)">B</text>
+  <text x="310" y="176" text-anchor="middle" font-size="9" fill="var(--txt-2)">muitos sintomas</text>
+</svg>
+<div class="cap">O grupo define o tratamento inicial: <b>A</b> = 1 broncodilatador; <b>B</b> = LABA+LAMA; <b>E</b> (exacerbador) = LABA+LAMA (± CI se eosinófilos ≥300). O grau espirométrico (GOLD 1–4) é separado, pelo VEF₁.</div>
+</div>`;
+
+const SVG_DPOC_O2 = `
+<div class="svg-fig">
+<svg viewBox="0 0 440 130" xmlns="http://www.w3.org/2000/svg">
+  <text x="20" y="22" font-size="12" font-weight="700" fill="var(--txt-1)">Alvo de SatO₂ na exacerbação do DPOC</text>
+  <rect x="20" y="44" width="400" height="22" rx="11" fill="var(--bg-3)"/>
+  <rect x="20" y="44" width="150" height="22" rx="11" fill="var(--bad)" opacity=".45"/>
+  <rect x="170" y="44" width="80" height="22" rx="0" fill="var(--ok)" opacity=".65"/>
+  <rect x="250" y="44" width="170" height="22" rx="11" fill="var(--warn)" opacity=".45"/>
+  <text x="95" y="92" text-anchor="middle" font-size="10" fill="var(--bad)">&lt;88% hipoxemia</text>
+  <text x="210" y="92" text-anchor="middle" font-size="11" font-weight="800" fill="var(--ok)">88–92% alvo</text>
+  <text x="335" y="92" text-anchor="middle" font-size="10" fill="var(--warn)">&gt;92% risco de narcose por CO₂</text>
+  <text x="210" y="112" text-anchor="middle" font-size="9.5" fill="var(--txt-2)">no retentor crônico, hiperoxigenar pode agravar a hipercapnia</text>
+</svg>
+<div class="cap">Diferente da asma (alvo 93–95%): no DPOC retentor o alvo é <b>88–92%</b> para não suprimir o drive respiratório e piorar a retenção de CO₂.</div>
+</div>`;
+
+// ---- AULA (seções viram sub-abas pelo <h3>) ----
+const DPOC_TEACH = `
+<p class="lead">A DPOC é a doença do <b>fumante de longa data</b>: uma limitação ao fluxo aéreo <b>persistente e pouco reversível</b>, causada por inflamação crônica das vias aéreas e destruição do parênquima. Guarde o contraste com a asma: aqui a obstrução é <b>fixa</b>, o paciente costuma ter <b>&gt; 40 anos</b> e história tabágica importante.</p>
+
+<h3>1. O que é a DPOC</h3>
+<p>DPOC (doença pulmonar obstrutiva crônica) é uma doença <b>prevenível e tratável</b>, caracterizada por sintomas respiratórios persistentes (dispneia, tosse, expectoração) e <b>limitação fixa ao fluxo aéreo</b>. Resulta da exposição a partículas/gases nocivos — sobretudo a <b>fumaça do cigarro</b>.</p>
+<div class="note key"><div class="nh">🔑 Conceito-chave</div>DPOC = obstrução <b>fixa</b> (pouco reversível) em <b>fumante &gt; 40 anos</b>. Asma = obstrução <b>variável e reversível</b> em jovem/atópico. Diferenciar as duas é a pegadinha nº 1.</div>
+
+<h3>2. Fisiopatologia — bronquite crônica e enfisema</h3>
+<p>Dois processos coexistem em proporções variáveis:</p>
+<ul>
+<li><b>Bronquite crônica</b> (definição clínica): tosse produtiva por <b>≥ 3 meses/ano em 2 anos consecutivos</b>. Há hipersecreção de muco e inflamação das vias aéreas (predomínio <b>neutrofílico</b>).</li>
+<li><b>Enfisema</b> (definição anatômica): destruição das paredes alveolares com alargamento dos espaços aéreos distais → perda de retração elástica e <b>colapso expiratório</b> das vias aéreas.</li>
+</ul>
+<p>O resultado comum é <b>aprisionamento aéreo</b> (air trapping) e <b>hiperinsuflação</b>, que explicam a dispneia. A inflamação é <b>neutrofílica</b> (≠ eosinofílica da asma) e responde mal a corticoide isolado.</p>
+` + SVG_DPOC_PHENO + `
+<div class="note tip"><div class="nh">💡 Deficiência de alfa-1-antitripsina</div>Pense nela no enfisema <b>precoce</b> (&lt; 45 anos), em <b>não fumante</b>, com predomínio em <b>bases</b> e/ou doença hepática associada. É a causa genética clássica de DPOC.</div>
+
+<h3>3. Fatores de risco</h3>
+<ul>
+<li><b>Tabagismo</b> — principal fator (carga &gt; 10–20 maços-ano). Inclui tabagismo passivo.</li>
+<li>Exposição ocupacional a poeiras/químicos; <b>fumaça de biomassa</b> (fogão a lenha) — importante no Brasil, sobretudo em mulheres.</li>
+<li>Poluição, infecções respiratórias na infância, baixo peso ao nascer.</li>
+<li><b>Deficiência de alfa-1-antitripsina</b> (genética).</li>
+</ul>
+
+<h3>4. Quadro clínico</h3>
+<p>Tríade: <b>dispneia progressiva</b> (aos esforços, depois em repouso), <b>tosse crônica</b> e <b>expectoração</b>. Achados de exame: tempo expiratório prolongado, sibilos/roncos, tórax em tonel, hipofonese de bulhas, uso de musculatura acessória. Na doença avançada: cianose, cor pulmonale (edema, turgência jugular), perda de peso.</p>
+<div class="note warn"><div class="nh">⚠️ Sinais de alerta para outro diagnóstico</div>Hemoptise, baqueteamento digital ou perda ponderal acentuada pedem investigação de <b>neoplasia</b> (o tabagista tem alto risco). Estertores e B3 sugerem <b>ICC</b>.</div>
+
+<h3>5. Diagnóstico — espirometria</h3>
+<p>O diagnóstico <b>exige espirometria</b>. O critério obrigatório:</p>
+<div class="note key"><div class="nh">🔑 Critério diagnóstico</div><b>VEF₁/CVF &lt; 0,70 PÓS-broncodilatador</b> confirma limitação fixa ao fluxo aéreo. Sem espirometria não se fecha DPOC — clínica isolada não basta.</div>
+` + SVG_DPOC_FLOW + `
+<p>A radiografia mostra hiperinsuflação (retificação de cúpulas, aumento do espaço retroesternal); a TC quantifica enfisema. Considere dosar <b>alfa-1-antitripsina</b> nos casos atípicos.</p>
+
+<h3>6. Classificação GOLD</h3>
+<p>Após confirmar a obstrução, classifica-se em <b>duas dimensões</b>:</p>
+<ul>
+<li><b>Grau espirométrico (GOLD 1–4)</b> pelo <b>VEF₁ % do previsto</b>: 1 ≥80% · 2 50–79% · 3 30–49% · 4 &lt;30%.</li>
+<li><b>Grupo (A / B / E)</b> pela carga de <b>sintomas</b> (mMRC ou CAT) e <b>histórico de exacerbações</b>.</li>
+</ul>
+` + SVG_DPOC_GOLD + `
+<div class="note mne"><div class="nh">💡 Macete dos grupos</div><b>A</b> = poucos sintomas, poucas exacerbações · <b>B</b> = muitos sintomas, poucas exacerbações · <b>E</b> = <b>E</b>xacerbador (≥2/ano ou ≥1 internação), independentemente dos sintomas.</div>
+
+<h3>7. Tratamento de manutenção</h3>
+<p>Base não-farmacológica (muda mortalidade): <b>cessação do tabagismo</b>, <b>vacinação</b> (influenza, pneumococo, COVID), <b>reabilitação pulmonar</b> e atividade física.</p>
+<p>Farmacológico por grupo:</p>
+<table class="t"><thead><tr><th>Grupo</th><th>Tratamento inicial</th></tr></thead><tbody>
+<tr><td>A</td><td>Um broncodilatador (LABA ou LAMA)</td></tr>
+<tr><td>B</td><td><b>LABA + LAMA</b></td></tr>
+<tr><td>E</td><td><b>LABA + LAMA</b> (acrescentar <b>CI</b> se eosinófilos ≥ 300/µL ou asma associada)</td></tr>
+</tbody></table>
+<div class="note trap"><div class="nh">🚫 Pegadinha — CI no DPOC</div>Ao contrário da asma, na DPOC o <b>corticoide inalatório NÃO é a base</b>. É um <b>adicional</b> no exacerbador com <b>eosinofilia</b>. CI isolado não se usa, e seu uso crônico aumenta risco de <b>pneumonia</b>.</div>
+<div class="note mne"><div class="nh">💡 Classes</div><b>LAMA</b> = antimuscarínico longo (tiotrópio, umeclidínio). <b>LABA</b> = β₂ longa (formoterol, salmeterol, indacaterol). <b>Roflumilaste</b> (inibidor de PDE-4) e <b>azitromicina</b> crônica: opções no exacerbador grave com bronquite crônica.</div>
+
+<h3>8. Exacerbações</h3>
+<p>Exacerbação = piora aguda dos sintomas além da variação habitual, exigindo mudança de tratamento. Geralmente desencadeada por <b>infecção</b> (viral/bacteriana) ou poluição. Avalie os <b>sintomas cardinais de Anthonisen</b>: ↑ dispneia, ↑ volume do escarro, ↑ purulência.</p>
+` + SVG_DPOC_O2 + `
+<p>Tratamento da exacerbação:</p>
+<ol>
+<li><b>Broncodilatador de curta</b> (SABA ± SAMA/ipratrópio) em alta dose.</li>
+<li><b>Corticoide sistêmico</b> — prednisona <b>40 mg/dia por 5 dias</b> (reduz recaída e tempo de internação).</li>
+<li><b>Antibiótico</b> se purulência do escarro (≥ 2 sintomas cardinais incluindo purulência, ou necessidade de ventilação). Cobrir germes comuns (H. influenzae, S. pneumoniae, M. catarrhalis).</li>
+<li><b>O₂ controlado</b> com alvo de SatO₂ <b>88–92%</b>.</li>
+<li><b>VNI</b> se acidose respiratória (<b>pH &lt; 7,35 com PaCO₂ &gt; 45</b>) — reduz mortalidade e necessidade de intubação.</li>
+</ol>
+
+<h3>9. Oxigenoterapia domiciliar e VNI</h3>
+<div class="note key"><div class="nh">🔑 Oxigenoterapia domiciliar prolongada (ODP)</div>Única medida (junto à cessação do tabaco) que <b>aumenta sobrevida</b> na DPOC hipoxêmica. Indicada quando, estável: <b>PaO₂ ≤ 55 mmHg ou SatO₂ ≤ 88%</b>; ou <b>PaO₂ 56–59 mmHg</b> com <b>cor pulmonale</b>, policitemia (Ht &gt; 55%) ou hipertensão pulmonar. Usar <b>≥ 15 h/dia</b>.</div>
+<p>A VNI domiciliar pode beneficiar selecionados com hipercapnia persistente. Cirurgia (bulectomia, redução de volume) e transplante são opções em casos avançados específicos.</p>
+`;
+
+// ---- ESCORES / CRITÉRIOS ----
+const DPOC_SCORES = `
+<h3>Critério diagnóstico (espirometria)</h3>
+<div class="note key"><div class="nh">🔑 Obrigatório</div><b>VEF₁/CVF &lt; 0,70 pós-broncodilatador.</b> Sem isso não há DPOC, por mais sugestiva que seja a clínica.</div>
+
+<h3>Grau espirométrico GOLD (pelo VEF₁ % previsto)</h3>
+<table class="t"><thead><tr><th>Grau</th><th>VEF₁ (% do previsto)</th><th>Gravidade</th></tr></thead><tbody>
+<tr><td>GOLD 1</td><td>≥ 80%</td><td>Leve</td></tr>
+<tr><td>GOLD 2</td><td>50–79%</td><td>Moderada</td></tr>
+<tr><td>GOLD 3</td><td>30–49%</td><td>Grave</td></tr>
+<tr><td>GOLD 4</td><td>&lt; 30%</td><td>Muito grave</td></tr>
+</tbody></table>
+
+<h3>Grupos GOLD (ABE) — definem o tratamento</h3>
+` + SVG_DPOC_GOLD + `
+<table class="t"><thead><tr><th>Grupo</th><th>Exacerbações/ano</th><th>Sintomas</th></tr></thead><tbody>
+<tr><td><b>A</b></td><td>0–1 (sem internação)</td><td>mMRC 0–1 / CAT &lt; 10</td></tr>
+<tr><td><b>B</b></td><td>0–1 (sem internação)</td><td>mMRC ≥ 2 / CAT ≥ 10</td></tr>
+<tr><td><b>E</b></td><td>≥ 2 OU ≥ 1 com internação</td><td>qualquer</td></tr>
+</tbody></table>
+
+<h3>Escala de dispneia mMRC</h3>
+<table class="t"><thead><tr><th>Grau</th><th>Dispneia</th></tr></thead><tbody>
+<tr><td>0</td><td>Só com exercício intenso</td></tr>
+<tr><td>1</td><td>Ao apressar o passo / subir ladeira leve</td></tr>
+<tr><td>2</td><td>Anda mais devagar que pessoas da mesma idade / para ao caminhar no plano</td></tr>
+<tr><td>3</td><td>Para após ~100 m ou poucos minutos no plano</td></tr>
+<tr><td>4</td><td>Dispneia ao vestir-se / não sai de casa</td></tr>
+</tbody></table>
+
+<h3>Critérios de Anthonisen (exacerbação)</h3>
+<p>Sintomas cardinais: <b>↑ dispneia · ↑ volume do escarro · ↑ purulência</b>.</p>
+<table class="t"><thead><tr><th>Tipo</th><th>Critérios</th><th>Antibiótico</th></tr></thead><tbody>
+<tr><td>I</td><td>Os 3 sintomas</td><td>Sim</td></tr>
+<tr><td>II</td><td>2 dos 3</td><td>Sim (se purulência)</td></tr>
+<tr><td>III</td><td>1 + (febre, IVAS recente, ↑FC/FR, sibilos)</td><td>Geralmente não</td></tr>
+</tbody></table>
+
+<h3>Oxigenoterapia domiciliar prolongada (ODP)</h3>
+<div class="note tip"><div class="nh">Indicações (paciente estável)</div>
+<ul style="margin:6px 0 0">
+<li><b>PaO₂ ≤ 55 mmHg</b> ou <b>SatO₂ ≤ 88%</b>; ou</li>
+<li><b>PaO₂ 56–59 mmHg</b> com cor pulmonale, hipertensão pulmonar ou policitemia (Ht &gt; 55%).</li>
+<li>Uso <b>≥ 15 h/dia</b> — aumenta sobrevida.</li>
+</ul></div>
+
+<h3>Índice BODE (prognóstico)</h3>
+<p>Pontua <b>B</b>MI (IMC), <b>O</b>bstrução (VEF₁), <b>D</b>ispneia (mMRC) e capacidade de <b>E</b>xercício (teste de caminhada de 6 min). Quanto maior, pior a sobrevida.</p>`;
+
+// ---- COMPARATIVA / DDx ----
+const DPOC_COMPARE = `
+<h3>Asma x DPOC</h3>
+<table class="t"><thead><tr><th>Característica</th><th>DPOC</th><th>Asma</th></tr></thead><tbody>
+<tr><td>Idade de início</td><td><b>&gt; 40 anos</b></td><td>Infância/jovem</td></tr>
+<tr><td>Tabagismo</td><td>Quase sempre</td><td>Variável</td></tr>
+<tr><td>Sintomas</td><td>Progressivos, persistentes</td><td>Variáveis, episódicos, noturnos</td></tr>
+<tr><td>Obstrução</td><td><b>Fixa / pouco reversível</b></td><td>Reversível</td></tr>
+<tr><td>Inflamação</td><td>Neutrofílica</td><td>Eosinofílica</td></tr>
+<tr><td>Resposta a CI</td><td>Parcial (só eosinofílico)</td><td>Excelente — base do tratamento</td></tr>
+</tbody></table>
+<h4>Diagnósticos diferenciais</h4>
+<table class="t"><thead><tr><th>Pista</th><th>Pensar em</th></tr></thead><tbody>
+<tr><td>Ortopneia, B3, estertores, edema, BNP alto</td><td>Insuficiência cardíaca</td></tr>
+<tr><td>Tosse com muito escarro purulento, infecções de repetição</td><td>Bronquiectasias</td></tr>
+<tr><td>Sequela de TB, opacidades apicais</td><td>DPOC pós-tuberculose</td></tr>
+<tr><td>Obstrução reversível, atopia, jovem</td><td>Asma (ou sobreposição asma-DPOC)</td></tr>
+</tbody></table>`;
+
+// ---- ERROS ----
+const DPOC_ERROS = `
+<h3>❌ Erros mais comuns</h3>
+<ul>
+<li><b>Diagnosticar DPOC sem espirometria.</b> O critério é VEF₁/CVF &lt; 0,7 pós-BD — clínica não basta.</li>
+<li><b>Usar CI como base / CI isolado.</b> No DPOC o CI é adicional (exacerbador eosinofílico) e aumenta risco de pneumonia.</li>
+<li><b>Hiperoxigenar o retentor.</b> Alvo 88–92%; O₂ excessivo agrava a hipercapnia.</li>
+<li><b>Esquecer o corticoide sistêmico</b> (prednisona 40 mg/5 dias) na exacerbação.</li>
+<li><b>Dar antibiótico a toda exacerbação.</b> Indicado pela <b>purulência</b> (Anthonisen) ou necessidade de ventilação.</li>
+<li><b>Não indicar VNI</b> na exacerbação com acidose (pH &lt; 7,35 e PaCO₂ &gt; 45).</li>
+<li><b>Confundir grau (GOLD 1–4, espirometria) com grupo (A/B/E, sintomas e exacerbações).</b></li>
+</ul>`;
+
+// ---- RESUMO DE VÉSPERA ----
+const DPOC_SUMMARY = `
+<h3>⚡ Resumo Ultra-Rápido (revisão de véspera)</h3>
+<div class="note key"><div class="nh">🚬 O essencial</div>
+<ul style="margin:6px 0 0">
+<li>DPOC = obstrução <b>fixa</b> em fumante &gt; 40a. Dx: <b>VEF₁/CVF &lt; 0,7 pós-BD</b>.</li>
+<li>Classifique em <b>grau (GOLD 1–4 pelo VEF₁)</b> e <b>grupo (A/B/E)</b>.</li>
+<li>Tratamento: <b>A</b> = 1 broncodilatador; <b>B</b> e <b>E</b> = <b>LABA+LAMA</b>; CI só no exacerbador com <b>eosinófilos ≥300</b>.</li>
+<li>Muda mortalidade: <b>parar de fumar</b> e <b>O₂ domiciliar</b> (PaO₂ ≤55 / SatO₂ ≤88%).</li>
+<li>Exacerbação: broncodilatador + <b>prednisona 40 mg 5 dias</b> + ATB se purulência + O₂ <b>88–92%</b> + <b>VNI se pH&lt;7,35</b>.</li>
+<li>CI isolado é erro; CI crônico aumenta <b>pneumonia</b>.</li>
+</ul></div>`;
+
+// ---- QUESTÕES ----
+const DPOC_Q = [
+{stem:"Homem de 62 anos, tabagista 40 maços-ano, com dispneia progressiva e tosse produtiva. Espirometria pós-broncodilatador: VEF₁/CVF 0,58; VEF₁ 62% do previsto. Qual a conduta diagnóstica correta?",
+opts:["Excluir DPOC porque o VEF₁ está acima de 50%","Confirmar DPOC: VEF₁/CVF &lt; 0,7 pós-BD é diagnóstico","Repetir só se houver reversibilidade","Diagnosticar asma pela obstrução","Solicitar broncoprovocação para confirmar"],
+correct:1, expl:"O diagnóstico de DPOC é <b>espirométrico</b>: <b>VEF₁/CVF &lt; 0,70 pós-broncodilatador</b>. Confirmada a obstrução fixa, classifica-se o grau pelo VEF₁ (aqui 62% = GOLD 2)."},
+{stem:"Sobre a classificação GOLD atual, qual afirmação é correta?",
+opts:["O grupo é definido pelo VEF₁","GOLD 1–4 reflete sintomas","O grupo E identifica o exacerbador (≥2 exacerbações/ano ou ≥1 internação)","Grupo C ainda existe e indica CI isolado","Os grupos não influenciam o tratamento"],
+correct:2, expl:"O <b>grau (GOLD 1–4)</b> vem do <b>VEF₁</b>; o <b>grupo (A/B/E)</b> vem de sintomas (mMRC/CAT) e exacerbações. O <b>E</b> = exacerbador (≥2/ano ou ≥1 hospitalização) e guia o tratamento."},
+{stem:"Paciente DPOC grupo B (muitos sintomas, sem exacerbações). Qual o tratamento inicial mais adequado?",
+opts:["Corticoide inalatório isolado","SABA conforme necessário apenas","LABA + LAMA","Corticoide oral contínuo","Antibiótico profilático"],
+correct:2, expl:"Grupo <b>B</b> = <b>LABA + LAMA</b>. CI isolado não se usa na DPOC; corticoide oral contínuo e ATB profilático não são padrão inicial."},
+{stem:"Em qual situação a associação de corticoide inalatório (CI) é mais indicada na DPOC?",
+opts:["Em todos os pacientes, como na asma","No exacerbador com eosinófilos ≥ 300/µL ou asma associada","Apenas no grupo A","Quando o VEF₁ é normal","Sempre como monoterapia"],
+correct:1, expl:"Na DPOC o CI é <b>adicional</b>, sobretudo no <b>exacerbador com eosinofilia (≥300/µL)</b> ou sobreposição com asma. Uso crônico eleva risco de pneumonia."},
+{stem:"Exacerbação de DPOC com pH 7,30 e PaCO₂ 58 mmHg, em uso de O₂. Qual a intervenção que mais reduz mortalidade e necessidade de intubação?",
+opts:["Aumentar o O₂ para SatO₂ 100%","Ventilação não invasiva (VNI)","Furosemida em dose alta","Sedação para conforto","Antibiótico isolado"],
+correct:1, expl:"Acidose respiratória (<b>pH &lt; 7,35 e PaCO₂ &gt; 45</b>) na exacerbação é indicação clássica de <b>VNI</b>, que reduz mortalidade e intubação. Hiperoxigenar piora a hipercapnia."},
+{stem:"Sobre a oxigenoterapia domiciliar prolongada (ODP) na DPOC, está correto:",
+opts:["Indicada para todo paciente com dispneia","Não altera sobrevida","Indicada se PaO₂ ≤ 55 mmHg ou SatO₂ ≤ 88% em repouso/estável","Deve ser usada por no máximo 4 h/dia","Substitui a cessação do tabagismo"],
+correct:2, expl:"A ODP aumenta sobrevida quando, estável: <b>PaO₂ ≤ 55 / SatO₂ ≤ 88%</b> (ou PaO₂ 56–59 com cor pulmonale/policitemia), usada <b>≥ 15 h/dia</b>."},
+{stem:"Qual o alvo de saturação de O₂ recomendado na exacerbação do DPOC retentor?",
+opts:["100%","96–100%","93–95%","88–92%","Não há alvo"],
+correct:3, expl:"No DPOC retentor o alvo é <b>88–92%</b>, evitando narcose por CO₂. (Na asma o alvo é 93–95%.)"},
+{stem:"Enfisema em paciente de 40 anos, não tabagista, com predomínio basal e alteração hepática. Qual investigação é mandatória?",
+opts:["Dosagem de alfa-1-antitripsina","Broncoprovocação","Cintilografia óssea","Teste do suor para fibrose cística apenas","Dosagem de IgE total"],
+correct:0, expl:"Enfisema <b>precoce</b>, em <b>não fumante</b>, basal e com hepatopatia sugere <b>deficiência de alfa-1-antitripsina</b> — deve ser dosada."}
+];
+
+// ---- FLASHCARDS ----
+const DPOC_FC = [
+{type:"basic",front:"Critério diagnóstico de DPOC",back:"<b>VEF₁/CVF &lt; 0,70 pós-broncodilatador</b> (obstrução fixa). Exige espirometria."},
+{type:"basic",front:"Grau GOLD pelo VEF₁ (% previsto)",back:"1 ≥80% · 2 50–79% · 3 30–49% · 4 &lt;30%."},
+{type:"basic",front:"Grupos GOLD A/B/E",back:"A = poucos sintomas/poucas exacerbações · B = muitos sintomas/poucas exacerbações · <b>E</b> = exacerbador (≥2/ano ou ≥1 internação)."},
+{type:"basic",front:"Tratamento inicial por grupo",back:"A = 1 broncodilatador · B = LABA+LAMA · E = LABA+LAMA (± CI se eos ≥300)."},
+{type:"truefalse",front:"V ou F: corticoide inalatório isolado é a base do tratamento da DPOC.",back:"<b>FALSO.</b> CI é adicional (exacerbador eosinofílico). Isolado não se usa e eleva risco de pneumonia."},
+{type:"basic",front:"Alvo de SatO₂ na exacerbação do DPOC",color:"red",back:"<b>88–92%</b> (evitar narcose por CO₂). Diferente da asma (93–95%)."},
+{type:"basic",front:"Corticoide na exacerbação de DPOC",back:"Prednisona <b>40 mg/dia por 5 dias</b>."},
+{type:"basic",front:"Quando dar antibiótico na exacerbação?",back:"Pela <b>purulência</b> do escarro (Anthonisen tipo I/II) ou necessidade de ventilação."},
+{type:"cloze",front:"VNI na exacerbação se acidose: pH &lt; {{7,35}} com PaCO₂ &gt; 45.",back:"pH &lt; 7,35 e PaCO₂ &gt; 45 mmHg → VNI."},
+{type:"basic",front:"Critério de O₂ domiciliar prolongado",back:"PaO₂ ≤ 55 ou SatO₂ ≤ 88%; ou PaO₂ 56–59 com cor pulmonale/policitemia. Usar ≥15 h/dia. Aumenta sobrevida."},
+{type:"basic",front:"Sintomas cardinais de Anthonisen",back:"↑ dispneia · ↑ volume do escarro · ↑ purulência."},
+{type:"basic",front:"Medidas que aumentam sobrevida na DPOC",back:"<b>Cessação do tabagismo</b> e <b>oxigenoterapia domiciliar</b> (no hipoxêmico)."}
+];
+
+// ---- CASOS CLÍNICOS ----
+const DPOC_CASES = [
+{title:"Caso 1 — Dispneia no tabagista",
+hist:"Homem, 64 anos, 45 maços-ano, queixa-se de dispneia aos esforços há 2 anos, com tosse matinal produtiva. Refere 1 ida ao PA no último ano por 'piora do chiado'.",
+exam:"Tórax em tonel, tempo expiratório prolongado, roncos esparsos. SatO₂ 93% em ar ambiente. mMRC 2.",
+exams:"Espirometria pós-BD: VEF₁/CVF 0,60; VEF₁ 64% do previsto. RX: hiperinsuflação.",
+reason:"VEF₁/CVF &lt; 0,7 pós-BD confirma DPOC. VEF₁ 64% = GOLD 2. Sintomas mMRC 2 com 0–1 exacerbação sem internação = grupo B.",
+dx:"DPOC GOLD 2, grupo B.",
+tto:"Cessação do tabagismo (prioridade), vacinas, reabilitação pulmonar e atividade física. Broncodilatador duplo <b>LABA + LAMA</b>. Reavaliar sintomas e exacerbações."},
+{title:"Caso 2 — Exacerbação na emergência",
+hist:"Mulher, 70 anos, DPOC conhecida, com piora da dispneia, aumento e purulência do escarro há 3 dias após quadro gripal.",
+exam:"Taquipneica, uso de musculatura acessória, sibilos difusos. SatO₂ 84% em ar ambiente; sonolência leve.",
+exams:"Gasometria: pH 7,30 / PaCO₂ 60 / PaO₂ 50 / HCO₃ 30 — acidose respiratória com hipercapnia.",
+reason:"Exacerbação com os 3 sintomas cardinais (Anthonisen I) e acidose respiratória. Hipoxemia exige O₂ controlado (alvo 88–92%); acidose (pH&lt;7,35, PaCO₂&gt;45) indica VNI.",
+dx:"Exacerbação grave de DPOC com acidose respiratória.",
+tto:"O₂ controlado alvo 88–92%; broncodilatador de curta (SABA + ipratrópio) repetido; <b>prednisona 40 mg/dia por 5 dias</b>; <b>antibiótico</b> (purulência); <b>VNI</b> pela acidose; monitorar e considerar IOT se falha/rebaixamento."}
+];
+
+// ---- FLUXOGRAMAS ----
+const DPOC_FLOW_DX = {
+  start:"a",
+  nodes:{
+    a:{t:"Fumante &gt; 40 anos com dispneia progressiva, tosse e/ou expectoração",type:"q",opts:[{l:"Investigar",to:"b"}]},
+    b:{t:"Espirometria PÓS-broncodilatador",type:"q",opts:[{l:"VEF₁/CVF &lt; 0,70",to:"c"},{l:"VEF₁/CVF ≥ 0,70",to:"out"}]},
+    c:{t:"✓ DPOC confirmada — classificar GRAU (VEF₁) e GRUPO (sintomas + exacerbações)",type:"q",opts:[{l:"Definir tratamento",to:"d"}]},
+    d:{t:"Grupo A → 1 broncodilatador · Grupo B/E → LABA+LAMA (± CI se eosinófilos ≥300)",type:"end"},
+    out:{t:"Sem obstrução fixa — reconsiderar asma (se reversível), ICC, bronquiectasia; investigar conforme a clínica",type:"end"}
+  }
+};
+const DPOC_FLOW_COND = {
+  start:"a",
+  nodes:{
+    a:{t:"Exacerbação de DPOC — avaliar gravidade e gasometria",type:"q",opts:[{l:"Iniciar manejo",to:"b"}]},
+    b:{t:"Broncodilatador de curta (SABA + ipratrópio) + corticoide sistêmico (prednisona 40 mg/5 dias) + O₂ alvo 88–92%",type:"q",opts:[{l:"Escarro purulento / ≥2 sintomas cardinais",to:"atb"},{l:"Sem purulência",to:"gaso"}]},
+    atb:{t:"Acrescentar ANTIBIÓTICO (Anthonisen) → seguir avaliando gasometria",type:"q",opts:[{l:"Avaliar gasometria",to:"gaso"}]},
+    gaso:{t:"Gasometria: acidose respiratória (pH &lt; 7,35 e PaCO₂ &gt; 45)?",type:"q",opts:[{l:"Sim",to:"vni"},{l:"Não",to:"obs"}]},
+    vni:{t:"⚠ Iniciar VNI. Se rebaixamento/falência/contraindicação → IOT e VM",type:"end"},
+    obs:{t:"Manter tratamento, observar resposta, planejar otimização da manutenção e alta com plano",type:"end"}
+  }
+};
+// ---- MAPA MENTAL ----
+const DPOC_MIND = {
+  center:"DPOC",
+  branches:[
+    {h:"Fisiopatologia",ic:"🔬",leaves:["Inflamação <b>neutrofílica</b>","Bronquite crônica + enfisema","Hiperinsuflação / air trapping","Alfa-1-antitripsina (precoce/não fumante)"]},
+    {h:"Diagnóstico",ic:"🩺",leaves:["<b>VEF₁/CVF &lt; 0,7 pós-BD</b>","Obstrução fixa","Fumante &gt; 40a","RX: hiperinsuflação"]},
+    {h:"Classificação",ic:"📊",leaves:["<b>Grau:</b> GOLD 1–4 (VEF₁)","<b>Grupo:</b> A / B / E","E = exacerbador","mMRC / CAT"]},
+    {h:"Tratamento",ic:"💊",leaves:["A: 1 broncodilatador","B/E: <b>LABA+LAMA</b>","CI só se eos ≥300","Parar de fumar + vacinas + reabilitação"]},
+    {h:"Exacerbação",ic:"🚨",leaves:["Broncodilatador + <b>prednisona 40mg/5d</b>","ATB se purulência (Anthonisen)","O₂ alvo <b>88–92%</b>","<b>VNI se pH&lt;7,35</b>"]}
+  ]
+};
+
+const DPOC_CONTENT = {
+  subtopics:[
+    {id:"def",t:"Definição"},{id:"fisio",t:"Fisiopatologia"},{id:"enf",t:"Enfisema x bronquite"},
+    {id:"risco",t:"Fatores de risco"},{id:"clin",t:"Quadro clínico"},{id:"dx",t:"Diagnóstico/espirometria"},
+    {id:"gold",t:"Classificação GOLD"},{id:"trat",t:"Tratamento de manutenção"},{id:"exac",t:"Exacerbações"},
+    {id:"o2",t:"Oxigenoterapia e VNI"},{id:"prova",t:"Pegadinhas de prova"}
+  ],
+  teach: DPOC_TEACH,
+  scores: DPOC_SCORES,
+  compare: DPOC_COMPARE,
+  erros: DPOC_ERROS,
+  summary: DPOC_SUMMARY,
+  questions: DPOC_Q,
+  flashcards: DPOC_FC,
+  cases: DPOC_CASES,
+  flowDx: DPOC_FLOW_DX,
+  flowCond: DPOC_FLOW_COND,
+  mind: DPOC_MIND,
+  vespera: DPOC_SUMMARY,
+  checklist:["Sei diagnosticar","Sei classificar (GOLD/ABE)","Sei tratar","Sei manejar exacerbação","Dominei o tema"]
+};
+
+
+/* ============================================================
+   TEP — Tromboembolismo Pulmonar (módulo completo)
+   ============================================================ */
+// ---- SVGs estáticos (inline na aula) ----
+const SVG_TEP_VIRCHOW = `
+<div class="svg-fig">
+<svg viewBox="0 0 470 220" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="120,40 50,170 190,170" fill="var(--hl-teal)" stroke="var(--teal-500)" stroke-width="2.5"/>
+  <text x="120" y="34" text-anchor="middle" font-size="11" font-weight="800" fill="var(--brand)">Tríade de Virchow</text>
+  <text x="120" y="92" text-anchor="middle" font-size="10" fill="var(--txt-1)">Estase venosa</text>
+  <text x="62" y="186" font-size="10" fill="var(--txt-1)">Lesão endotelial</text>
+  <text x="150" y="186" font-size="10" fill="var(--txt-1)">Hipercoagulab.</text>
+  <text x="230" y="110" font-size="20" fill="var(--coral-500)">→</text>
+  <text x="300" y="50" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--coral-500)">TVP (perna)</text>
+  <path d="M300 58 L300 150" stroke="var(--coral-400)" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="300" cy="95" r="7" fill="var(--bad)"/>
+  <text x="318" y="100" font-size="9" fill="var(--bad)">trombo</text>
+  <text x="350" y="110" font-size="20" fill="var(--coral-500)">→</text>
+  <path d="M410 60 C392 60 378 80 378 110 C378 140 392 160 410 160 C424 160 428 140 428 120 L428 76 C428 64 420 60 410 60Z" fill="var(--surface)" stroke="var(--teal-500)" stroke-width="2.5"/>
+  <circle cx="404" cy="105" r="6" fill="var(--bad)"/>
+  <text x="405" y="186" text-anchor="middle" font-size="9" fill="var(--coral-500)">êmbolo na art. pulmonar</text>
+</svg>
+<div class="cap">O trombo nasce no sistema venoso profundo (geralmente <b>MMII</b>) pela tríade de Virchow, se desprende e <b>emboliza</b> para a circulação pulmonar. TEP e TVP são a mesma doença — <b>tromboembolismo venoso (TEV)</b>.</div>
+</div>`;
+
+const SVG_TEP_DDIMER = `
+<div class="svg-fig">
+<svg viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg">
+  <rect x="170" y="14" width="120" height="32" rx="8" fill="var(--teal-500)"/>
+  <text x="230" y="35" text-anchor="middle" font-size="11" font-weight="800" fill="#fff">Probabilidade pré-teste</text>
+  <text x="105" y="78" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--ok)">BAIXA / improvável</text>
+  <text x="355" y="78" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--bad)">ALTA / provável</text>
+  <path d="M200 46 L105 64" stroke="var(--ok)" stroke-width="2"/>
+  <path d="M260 46 L355 64" stroke="var(--bad)" stroke-width="2"/>
+  <rect x="30" y="86" width="150" height="34" rx="8" fill="var(--hl-teal)" stroke="var(--ok)"/>
+  <text x="105" y="107" text-anchor="middle" font-size="10" fill="var(--txt-1)">D-dímero</text>
+  <rect x="285" y="86" width="150" height="34" rx="8" fill="var(--hl-coral)" stroke="var(--bad)"/>
+  <text x="360" y="107" text-anchor="middle" font-size="10" fill="var(--txt-1)">Angio-TC direto</text>
+  <text x="60" y="150" font-size="9.5" fill="var(--ok)">(−) exclui TEP</text>
+  <text x="150" y="150" font-size="9.5" fill="var(--bad)">(+) → angio-TC</text>
+</svg>
+<div class="cap">O <b>D-dímero</b> só serve para <b>EXCLUIR</b> TEP na probabilidade baixa/improvável (alta sensibilidade, baixa especificidade). Na probabilidade alta, vá direto à <b>angio-TC</b> — D-dímero não afasta.</div>
+</div>`;
+
+const SVG_TEP_RISK = `
+<div class="svg-fig">
+<svg viewBox="0 0 460 190" xmlns="http://www.w3.org/2000/svg">
+  <rect x="30" y="30" width="400" height="40" rx="8" fill="var(--bad)" opacity=".2" stroke="var(--bad)"/>
+  <text x="44" y="48" font-size="12" font-weight="800" fill="var(--bad)">ALTO RISCO (maciço)</text>
+  <text x="44" y="63" font-size="9.5" fill="var(--txt-2)">hipotensão/choque · PAS &lt;90 → TROMBÓLISE</text>
+  <rect x="30" y="78" width="400" height="40" rx="8" fill="var(--warn)" opacity=".18" stroke="var(--warn)"/>
+  <text x="44" y="96" font-size="12" font-weight="800" fill="var(--warn)">RISCO INTERMEDIÁRIO</text>
+  <text x="44" y="111" font-size="9.5" fill="var(--txt-2)">estável + disfunção de VD e/ou troponina ↑ → anticoag + monitorar</text>
+  <rect x="30" y="126" width="400" height="40" rx="8" fill="var(--ok)" opacity=".16" stroke="var(--ok)"/>
+  <text x="44" y="144" font-size="12" font-weight="800" fill="var(--ok)">BAIXO RISCO</text>
+  <text x="44" y="159" font-size="9.5" fill="var(--txt-2)">estável · sPESI 0 · sem disfunção de VD → anticoag (alta precoce)</text>
+</svg>
+<div class="cap">A <b>estratificação</b> guia a conduta: a instabilidade hemodinâmica (alto risco) é o que indica <b>trombólise</b>; os demais recebem <b>anticoagulação</b>.</div>
+</div>`;
+
+// ---- AULA (seções viram sub-abas pelo <h3>) ----
+const TEP_TEACH = `
+<p class="lead">O TEP é uma emergência <b>subdiagnosticada e potencialmente fatal</b>: um trombo (quase sempre vindo de uma <b>TVP de membros inferiores</b>) oclui a circulação pulmonar. O segredo das provas é o <b>raciocínio em etapas</b>: estimar a probabilidade, usar o D-dímero no lugar certo, confirmar com imagem e <b>estratificar o risco</b> para decidir entre anticoagular ou trombolisar.</p>
+
+<h3>1. O que é o TEP</h3>
+<p>Tromboembolismo pulmonar é a obstrução de artérias pulmonares por trombos — na maioria, originados em <b>veias profundas dos membros inferiores</b>. TEP e <b>TVP</b> são manifestações da mesma doença: o <b>tromboembolismo venoso (TEV)</b>.</p>
+<div class="note key"><div class="nh">🔑 Conceito-chave</div>Pense em TEP diante de <b>dispneia e/ou dor torácica súbitas</b>, taquicardia e hipoxemia <b>sem outra explicação clara</b>, sobretudo com fator de risco. A apresentação é inespecífica — a suspeita é o que salva.</div>
+
+<h3>2. Fisiopatologia e tríade de Virchow</h3>
+<p>A trombose venosa decorre da <b>tríade de Virchow</b>: <b>estase</b> venosa, <b>lesão endotelial</b> e <b>hipercoagulabilidade</b>. O trombo se desprende e emboliza para o pulmão, gerando:</p>
+<ul>
+<li><b>Aumento do espaço morto</b> e alteração V/Q → <b>hipoxemia</b> e hipocapnia (taquipneia).</li>
+<li><b>Aumento agudo da resistência vascular pulmonar</b> → sobrecarga do <b>ventrículo direito (VD)</b>; se grave, falência de VD, baixo débito e <b>choque obstrutivo</b>.</li>
+</ul>
+` + SVG_TEP_VIRCHOW + `
+
+<h3>3. Fatores de risco</h3>
+<ul>
+<li><b>Imobilização</b>, pós-operatório (ortopédico/oncológico), viagens longas.</li>
+<li><b>Câncer</b> ativo; quimioterapia.</li>
+<li><b>Cirurgia</b> e trauma recentes; gesso/imobilização de MMII.</li>
+<li>Gestação e puerpério; <b>estrogênio</b> (anticoncepcional, terapia hormonal).</li>
+<li>TEV prévio; <b>trombofilias</b> (fator V de Leiden, síndrome antifosfolípide, etc.).</li>
+<li>Obesidade, idade avançada, ICC, doença inflamatória.</li>
+</ul>
+
+<h3>4. Quadro clínico</h3>
+<p>Sintomas mais comuns: <b>dispneia súbita</b>, <b>dor torácica pleurítica</b>, tosse, <b>taquicardia</b>, taquipneia; pode haver hemoptise, síncope (sugere TEP central/grave) e sinais de TVP (edema/dor assimétrica de panturrilha).</p>
+<div class="note warn"><div class="nh">⚠️ Exames inespecíficos (mas cobrados)</div><b>ECG:</b> o achado mais comum é <b>taquicardia sinusal</b>; o clássico <b>S1Q3T3</b> e o BRD são sugestivos de sobrecarga de VD, porém pouco frequentes. <b>RX de tórax:</b> costuma ser normal ou inespecífico (corcova de Hampton, sinal de Westermark são raros). <b>Gasometria:</b> hipoxemia com hipocapnia (alcalose respiratória) — pode ser normal.</div>
+
+<h3>5. Probabilidade pré-teste e D-dímero</h3>
+<p>O primeiro passo é estimar a <b>probabilidade clínica</b> com um escore validado (<b>Wells</b> ou <b>Genebra</b>) ou gestalt. Isso define o uso do D-dímero:</p>
+` + SVG_TEP_DDIMER + `
+<div class="note key"><div class="nh">🔑 Como usar o D-dímero</div>Tem <b>alta sensibilidade</b> e <b>baixa especificidade</b> — serve para <b>excluir</b>, não para confirmar. Na probabilidade <b>baixa/improvável</b>, um D-dímero <b>negativo</b> afasta TEP. Na probabilidade <b>alta</b>, NÃO peça D-dímero: vá direto à imagem. Em &gt; 50 anos, use o <b>cutoff ajustado pela idade</b> (idade × 10 µg/L).</div>
+<p>Em pacientes de muito baixo risco, a regra <b>PERC</b> (8 critérios) pode dispensar qualquer exame se todos forem negativos.</p>
+
+<h3>6. Diagnóstico por imagem</h3>
+<ul>
+<li><b>Angiotomografia de tórax (angio-TC / CTPA)</b> — exame de <b>escolha</b> no paciente estável com probabilidade alta ou D-dímero positivo. Mostra falha de enchimento.</li>
+<li><b>Cintilografia ventilação/perfusão (V/Q)</b> — alternativa quando há contraindicação ao contraste (alergia, <b>IRC</b>) ou na <b>gestante</b> com RX normal.</li>
+<li><b>USG Doppler de MMII</b> — se positiva para TVP em paciente com suspeita de TEP, já justifica anticoagular (evita contraste); útil na gestante.</li>
+<li><b>Ecocardiograma</b> — no <b>instável</b>, à beira do leito: sinais de sobrecarga/disfunção de VD apoiam a decisão de trombólise quando a TC não é viável.</li>
+</ul>
+
+<h3>7. Estratificação de risco</h3>
+<p>Depois de confirmar (ou na alta suspeita do instável), estratifique — é o que define o tratamento:</p>
+` + SVG_TEP_RISK + `
+<ul>
+<li><b>Alto risco (maciço):</b> <b>instabilidade hemodinâmica</b> (PAS &lt; 90 mmHg ou queda ≥ 40 mmHg / choque). Mortalidade alta.</li>
+<li><b>Risco intermediário (submaciço):</b> estável, mas com <b>disfunção de VD</b> (eco/TC) e/ou <b>biomarcadores</b> elevados (troponina, BNP).</li>
+<li><b>Baixo risco:</b> estável, sem disfunção de VD, <b>sPESI = 0</b>.</li>
+</ul>
+
+<h3>8. Tratamento</h3>
+<p><b>Anticoagulação</b> é a base para a maioria e deve ser iniciada precocemente na alta suspeita (se não houver alto risco de sangramento), mesmo antes da confirmação.</p>
+<ul>
+<li><b>DOACs</b> (rivaroxabana, apixabana) — primeira linha na maioria; rivaroxabana/apixabana dispensam ponte com heparina.</li>
+<li><b>HBPM</b> (enoxaparina) — ponte para warfarina, e preferida em <b>câncer</b> e <b>gestação</b>.</li>
+<li><b>Warfarina</b> — alvo <b>INR 2–3</b>, sempre com ponte de heparina no início.</li>
+<li><b>Heparina não fracionada (HNF) IV</b> — quando se cogita <b>trombólise</b>, instabilidade, <b>IRC grave</b> ou peri-procedimento (meia-vida curta, reversível).</li>
+</ul>
+<div class="note trap"><div class="nh">🚫 Trombólise — só no ALTO risco</div>A <b>trombólise</b> (alteplase) é indicada no <b>TEP de alto risco (instável)</b>. No risco intermediário, anticoagule e <b>monitore</b> (trombólise de resgate só se deteriorar). Contraindicações: sangramento ativo, AVC hemorrágico prévio, neurocirurgia/trauma recente, etc. Alternativas: <b>embolectomia</b> (cirúrgica ou por cateter).</div>
+<p><b>Duração:</b> mínimo <b>3 meses</b>. TEV <b>provocado</b> por fator transitório → 3 meses. <b>Não provocado</b>, recorrente ou <b>câncer ativo</b> → anticoagulação <b>estendida</b>.</p>
+
+<h3>9. Situações especiais</h3>
+<ul>
+<li><b>Gestação:</b> use <b>HBPM</b> (DOAC e warfarina <b>contraindicados</b>). D-dímero é menos útil; comece por USG de MMII, depois cintilografia V/Q ou angio-TC conforme o caso.</li>
+<li><b>Câncer:</b> HBPM ou DOAC (evitar DOAC em tumores GI/urotelial pelo risco de sangramento); anticoagulação estendida.</li>
+<li><b>Filtro de veia cava inferior:</b> quando a anticoagulação está <b>contraindicada</b> (sangramento ativo) ou em recorrência apesar de anticoagulação adequada.</li>
+</ul>
+`;
+
+// ---- ESCORES / CRITÉRIOS ----
+const TEP_SCORES = `
+<h3>Escore de Wells para TEP</h3>
+<table class="t"><thead><tr><th>Item</th><th>Pontos</th></tr></thead><tbody>
+<tr><td>Sinais/sintomas clínicos de TVP</td><td>3,0</td></tr>
+<tr><td>TEP é o diagnóstico mais provável</td><td>3,0</td></tr>
+<tr><td>FC &gt; 100 bpm</td><td>1,5</td></tr>
+<tr><td>Imobilização ≥ 3 dias ou cirurgia nas últimas 4 semanas</td><td>1,5</td></tr>
+<tr><td>TVP/TEP prévios</td><td>1,5</td></tr>
+<tr><td>Hemoptise</td><td>1,0</td></tr>
+<tr><td>Câncer ativo (tratamento nos últimos 6 meses / paliativo)</td><td>1,0</td></tr>
+</tbody></table>
+<div class="svg-fig">
+<svg viewBox="0 0 440 110" xmlns="http://www.w3.org/2000/svg">
+  <rect x="20" y="40" width="400" height="22" rx="11" fill="var(--bg-3)"/>
+  <rect x="20" y="40" width="220" height="22" rx="11" fill="var(--ok)" opacity=".55"/>
+  <rect x="240" y="40" width="180" height="22" rx="11" fill="var(--bad)" opacity=".45"/>
+  <line x1="240" y1="32" x2="240" y2="72" stroke="var(--brand)" stroke-width="2.5"/>
+  <text x="240" y="88" text-anchor="middle" font-size="11" font-weight="800" fill="var(--brand)">corte = 4</text>
+  <text x="120" y="88" text-anchor="middle" font-size="10" fill="var(--ok)">≤4 improvável → D-dímero</text>
+  <text x="345" y="88" text-anchor="middle" font-size="10" fill="var(--bad)">&gt;4 provável → angio-TC</text>
+</svg>
+<div class="cap">Dois níveis (mais usado): <b>≤ 4 = improvável</b> (use D-dímero) · <b>&gt; 4 = provável</b> (imagem direto). Três níveis: ≤1 baixa · 2–6 moderada · ≥7 alta.</div>
+</div>
+
+<h3>Escore de Genebra revisado</h3>
+<table class="t"><thead><tr><th>Item</th><th>Pontos</th></tr></thead><tbody>
+<tr><td>Idade &gt; 65 anos</td><td>1</td></tr>
+<tr><td>TVP/TEP prévios</td><td>3</td></tr>
+<tr><td>Cirurgia/fratura no último mês</td><td>2</td></tr>
+<tr><td>Câncer ativo</td><td>2</td></tr>
+<tr><td>Dor unilateral em membro inferior</td><td>3</td></tr>
+<tr><td>Hemoptise</td><td>2</td></tr>
+<tr><td>FC 75–94 / ≥ 95 bpm</td><td>3 / 5</td></tr>
+<tr><td>Dor à palpação venosa + edema unilateral</td><td>4</td></tr>
+</tbody></table>
+<p style="font-size:.86rem;color:var(--txt-2)">Vantagem: <b>não depende de julgamento subjetivo</b> ("TEP é o mais provável"), ao contrário do Wells.</p>
+
+<h3>Critérios PERC (regra de exclusão)</h3>
+<div class="note tip"><div class="nh">Se probabilidade clínica MUITO baixa e TODOS negativos → dispensa exames</div>
+<ul style="margin:6px 0 0">
+<li>Idade &lt; 50 anos</li>
+<li>FC &lt; 100 bpm</li>
+<li>SatO₂ ≥ 95% em ar ambiente</li>
+<li>Sem hemoptise</li>
+<li>Sem uso de estrogênio</li>
+<li>Sem TVP/TEP prévios</li>
+<li>Sem edema unilateral de membro</li>
+<li>Sem cirurgia/trauma com internação nas últimas 4 semanas</li>
+</ul></div>
+
+<h3>D-dímero ajustado pela idade</h3>
+<div class="note key"><div class="nh">🔑 &gt; 50 anos</div>Cutoff = <b>idade × 10 µg/L</b> (ex.: 70 anos → 700 µg/L). Reduz falso-positivo e exames desnecessários, mantendo a segurança.</div>
+
+<h3>sPESI (PESI simplificado) — prognóstico</h3>
+<p>Cada item vale <b>1 ponto</b>:</p>
+<table class="t"><thead><tr><th>Variável</th><th>Ponto</th></tr></thead><tbody>
+<tr><td>Idade &gt; 80 anos</td><td>1</td></tr>
+<tr><td>Câncer</td><td>1</td></tr>
+<tr><td>Insuficiência cardíaca ou doença pulmonar crônica</td><td>1</td></tr>
+<tr><td>FC ≥ 110 bpm</td><td>1</td></tr>
+<tr><td>PAS &lt; 100 mmHg</td><td>1</td></tr>
+<tr><td>SatO₂ &lt; 90%</td><td>1</td></tr>
+</tbody></table>
+<div class="note mne"><div class="nh">💡 Interpretação</div><b>sPESI = 0</b> → baixo risco (considerar tratamento ambulatorial). <b>≥ 1</b> → não é baixo risco (internar/monitorar).</div>`;
+
+// ---- COMPARATIVA / DDx ----
+const TEP_COMPARE = `
+<h3>Diagnósticos diferenciais da dispneia/dor torácica aguda</h3>
+<table class="t"><thead><tr><th>Pista</th><th>Pensar em</th></tr></thead><tbody>
+<tr><td>Dor retroesternal, irradiação, supra de ST, troponina alta</td><td>Síndrome coronariana aguda (IAM)</td></tr>
+<tr><td>Dor "rasgando" para o dorso, assimetria de pulsos, mediastino alargado</td><td>Dissecção de aorta</td></tr>
+<tr><td>Febre, tosse produtiva, consolidação no RX</td><td>Pneumonia</td></tr>
+<tr><td>Dor pleurítica súbita, MV abolido, timpanismo</td><td>Pneumotórax</td></tr>
+<tr><td>Ortopneia, estertores, B3, edema, BNP muito alto</td><td>Insuficiência cardíaca / EAP</td></tr>
+<tr><td>Dispneia + ansiedade, exames normais, parestesias</td><td>Crise de ansiedade / hiperventilação</td></tr>
+</tbody></table>
+<h4>TEP x outras causas de hipoxemia</h4>
+<p>No TEP clássico há <b>hipoxemia com hipocapnia</b> e RX frequentemente normal — a desproporção entre dispneia/hipoxemia e um RX "limpo" é uma pista importante.</p>`;
+
+// ---- ERROS ----
+const TEP_ERROS = `
+<h3>❌ Erros mais comuns</h3>
+<ul>
+<li><b>Pedir D-dímero na probabilidade alta.</b> Negativo não afasta — vá direto à angio-TC.</li>
+<li><b>Usar D-dímero para confirmar.</b> Ele só <b>exclui</b> (alta sensibilidade, baixa especificidade).</li>
+<li><b>Não anticoagular na alta suspeita</b> aguardando a TC. Inicie antes da confirmação se não houver alto risco de sangramento.</li>
+<li><b>Trombolisar TEP de risco intermediário estável.</b> Trombólise = <b>alto risco (instável)</b>; no intermediário, anticoagule e monitore.</li>
+<li><b>Usar DOAC ou warfarina na gestante.</b> São contraindicados — use <b>HBPM</b>.</li>
+<li><b>Esquecer o cutoff de D-dímero ajustado pela idade</b> em &gt; 50 anos.</li>
+<li><b>Indicar filtro de VCI de rotina.</b> Reservado a contraindicação à anticoagulação ou recorrência apesar dela.</li>
+</ul>`;
+
+// ---- RESUMO DE VÉSPERA ----
+const TEP_SUMMARY = `
+<h3>⚡ Resumo Ultra-Rápido (revisão de véspera)</h3>
+<div class="note key"><div class="nh">🩸 O essencial</div>
+<ul style="margin:6px 0 0">
+<li>Suspeita: dispneia/dor torácica súbitas + taquicardia + hipoxemia, com fator de risco.</li>
+<li>1º passo: <b>probabilidade (Wells/Genebra)</b>. Improvável → <b>D-dímero</b> (exclui se negativo). Provável → <b>angio-TC</b>.</li>
+<li>D-dímero: só <b>exclui</b>; em &gt;50a use <b>idade × 10</b>. Contraste contraindicado/gestante → <b>V/Q</b> ou USG MMII.</li>
+<li><b>Estratifique:</b> instável = <b>alto risco → TROMBÓLISE</b>; intermediário = anticoag + monitorar; baixo (sPESI 0) = anticoag.</li>
+<li>Anticoagulação: <b>DOAC</b> 1ª linha; <b>HBPM</b> em câncer/gestação; <b>HNF</b> se instável/IRC/trombólise. Mínimo <b>3 meses</b>.</li>
+<li>ECG: mais comum = <b>taquicardia sinusal</b> (S1Q3T3 é clássico mas raro).</li>
+</ul></div>`;
+
+// ---- QUESTÕES ----
+const TEP_Q = [
+{stem:"Mulher de 35 anos, em uso de anticoncepcional, com dispneia e dor torácica pleurítica súbitas há 1 dia. FC 104, SatO₂ 93%. Escore de Wells = 6 (provável). Qual a conduta diagnóstica mais adequada?",
+opts:["Solicitar D-dímero; se negativo, excluir TEP","Solicitar angiotomografia de tórax (angio-TC)","Iniciar trombólise empírica","Apenas observar e repetir ECG","Solicitar cintilografia óssea"],
+correct:1, expl:"Na probabilidade <b>alta/provável</b> (Wells &gt; 4), o D-dímero NÃO deve ser usado para excluir — segue-se direto para a <b>angio-TC</b>, exame de escolha no paciente estável."},
+{stem:"Paciente com probabilidade clínica BAIXA de TEP e D-dímero negativo (ajustado pela idade). A conduta correta é:",
+opts:["Solicitar angio-TC mesmo assim","Iniciar anticoagulação","Excluir TEP com segurança","Repetir o D-dímero em 24h","Solicitar cintilografia V/Q"],
+correct:2, expl:"Probabilidade <b>baixa/improvável</b> + <b>D-dímero negativo</b> permite <b>excluir TEP</b> com segurança, sem necessidade de imagem."},
+{stem:"Homem de 60 anos com TEP confirmado em angio-TC, PA 70×40 mmHg, taquicárdico, com sinais de má perfusão. Qual a conduta?",
+opts:["Apenas anticoagulação plena com DOAC","Trombólise (alteplase), salvo contraindicação","Filtro de veia cava inferior isolado","Alta com anticoagulante oral","Observação em enfermaria"],
+correct:1, expl:"Trata-se de <b>TEP de alto risco (maciço)</b> com instabilidade hemodinâmica → indicação de <b>trombólise sistêmica</b> (ou embolectomia se contraindicação)."},
+{stem:"Gestante de 28 semanas com suspeita de TEP. Qual anticoagulante é o mais apropriado?",
+opts:["Rivaroxabana","Varfarina","Heparina de baixo peso molecular (enoxaparina)","Apixabana","Fondaparinux em dose dobrada"],
+correct:2, expl:"Na gestação, <b>DOAC e varfarina são contraindicados</b>. A escolha é a <b>HBPM</b> (enoxaparina)."},
+{stem:"Sobre o uso do D-dímero no TEP, assinale a correta:",
+opts:["Tem alta especificidade e confirma o diagnóstico","Serve para excluir TEP na probabilidade baixa/improvável","Deve ser solicitado em toda alta probabilidade","Um valor elevado confirma TEP","É inútil na investigação"],
+correct:1, expl:"O D-dímero tem <b>alta sensibilidade e baixa especificidade</b>: presta-se a <b>excluir</b> TEP na probabilidade baixa/improvável. Elevado, é inespecífico (não confirma)."},
+{stem:"Qual o achado eletrocardiográfico MAIS COMUM no TEP?",
+opts:["Padrão S1Q3T3","Supradesnivelamento de ST em parede inferior","Taquicardia sinusal","Bloqueio AV total","Onda delta"],
+correct:2, expl:"O achado mais frequente é a <b>taquicardia sinusal</b>. O padrão <b>S1Q3T3</b> e o bloqueio de ramo direito indicam sobrecarga de VD, mas são pouco frequentes."},
+{stem:"Paciente estável com TEP confirmado, disfunção de VD ao ecocardiograma e troponina elevada, sem hipotensão. Classifica-se como e conduta inicial:",
+opts:["Baixo risco — alta precoce","Alto risco — trombólise imediata","Risco intermediário — anticoagulação e monitorização","Sem risco — sem tratamento","Indicação de filtro de VCI"],
+correct:2, expl:"Estável + disfunção de VD e/ou biomarcadores elevados = <b>risco intermediário (submaciço)</b>. Conduta: <b>anticoagular e monitorizar</b>; trombólise apenas se houver deterioração (resgate)."},
+{stem:"Sobre a duração da anticoagulação no TEV, é correto afirmar:",
+opts:["Sempre 7 dias","TEV provocado por fator transitório: mínimo 3 meses","Nunca ultrapassa 1 mês","TEV não provocado: 1 semana","Câncer ativo: suspender após alta"],
+correct:1, expl:"Duração mínima de <b>3 meses</b>. <b>Provocado</b> por fator transitório → 3 meses; <b>não provocado</b>, recorrente ou <b>câncer ativo</b> → anticoagulação <b>estendida</b>."}
+];
+
+// ---- FLASHCARDS ----
+const TEP_FC = [
+{type:"basic",front:"Tríade de Virchow",back:"<b>Estase</b> venosa + <b>lesão endotelial</b> + <b>hipercoagulabilidade</b> → trombose venosa → êmbolo pulmonar."},
+{type:"basic",front:"Primeiro passo na investigação de TEP",back:"Estimar a <b>probabilidade pré-teste</b> (Wells/Genebra). Ela define o uso do D-dímero vs imagem."},
+{type:"truefalse",front:"V ou F: D-dímero serve para confirmar TEP.",back:"<b>FALSO.</b> Alta sensibilidade, baixa especificidade → serve para <b>EXCLUIR</b> (probabilidade baixa/improvável)."},
+{type:"basic",front:"Wells dois níveis (corte)",back:"≤ 4 = <b>improvável</b> (D-dímero) · &gt; 4 = <b>provável</b> (angio-TC direto)."},
+{type:"basic",front:"D-dímero ajustado pela idade (&gt;50a)",back:"Cutoff = <b>idade × 10 µg/L</b> (ex.: 70a → 700)."},
+{type:"basic",front:"Exame de escolha no TEP estável",back:"<b>Angio-TC de tórax (CTPA)</b>. Alternativa: <b>cintilografia V/Q</b> (contraste contraindicado/gestante)."},
+{type:"basic",front:"TEP de ALTO risco (maciço) — conduta",color:"red",back:"Instabilidade hemodinâmica (PAS &lt;90) → <b>TROMBÓLISE</b> (alteplase) ou embolectomia."},
+{type:"basic",front:"TEP de risco intermediário (submaciço)",back:"Estável + disfunção de VD e/ou troponina ↑ → <b>anticoag + monitorar</b> (trombólise só de resgate)."},
+{type:"basic",front:"Anticoagulação — 1ª linha e exceções",back:"<b>DOAC</b> (rivaroxabana/apixabana) 1ª linha. <b>HBPM</b> em câncer e gestação. <b>HNF</b> se instável/IRC/trombólise."},
+{type:"cloze",front:"Duração mínima da anticoagulação no TEV: {{3 meses}}.",back:"3 meses (provocado); estendida se não provocado/recorrente/câncer."},
+{type:"truefalse",front:"V ou F: DOAC pode ser usado na gestante com TEP.",back:"<b>FALSO.</b> DOAC e varfarina são contraindicados na gestação. Usar <b>HBPM</b>."},
+{type:"basic",front:"sPESI = 0 significa",back:"Baixo risco → considerar tratamento <b>ambulatorial</b>. ≥1 ponto = não é baixo risco."}
+];
+
+// ---- CASOS CLÍNICOS ----
+const TEP_CASES = [
+{title:"Caso 1 — Dispneia no pós-operatório",
+hist:"Mulher, 58 anos, 6º dia de pós-operatório de artroplastia de quadril, evolui com dispneia súbita e dor torácica pleurítica à direita. Sem profilaxia adequada de TEV.",
+exam:"FC 108, FR 24, SatO₂ 92% em ar ambiente, PA 124×78. Panturrilha direita discretamente edemaciada e dolorosa. Ausculta pulmonar limpa.",
+exams:"ECG: taquicardia sinusal. RX de tórax sem alterações. Wells estimado em 6 (provável).",
+reason:"Probabilidade alta/provável (Wells &gt;4) → não solicitar D-dímero; investigar com imagem. Paciente estável, sem contraindicação a contraste → angio-TC.",
+dx:"TEP (provável) em paciente estável — confirmar com angio-TC; estratificar risco (sPESI, VD).",
+tto:"Iniciar anticoagulação precoce (HBPM ou DOAC) já na alta suspeita; confirmar com angio-TC. Se estável e sPESI baixo, manter anticoagulação plena; reavaliar duração (provocado por cirurgia → ~3 meses) e otimizar profilaxia."},
+{title:"Caso 2 — Síncope e hipotensão",
+hist:"Homem, 67 anos, com câncer de pâncreas, apresenta síncope, dispneia intensa e mal-estar. Familiares relatam edema de perna esquerda na última semana.",
+exam:"PA 76×44, FC 130, SatO₂ 85%, extremidades frias, turgência jugular. Ar ambiente.",
+exams:"Ecocardiograma à beira-leito: dilatação e disfunção de VD; troponina elevada. Instabilidade hemodinâmica não permite transporte seguro à TC.",
+reason:"TEP de <b>alto risco (maciço)</b>: instabilidade hemodinâmica + sinais de sobrecarga de VD. A instabilidade indica trombólise; o eco apoia a decisão quando a TC não é viável.",
+dx:"TEP de alto risco (maciço) com choque obstrutivo.",
+tto:"Suporte hemodinâmico e O₂; <b>trombólise sistêmica (alteplase)</b> salvo contraindicação (considerar embolectomia se contraindicada). Anticoagulação com <b>HNF IV</b> pela reversibilidade. No câncer ativo: anticoagulação estendida (HBPM/DOAC conforme o tumor)."}
+];
+
+// ---- FLUXOGRAMAS ----
+const TEP_FLOW_DX = {
+  start:"a",
+  nodes:{
+    a:{t:"Suspeita de TEP — o paciente está hemodinamicamente estável?",type:"q",opts:[{l:"Instável (PAS &lt;90 / choque)",to:"inst"},{l:"Estável",to:"prob"}]},
+    inst:{t:"Ecocardiograma à beira-leito: disfunção de VD? Se TEP provável e instável → tratar como ALTO RISCO (trombólise)",type:"end"},
+    prob:{t:"Calcular probabilidade pré-teste (Wells/Genebra)",type:"q",opts:[{l:"Improvável (Wells ≤4)",to:"dd"},{l:"Provável (Wells &gt;4)",to:"tc"}]},
+    dd:{t:"D-dímero (ajustado pela idade se &gt;50a)",type:"q",opts:[{l:"Negativo",to:"excl"},{l:"Positivo",to:"tc"}]},
+    tc:{t:"Angio-TC de tórax (ou V/Q se contraste contraindicado / gestante)",type:"q",opts:[{l:"Positiva",to:"dx"},{l:"Negativa",to:"excl"}]},
+    dx:{t:"✓ TEP confirmado → anticoagular e ESTRATIFICAR risco (sPESI, VD, troponina)",type:"end"},
+    excl:{t:"TEP excluído — investigar diagnósticos diferenciais (SCA, pneumonia, ICC, dissecção)",type:"end"}
+  }
+};
+const TEP_FLOW_COND = {
+  start:"a",
+  nodes:{
+    a:{t:"TEP confirmado/altamente provável — estratificar risco",type:"q",opts:[{l:"Instável (alto risco)",to:"alto"},{l:"Estável + VD/troponina alterados",to:"inter"},{l:"Estável, sPESI 0, VD normal",to:"baixo"}]},
+    alto:{t:"⚠ ALTO RISCO: suporte + HNF IV + TROMBÓLISE (alteplase). Se contraindicada → embolectomia (cateter/cirúrgica)",type:"end"},
+    inter:{t:"RISCO INTERMEDIÁRIO: anticoagulação plena + monitorização. Trombólise apenas de RESGATE se deteriorar",type:"end"},
+    baixo:{t:"BAIXO RISCO: anticoagulação (DOAC) e considerar alta precoce/ambulatorial. Duração ≥3 meses",type:"end"}
+  }
+};
+// ---- MAPA MENTAL ----
+const TEP_MIND = {
+  center:"TEP",
+  branches:[
+    {h:"Fisiopatologia",ic:"🔬",leaves:["<b>Tríade de Virchow</b>","Origem: TVP de MMII","Aumenta espaço morto → hipoxemia","Sobrecarga de VD → choque obstrutivo"]},
+    {h:"Diagnóstico",ic:"🩺",leaves:["1º: <b>probabilidade</b> (Wells/Genebra)","D-dímero só <b>exclui</b> (improvável)","Estável → <b>angio-TC</b>","Contraste contraindic./gestante → V/Q · USG MMII"]},
+    {h:"Estratificação",ic:"📊",leaves:["<b>Alto risco:</b> instável (PAS&lt;90)","<b>Intermediário:</b> VD/troponina ↑","<b>Baixo:</b> sPESI 0","ECG: taquicardia sinusal"]},
+    {h:"Tratamento",ic:"💊",leaves:["<b>DOAC</b> 1ª linha","<b>HNF</b> se instável/IRC/trombólise","Alto risco → <b>TROMBÓLISE</b>","Duração ≥ <b>3 meses</b>"]},
+    {h:"Situações especiais",ic:"⭐",leaves:["Gestante: <b>HBPM</b> (não DOAC/varfarina)","Câncer: HBPM/DOAC, estendida","Filtro de VCI: anticoag contraindicada","D-dímero idade × 10 (&gt;50a)"]}
+  ]
+};
+
+const TEP_CONTENT = {
+  subtopics:[
+    {id:"def",t:"Definição (TEV)"},{id:"fisio",t:"Fisiopatologia"},{id:"virchow",t:"Tríade de Virchow"},
+    {id:"risco",t:"Fatores de risco"},{id:"clin",t:"Quadro clínico"},{id:"prob",t:"Probabilidade pré-teste"},
+    {id:"dimero",t:"D-dímero"},{id:"imagem",t:"Diagnóstico por imagem"},{id:"estrat",t:"Estratificação de risco"},
+    {id:"trat",t:"Tratamento"},{id:"especiais",t:"Situações especiais"},{id:"prova",t:"Pegadinhas de prova"}
+  ],
+  teach: TEP_TEACH,
+  scores: TEP_SCORES,
+  compare: TEP_COMPARE,
+  erros: TEP_ERROS,
+  summary: TEP_SUMMARY,
+  questions: TEP_Q,
+  flashcards: TEP_FC,
+  cases: TEP_CASES,
+  flowDx: TEP_FLOW_DX,
+  flowCond: TEP_FLOW_COND,
+  mind: TEP_MIND,
+  vespera: TEP_SUMMARY,
+  checklist:["Sei suspeitar e diagnosticar","Sei usar Wells/D-dímero","Sei estratificar o risco","Sei tratar (anticoag/trombólise)","Dominei o tema"]
+};
+
 
 function subList(arr){ return {subtopics: arr.map((t,i)=>({id:"s"+i,t}))}; }
 
@@ -1222,7 +2003,7 @@ const MODULES = [
 
   {id:"dpoc",n:3,emoji:"🚬",title:"DPOC",desc:"Doença do fumante: GOLD, exacerbações, oxigenoterapia.",
    prev:PREV(90,92,85,82,80,85),
-   topics:[{id:"dpoc",title:"DPOC",content:subList(["Definição","Fatores de risco","Tabagismo","Fisiopatologia","Bronquite crônica","Enfisema","Diagnóstico","Espirometria","GOLD","Exacerbações","Oxigenoterapia domiciliar","Ventilação não invasiva","Tratamento farmacológico"])}]},
+   topics:[{id:"dpoc",title:"DPOC — aula completa",content:DPOC_CONTENT}]},
 
   {id:"pneumonias",n:4,emoji:"🦠",title:"Pneumonias",desc:"PAC, PAH/PAV, CURB-65, PSI e antibioticoterapia.",
    prev:PREV(96,95,92,90,90,92),
@@ -1238,7 +2019,7 @@ const MODULES = [
 
   {id:"tep",n:7,emoji:"🩸",title:"Tromboembolismo Pulmonar",desc:"Wells, Genebra, D-dímero, angio-TC, anticoagulação.",
    prev:PREV(88,85,80,78,78,82),
-   topics:[{id:"tep",title:"TEP",content:subList(["Fatores de risco","Tríade de Virchow","Escore de Wells","Escore de Genebra","Dímero-D","Angiotomografia","Tratamento","Trombólise","Anticoagulação"])}]},
+   topics:[{id:"tep",title:"TEP — aula completa",content:TEP_CONTENT}]},
 
   {id:"pleura",n:8,emoji:"💧",title:"Derrame Pleural",desc:"Critérios de Light, transudato x exsudato, toracocentese.",
    prev:PREV(78,76,72,70,70,74),
@@ -1684,6 +2465,7 @@ window.renderTopic=function(arg){
   // Tabs disponíveis
   const tabs=[];
   tabs.push(["Aula","aula"]);
+  if(c.scores) tabs.push(["Escores / Critérios","scores"]);
   tabs.push(["Questões","q"]);
   tabs.push(["Flashcards","fc"]);
   tabs.push(["Casos clínicos","case"]);
@@ -1712,6 +2494,7 @@ window.renderTopic=function(arg){
 
   const panels = {
     aula,
+    scores: c.scores?`<div class="prose">${c.scores}</div>`:"",
     q: questionsHTML(modId,topId,c.questions),
     fc: `<div class="note tip"><div class="nh">🧠 Baralho do tema — pronto para treinar</div>Os flashcards desta matéria já estão abaixo: vire o card e avalie com <b>Errei / Difícil / Bom / Fácil</b>. Os que você criar entram automaticamente neste mesmo baralho, na Revisão Espaçada e nos Estudos do Dia.</div>
       <div class="card" style="margin-bottom:14px"><div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px"><div><b>Flashcards deste tema</b><div id="fcThemeCount" style="font-size:.84rem;color:var(--txt-2)">—</div></div><button class="btn btn-ghost" style="width:auto;padding:9px 16px" onclick="startReview(cardsForTopic('${modId}','${topId}'))">↻ Reiniciar baralho</button></div><div id="revArea" style="margin-top:14px"></div></div>
@@ -1972,7 +2755,7 @@ const ROUTES = {
         <div class="bar" style="margin-bottom:8px"><span data-w="${pct}"></span></div>
         <div class="foot"><span>${done}/${subs.length} subtópicos</span><span style="color:var(--brand);font-weight:800">${pct}%</span></div></div>`;
     }).join("");
-    $("#view").innerHTML=`${H("📚 Módulos de Pneumologia")}${SUB("13 módulos cobrindo todo o conteúdo de Pneumologia para residência. Asma está 100% desenvolvido; os demais trazem a estrutura completa de subtópicos e serão aprofundados na mesma profundidade.")}<div class="grid g-3">${cards}</div>`;
+    $("#view").innerHTML=`${H("📚 Módulos de Pneumologia")}${SUB("13 módulos cobrindo todo o conteúdo de Pneumologia para residência. <b>Asma</b>, <b>DPOC</b> e <b>TEP</b> estão 100% desenvolvidos (aula, escores, questões, flashcards, casos e fluxogramas); os demais trazem a estrutura completa e serão aprofundados na mesma profundidade.")}<div class="grid g-3">${cards}</div>`;
     animateBars();
   },
 
