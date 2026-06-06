@@ -1187,6 +1187,13 @@ const ASMA_MIND = {
 /* ============================================================
    MODULES — estrutura completa (13 módulos)
    ============================================================ */
+const ASMA_ZERO = `
+<h3>Entendendo do zero</h3>
+<p class="lead">A ideia central antes da teoria.</p>
+<p>O ar que respiramos percorre tubos cada vez menores dentro do pulmão (os <b>brônquios</b> e <b>bronquíolos</b>) até chegar aos "balõezinhos" de troca de gás. Na asma, esses tubos são <b>"irritadiços"</b> (tecnicamente: têm <b>hiper-responsividade</b>): diante de gatilhos — poeira, ácaro, pelo de animal, fumaça, ar frio, exercício, infecção viral, cheiros fortes — eles <b>reagem demais</b> e se fecham de três jeitos ao mesmo tempo: o músculo ao redor do tubo <b>aperta</b> (broncoespasmo), a parede <b>incha</b> (edema/inflamação) e se produz <b>muco</b>. O tubo estreita e o ar passa com dificuldade — daí o <b>chiado</b>, o <b>aperto no peito</b>, a <b>tosse</b> (muitas vezes noturna) e a <b>falta de ar</b>.</p>
+<p>Duas características definem a asma e a diferenciam da DPOC: ela é <b>variável</b> (vai e volta, piora à noite/de madrugada e com gatilhos) e <b>reversível</b> (abre com a "bombinha"/broncodilatador). Pense numa <b>porta que emperra e destrava</b>: na crise fecha, com o tratamento volta a abrir. Mas atenção: mesmo quando a pessoa se sente bem, existe uma <b>inflamação crônica</b> "fumegando" por baixo — por isso o tratamento de base não é só a bombinha de alívio, e sim o <b>corticoide inalatório</b>, que apaga essa inflamação e evita as crises.</p>
+<div class="note tip"><div class="nh">💡 Guarde esta frase</div>Asma = via aérea <b>irritadiça</b> que estreita de forma <b>variável e reversível</b>. O alívio abre o tubo na hora; o <b>corticoide inalatório</b> trata a inflamação que causa tudo — e é ele que controla a doença a longo prazo.</div>`;
+
 const ASMA_SCORES = `
 <h3>Reversibilidade na espirometria</h3>
 <div class="note key"><div class="nh">🔑 Critério (adulto)</div>Resposta significativa ao broncodilatador (favorece asma) = aumento do <b>VEF₁ ≥ 12% E ≥ 200 mL</b>. Em crianças: ↑ VEF₁ &gt; 12% do previsto.</div>
@@ -1256,7 +1263,7 @@ const ASMA_CONTENT = {
     {id:"grave",t:"Asma grave"},{id:"status",t:"Status asmático"},{id:"hosp",t:"Manejo hospitalar"},
     {id:"ped",t:"Peculiaridades pediátricas"},{id:"prova",t:"Questões clássicas de prova"}
   ],
-  teach: ASMA_TEACH + SVG_BRONCO + SVG_TH2 + ASMA_DX + SVG_FLOW + ASMA_GINA + SVG_GINALADDER + ASMA_CRISE + SVG_REDFLAGS,
+  teach: ASMA_ZERO + ASMA_TEACH + SVG_BRONCO + SVG_TH2 + ASMA_DX + SVG_FLOW + ASMA_GINA + SVG_GINALADDER + ASMA_CRISE + SVG_REDFLAGS,
   scores: ASMA_SCORES,
   compare: ASMA_COMPARE,
   erros: ASMA_ERROS,
@@ -2057,6 +2064,569 @@ const TEP_CONTENT = {
 };
 
 
+/* ============================================================
+   PNEUMONIAS — módulo completo
+   ============================================================ */
+const SVG_PNM_ALVEOLO = `
+<div class="svg-fig">
+<svg viewBox="0 0 470 210" xmlns="http://www.w3.org/2000/svg">
+  <text x="115" y="20" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--brand)">Alvéolo normal</text>
+  <text x="355" y="20" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--coral-500)">Alvéolo na pneumonia</text>
+  <circle cx="115" cy="115" r="62" fill="var(--surface)" stroke="var(--teal-500)" stroke-width="3"/>
+  <circle cx="115" cy="115" r="30" fill="none" stroke="var(--teal-400)" stroke-width="2" stroke-dasharray="3 3"/>
+  <text x="115" y="119" text-anchor="middle" font-size="10" fill="var(--txt-2)">ar</text>
+  <path d="M40 115 L70 115" stroke="var(--teal-500)" stroke-width="2"/><text x="34" y="118" text-anchor="end" font-size="9" fill="var(--txt-2)">O₂</text>
+  <circle cx="355" cy="115" r="62" fill="var(--hl-coral)" stroke="var(--coral-500)" stroke-width="3"/>
+  <circle cx="338" cy="100" r="9" fill="var(--coral-400)"/><circle cx="372" cy="108" r="11" fill="var(--coral-400)"/><circle cx="350" cy="135" r="10" fill="var(--coral-400)"/><circle cx="375" cy="140" r="7" fill="var(--coral-400)"/>
+  <circle cx="345" cy="118" r="3" fill="var(--bad)"/><circle cx="365" cy="125" r="3" fill="var(--bad)"/>
+  <text x="355" y="195" text-anchor="middle" font-size="9.5" fill="var(--txt-2)">exsudato + pus + bactérias → consolidação</text>
+</svg>
+<div class="cap">Pneumonia = o espaço aéreo (que devia ter <b>ar</b>) é <b>preenchido por exsudato inflamatório, pus e micro-organismos</b>. Esse "alvéolo cheio" é a <b>consolidação</b> que aparece no exame (crepitações, sopro tubário) e no raio-X (opacidade).</div>
+</div>`;
+
+const SVG_PNM_CURB = `
+<div class="svg-fig">
+<svg viewBox="0 0 460 150" xmlns="http://www.w3.org/2000/svg">
+  <text x="20" y="20" font-size="12" font-weight="700" fill="var(--txt-1)">CURB-65 — 1 ponto por item</text>
+  <rect x="20" y="56" width="420" height="20" rx="10" fill="var(--bg-3)"/>
+  <rect x="20" y="56" width="150" height="20" rx="10" fill="var(--ok)" opacity=".6"/>
+  <rect x="170" y="56" width="100" height="20" fill="var(--warn)" opacity=".55"/>
+  <rect x="270" y="56" width="170" height="20" rx="10" fill="var(--bad)" opacity=".5"/>
+  <text x="95" y="100" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--ok)">0–1: ambulatorial</text>
+  <text x="220" y="100" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--warn)">2: internar</text>
+  <text x="355" y="100" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--bad)">≥3: grave / UTI</text>
+  <text x="20" y="135" font-size="9.3" fill="var(--txt-2)">C onfusão · U reia &gt;50 · R FR ≥30 · B PA &lt;90×60 · 65 idade ≥65 anos</text>
+</svg>
+<div class="cap">O <b>CURB-65</b> estima a gravidade e o local de tratamento da pneumonia comunitária. Some 1 ponto por critério presente.</div>
+</div>`;
+
+const PNM_TEACH = `
+<h3>Entendendo do zero</h3>
+<p class="lead">A ideia central, sem termos técnicos.</p>
+<p>Lá no fundo do pulmão estão os <b>alvéolos</b>, milhões de "balõezinhos" cheios de <b>ar</b> onde o sangue troca gás carbônico por oxigênio. Na <b>pneumonia</b>, um germe (bactéria, vírus ou fungo) chega a essa região e o corpo manda uma "tropa de defesa" para combatê-lo. A briga enche os balõezinhos de <b>líquido inflamatório, pus e células</b> — eles deixam de ter ar e ficam "encharcados". É como uma <b>esponja seca que vira uma esponja molhada</b>: aquela parte do pulmão para de funcionar.</p>
+<p>Por isso o paciente tem <b>febre</b>, <b>tosse</b> (muitas vezes com catarro), <b>dor no peito ao respirar</b> e <b>falta de ar</b>. No exame, o médico escuta "estalidos" (crepitações) sobre a área doente, e no <b>raio-X</b> aparece uma <b>mancha branca</b> (a consolidação) onde deveria ser preto (ar). O tratamento é eliminar o germe — em geral com <b>antibiótico</b> quando é bacteriana — e dar suporte (oxigênio, hidratação).</p>
+<p>A pergunta prática que organiza tudo é: <b>"este paciente pode tratar em casa ou precisa internar?"</b>. Para responder, usamos sinais de gravidade (escores como o <b>CURB-65</b>) e escolhemos o antibiótico conforme onde a pneumonia foi "pega" (na <b>comunidade</b> ou no <b>hospital</b>) e os fatores de risco da pessoa.</p>
+<div class="note tip"><div class="nh">💡 Guarde esta frase</div>Pneumonia = <b>infecção que enche o alvéolo de pus</b>. As três decisões-chave: <b>1)</b> é comunitária ou hospitalar? <b>2)</b> qual a gravidade / onde tratar? <b>3)</b> qual antibiótico empírico?</div>
+
+<h3>1. O que é pneumonia e como se classifica</h3>
+<p>Pneumonia é a <b>infecção do parênquima pulmonar</b> (alvéolos e interstício). A classificação mais importante para a conduta é pelo <b>local de aquisição</b>, porque ela prevê os germes prováveis e o antibiótico:</p>
+<ul>
+<li><b>Pneumonia adquirida na comunidade (PAC)</b> — fora do ambiente hospitalar (ou até 48 h da admissão). É a mais cobrada.</li>
+<li><b>Pneumonia hospitalar (PAH)</b> — surge <b>≥ 48 h após a internação</b>.</li>
+<li><b>Pneumonia associada à ventilação (PAV)</b> — surge <b>≥ 48 h após a intubação</b>. PAH/PAV preocupam pela chance de germes <b>multirresistentes (MDR)</b>.</li>
+<li><b>Pneumonia aspirativa</b> — por aspiração de conteúdo orofaríngeo/gástrico (disfagia, rebaixamento, álcool); tende a anaeróbios/flora mista, predomínio em segmentos posteriores e base direita.</li>
+</ul>
+<div class="note key"><div class="nh">🔑 Por que isso importa</div>A PAC tem germes "previsíveis" (pneumococo e atípicos) → antibiótico de espectro mais estreito. A PAH/PAV exige cobrir <b>MDR</b> (Pseudomonas, MRSA) conforme o risco. Definir o tipo é o primeiro passo do tratamento.</div>
+
+<h3>2. Agentes etiológicos</h3>
+<p>Na <b>PAC</b>, divida didaticamente em <b>típicos</b> e <b>atípicos</b>:</p>
+<ul>
+<li><b>Típicos</b> — <i>Streptococcus pneumoniae</i> (o <b>pneumococo</b>, agente mais comum em todas as faixas/contextos), <i>Haemophilus influenzae</i> (DPOC), <i>Staphylococcus aureus</i> (pós-influenza, usuários de drogas IV).</li>
+<li><b>Atípicos</b> — <i>Mycoplasma pneumoniae</i> (jovens, quadro arrastado, tosse seca), <i>Chlamydophila pneumoniae</i>, <i>Legionella</i> (quadro grave, hiponatremia, diarreia, exposição a água/ar-condicionado).</li>
+<li><b>Vírus</b> — influenza, SARS-CoV-2, VSR; podem causar pneumonia viral ou predispor à bacteriana secundária.</li>
+</ul>
+<p>Pistas por contexto: <b>aspiração</b> → anaeróbios; <b>DPOC/bronquiectasia</b> → <i>H. influenzae</i>, <i>Pseudomonas</i>; <b>alcoolismo</b> → <i>Klebsiella</i> (pneumonia do lobo "pesado", abaulamento de cisura); <b>pós-influenza</b> → <i>S. aureus</i>/pneumococo.</p>
+` + SVG_PNM_ALVEOLO + `
+
+<h3>3. Quadro clínico e exame físico</h3>
+<p>Quadro típico: <b>febre</b>, <b>tosse</b> (produtiva ou seca), <b>dor torácica pleurítica</b>, <b>dispneia</b> e mal-estar. Em idosos, a apresentação pode ser <b>atípica e enganosa</b>: confusão mental, queda, descompensação de doença de base, sem febre alta.</p>
+<p>No exame da área consolidada: <b>crepitações</b>, aumento do <b>frêmito toracovocal</b>, <b>broncofonia/pectorilóquia</b>, <b>sopro tubário</b> e macicez à percussão. Se houver derrame pleural, o murmúrio fica abolido e a percussão maciça com frêmito reduzido. Avalie sempre <b>FR, SatO₂, PA e nível de consciência</b> (entram na gravidade).</p>
+
+<h3>4. Diagnóstico</h3>
+<p>O diagnóstico é <b>clínico + radiológico</b>: sintomas/sinais compatíveis + <b>opacidade nova na radiografia de tórax</b> (consolidação lobar, broncopneumonia ou padrão intersticial nas atípicas/virais). A radiografia confirma, avalia extensão/complicações (derrame, cavitação) e exclui diferenciais.</p>
+<p>Exames adicionais conforme gravidade: hemograma, função renal/eletrólitos, <b>gasometria/oximetria</b>, PCR/procalcitonina (auxiliar). Em internados/graves: <b>hemoculturas</b>, <b>antígenos urinários</b> (pneumococo e Legionella), cultura de escarro, painel viral (influenza/COVID). No <b>ambulatorial leve</b>, exames microbiológicos de rotina não são necessários.</p>
+<div class="note warn"><div class="nh">⚠️ Atenção</div>Pneumonia que <b>não melhora</b> com antibiótico adequado, é <b>recorrente no mesmo lugar</b> ou vem com emagrecimento/hemoptise exige investigar <b>neoplasia obstrutiva</b>, <b>tuberculose</b> e <b>derrame/empiema</b>. Sempre documente a resolução radiológica em quem tem fatores de risco.</div>
+
+<h3>5. Avaliação de gravidade e local de tratamento</h3>
+<p>Definir <b>onde tratar</b> (casa, enfermaria ou UTI) é tão importante quanto o antibiótico. Use escores e o julgamento clínico (oxigenação, comorbidades, suporte social).</p>
+` + SVG_PNM_CURB + `
+<p>O <b>CURB-65</b> é o mais prático: <b>C</b>onfusão mental, <b>U</b>reia &gt; 50 mg/dL, <b>R</b> FR ≥ 30, <b>B</b> PA &lt; 90×60, idade ≥ <b>65</b>. <b>0–1</b> = ambulatorial; <b>2</b> = considerar internação; <b>≥ 3</b> = grave (avaliar UTI). O <b>PSI/PORT</b> é mais completo e estratifica em 5 classes (melhor para identificar baixo risco), porém mais trabalhoso. A indicação de <b>UTI</b> segue os critérios IDSA/ATS (ver aba Escores).</p>
+
+<h3>6. Tratamento da PAC (atualizado)</h3>
+<p>O tratamento é <b>empírico</b>, guiado pelo local de cuidado e por comorbidades/fatores de risco. Cobrir <b>pneumococo</b> sempre; cobrir <b>atípicos</b> nos contextos indicados.</p>
+<table class="t"><thead><tr><th>Cenário</th><th>Esquema empírico</th></tr></thead><tbody>
+<tr><td>Ambulatorial, hígido</td><td>Amoxicilina (dose alta) <i>ou</i> macrolídeo <i>ou</i> doxiciclina</td></tr>
+<tr><td>Ambulatorial com comorbidade</td><td><b>β-lactâmico + macrolídeo</b> <i>ou</i> <b>fluoroquinolona respiratória</b> (levofloxacino/moxifloxacino)</td></tr>
+<tr><td>Internado (enfermaria)</td><td><b>β-lactâmico (ceftriaxona/ampicilina-sulbactam) + macrolídeo</b> <i>ou</i> fluoroquinolona respiratória isolada</td></tr>
+<tr><td>UTI</td><td><b>β-lactâmico + macrolídeo</b> <i>ou</i> β-lactâmico + fluoroquinolona (nunca fluoroquinolona isolada na UTI)</td></tr>
+</tbody></table>
+<div class="note tip"><div class="nh">💡 Pontos-chave do tratamento</div>
+<ul style="margin:6px 0 0">
+<li><b>Cobertura de MRSA/Pseudomonas</b> apenas se houver fatores de risco (isolamento prévio, bronquiectasia, internação recente com ATB IV) — não é rotina.</li>
+<li><b>Influenza</b>: oseltamivir em internados, graves ou de risco com suspeita/confirmação, idealmente nas primeiras 48 h.</li>
+<li><b>Duração</b>: mínimo <b>5 dias</b>, desde que afebril por 48–72 h e clinicamente estável; casos especiais (Legionella, complicações) podem precisar mais.</li>
+<li><b>Corticoide</b> não é rotina; considerado em PAC grave com choque/inflamação intensa em casos selecionados.</li>
+</ul></div>
+
+<h3>7. PAH e PAV</h3>
+<p>Surgem após ≥ 48 h de internação (PAH) ou de intubação (PAV). O risco de <b>germes resistentes</b> (Pseudomonas, Acinetobacter, enterobactérias produtoras de ESBL, <b>MRSA</b>) é maior. O tratamento empírico é mais amplo e <b>guiado pela epidemiologia local</b> e pelos fatores de risco para MDR.</p>
+<ul>
+<li>Iniciar <b>cobertura antipseudomonas</b> (ex.: piperacilina-tazobactam, cefepime ou meropenem) e, se houver risco de <b>MRSA</b>, associar <b>vancomicina ou linezolida</b>.</li>
+<li>Coletar culturas (aspirado traqueal/lavado) <b>antes</b> de iniciar e <b>desescalonar</b> conforme o resultado.</li>
+<li>Duração habitual em torno de <b>7 dias</b>, ajustada pela evolução.</li>
+</ul>
+
+<h3>8. Situações especiais e complicações</h3>
+<ul>
+<li><b>Pneumonia aspirativa</b>: cobertura para flora oral/anaeróbios (amoxicilina-clavulanato; clindamicina como alternativa). Prevenir com manejo da disfagia.</li>
+<li><b>Derrame parapneumônico / empiema</b>: toda pneumonia com derrame significativo merece <b>toracocentese</b>. Critérios de empiema/derrame complicado (pus, pH &lt; 7,2, glicose baixa, bactéria) exigem <b>drenagem torácica</b> (± fibrinolítico/cirurgia).</li>
+<li><b>Abscesso pulmonar</b>: cavitação com nível hidroaéreo; tratamento antibiótico prolongado, cobrindo anaeróbios.</li>
+<li><b>Pneumonia viral (influenza, COVID-19)</b>: padrão intersticial/vidro fosco; suporte, antivirais quando indicados, atenção à coinfecção bacteriana.</li>
+<li><b>Prevenção</b>: vacinas <b>antipneumocócica</b> e <b>influenza</b> (e COVID) nos grupos de risco; cessação do tabagismo.</li>
+</ul>
+`;
+
+const PNM_SCORES = `
+<h3>CURB-65</h3>
+<table class="t"><thead><tr><th>Critério (1 ponto cada)</th></tr></thead><tbody>
+<tr><td><b>C</b>onfusão mental (nova)</td></tr>
+<tr><td><b>U</b>reia &gt; 50 mg/dL (ou ureia sérica &gt; 7 mmol/L)</td></tr>
+<tr><td><b>R</b> Frequência respiratória ≥ 30 irpm</td></tr>
+<tr><td><b>B</b> PA sistólica &lt; 90 ou diastólica ≤ 60 mmHg</td></tr>
+<tr><td>Idade ≥ <b>65</b> anos</td></tr>
+</tbody></table>
+<div class="note mne"><div class="nh">💡 Interpretação</div><b>0–1</b> → ambulatorial · <b>2</b> → internação (ou observação) · <b>≥ 3</b> → grave, avaliar <b>UTI</b>. O <b>CRB-65</b> (sem ureia) serve para a atenção primária sem exames.</div>
+
+<h3>PSI / PORT (resumo)</h3>
+<p>Estratifica em <b>5 classes de risco</b> a partir de idade, comorbidades, exame físico e exames (sódio, ureia, glicemia, hematócrito, pH, PaO₂, derrame). É excelente para <b>identificar baixo risco</b> (classes I–II → ambulatorial), porém mais complexo que o CURB-65.</p>
+
+<h3>Critérios IDSA/ATS para UTI</h3>
+<div class="note key"><div class="nh">UTI se 1 critério MAIOR ou ≥ 3 MENORES</div>
+<b>Maiores:</b> choque séptico com necessidade de vasopressor; insuficiência respiratória com <b>necessidade de ventilação mecânica</b>.<br>
+<b>Menores (≥3):</b> FR ≥ 30; PaO₂/FiO₂ ≤ 250; infiltrado <b>multilobar</b>; confusão; ureia elevada; leucopenia; trombocitopenia; hipotermia; hipotensão que exige reposição vigorosa.</div>
+
+<h3>Resposta e duração</h3>
+<table class="t"><thead><tr><th>Item</th><th>Referência</th></tr></thead><tbody>
+<tr><td>Duração mínima</td><td>5 dias (afebril 48–72 h, estável)</td></tr>
+<tr><td>Reavaliação clínica</td><td>48–72 h (esperar melhora da febre/sinais)</td></tr>
+<tr><td>RX de controle</td><td>Não de rotina; considerar em fumantes/&gt;50 a para documentar resolução</td></tr>
+</tbody></table>`;
+
+const PNM_COMPARE = `
+<h3>PAC típica x atípica</h3>
+<table class="t"><thead><tr><th>Característica</th><th>Típica</th><th>Atípica</th></tr></thead><tbody>
+<tr><td>Agente</td><td>Pneumococo, H. influenzae</td><td>Mycoplasma, Chlamydophila, Legionella, vírus</td></tr>
+<tr><td>Início</td><td>Agudo, febre alta, calafrio</td><td>Insidioso, sintomas gerais</td></tr>
+<tr><td>Tosse</td><td>Produtiva (purulenta)</td><td>Seca</td></tr>
+<tr><td>RX</td><td>Consolidação <b>lobar</b></td><td>Intersticial/difuso ("RX pior que o exame")</td></tr>
+</tbody></table>
+<h4>Diagnósticos diferenciais da opacidade pulmonar</h4>
+<table class="t"><thead><tr><th>Pista</th><th>Pensar em</th></tr></thead><tbody>
+<tr><td>Tosse &gt; 3 semanas, sudorese noturna, ápice/cavitação</td><td><b>Tuberculose</b></td></tr>
+<tr><td>Não resolve, fumante, emagrecimento, hemoptise</td><td>Neoplasia</td></tr>
+<tr><td>Dor pleurítica súbita, hipoxemia, fator de risco para TEV</td><td>TEP com infarto pulmonar</td></tr>
+<tr><td>Ortopneia, estertores bibasais, BNP alto</td><td>Congestão/edema (ICC)</td></tr>
+</tbody></table>`;
+
+const PNM_ERROS = `
+<h3>❌ Erros mais comuns</h3>
+<ul>
+<li><b>Tratar toda "mancha" no RX como pneumonia.</b> Sem clínica compatível, pense em TB, neoplasia, TEP, congestão.</li>
+<li><b>Fluoroquinolona isolada na UTI.</b> Na UTI, combine β-lactâmico + macrolídeo (ou + fluoroquinolona).</li>
+<li><b>Cobrir MRSA/Pseudomonas de rotina na PAC.</b> Só com fatores de risco.</li>
+<li><b>Esquecer de cobrir atípicos</b> no internado/comorbidade (associar macrolídeo ou usar fluoroquinolona).</li>
+<li><b>Não puncionar derrame</b> parapneumônico significativo — risco de empiério não drenado.</li>
+<li><b>Prolongar antibiótico sem necessidade.</b> Mínimo 5 dias se estável e afebril 48–72 h.</li>
+<li><b>Não dar oseltamivir</b> em internado grave com influenza nas primeiras 48 h.</li>
+</ul>`;
+
+const PNM_SUMMARY = `
+<h3>⚡ Resumo Ultra-Rápido (revisão de véspera)</h3>
+<div class="note key"><div class="nh">🦠 O essencial</div>
+<ul style="margin:6px 0 0">
+<li>PAC = clínica + <b>opacidade nova no RX</b>. Agente nº 1: <b>pneumococo</b>.</li>
+<li><b>CURB-65</b>: 0–1 casa · 2 internar · ≥3 grave/UTI. UTI = 1 maior (VM/choque) ou ≥3 menores.</li>
+<li>Ambulatorial hígido: amoxicilina/macrolídeo/doxiciclina. Comorbidade/internado: <b>β-lactâmico + macrolídeo</b> ou fluoroquinolona respiratória.</li>
+<li><b>UTI:</b> β-lactâmico + macrolídeo (ou + fluoroquinolona). MRSA/Pseudomonas só se risco.</li>
+<li><b>PAH/PAV:</b> cobrir MDR (antipseudomonas ± vanco/linezolida) e desescalonar pela cultura (~7 dias).</li>
+<li>Duração PAC ≥ 5 dias. Derrame significativo → <b>toracocentese</b>; empiema → drenar. Influenza grave → <b>oseltamivir</b>.</li>
+</ul></div>`;
+
+const PNM_Q = [
+{stem:"Homem de 70 anos, diabético, com febre, tosse produtiva e dispneia. FR 32, PA 88×58, ureia 60 mg/dL, confuso. RX: consolidação em lobo inferior direito. Qual a conduta quanto ao local de tratamento?",
+opts:["Tratamento ambulatorial","Internação em enfermaria, sem urgência","Internação com avaliação de UTI (CURB-65 elevado)","Alta com antibiótico oral","Apenas observação domiciliar"],
+correct:2, expl:"CURB-65 = confusão + ureia &gt;50 + FR ≥30 + PA &lt;90×60 + idade ≥65 = <b>5 pontos</b> → pneumonia <b>grave</b>, indicar internação com avaliação de <b>UTI</b>."},
+{stem:"Paciente jovem, hígido, com PAC leve (CURB-65 = 0), tratamento ambulatorial. Qual esquema empírico é adequado?",
+opts:["Vancomicina + cefepime","Amoxicilina (dose alta), macrolídeo ou doxiciclina","Meropenem","Oseltamivir isolado","Ceftriaxona + vancomicina"],
+correct:1, expl:"Na PAC ambulatorial em paciente <b>hígido</b>, opções são <b>amoxicilina em dose alta, macrolídeo ou doxiciclina</b>. Esquemas largos (vanco/carbapenêmico) não se justificam."},
+{stem:"Qual o agente mais comum da pneumonia adquirida na comunidade, em praticamente todos os contextos?",
+opts:["Mycoplasma pneumoniae","Staphylococcus aureus","Streptococcus pneumoniae (pneumococo)","Pseudomonas aeruginosa","Klebsiella pneumoniae"],
+correct:2, expl:"O <b>pneumococo (S. pneumoniae)</b> é o agente mais frequente da PAC. Por isso a cobertura empírica sempre o contempla."},
+{stem:"Sobre a pneumonia associada à ventilação (PAV), assinale a correta:",
+opts:["Surge nas primeiras 24h de internação","Raramente envolve germes resistentes","Surge ≥48h após a intubação e exige cobrir possíveis MDR","Não requer culturas","Trata-se sempre com amoxicilina"],
+correct:2, expl:"A PAV surge <b>≥ 48 h após a intubação</b> e tem maior chance de <b>germes multirresistentes</b> (Pseudomonas, MRSA). Colher culturas, iniciar empírico amplo e desescalonar."},
+{stem:"Paciente com PAC e derrame pleural moderado. Qual a conduta inicial em relação ao derrame?",
+opts:["Apenas observar","Toracocentese diagnóstica","Drenar imediatamente sem análise","Iniciar fibrinolítico empírico","Pleurodese"],
+correct:1, expl:"Derrame parapneumônico significativo deve ser puncionado (<b>toracocentese</b>) para análise. Se for empiema/complicado (pus, pH &lt;7,2, glicose baixa, bactéria) → <b>drenagem</b>."},
+{stem:"Qual achado sugere pneumonia ATÍPICA (ex.: Mycoplasma)?",
+opts:["Consolidação lobar densa com início hiperagudo","Tosse seca, quadro arrastado e RX com padrão intersticial difuso","Calafrio único e ferida cutânea","Hemoptise maciça","Sopro cardíaco novo"],
+correct:1, expl:"As atípicas tendem a quadro <b>arrastado</b>, <b>tosse seca</b> e <b>padrão intersticial</b> ('RX pior que o exame'). Cobertura com macrolídeo/doxiciclina/fluoroquinolona."},
+{stem:"Sobre a duração do tratamento da PAC não complicada, é correto:",
+opts:["Sempre 14 dias","Mínimo de 5 dias, se afebril 48–72h e estável","Apenas 1 dia","Indefinida até RX normalizar","3 semanas obrigatórias"],
+correct:1, expl:"A duração mínima é <b>5 dias</b>, desde que o paciente esteja <b>afebril por 48–72 h</b> e clinicamente estável. RX de controle não é rotina."},
+{stem:"Idoso internado com influenza confirmada e pneumonia. Além do antibiótico, qual medida específica?",
+opts:["Corticoide em altas doses de rotina","Oseltamivir","Antifúngico empírico","Imunoglobulina","Nenhuma medida específica"],
+correct:1, expl:"Em internados/graves ou de risco com influenza, indica-se <b>oseltamivir</b>, idealmente nas primeiras 48 h. A coinfecção bacteriana é coberta pelo antibiótico."}
+];
+
+const PNM_FC = [
+{type:"basic",front:"Definição prática de pneumonia",back:"Infecção do parênquima pulmonar → <b>alvéolo cheio de exsudato/pus</b> (consolidação). Dx = clínica + opacidade nova no RX."},
+{type:"basic",front:"Agente nº 1 da PAC",back:"<b>Streptococcus pneumoniae</b> (pneumococo)."},
+{type:"basic",front:"CURB-65 — itens",back:"<b>C</b>onfusão · <b>U</b>reia &gt;50 · <b>R</b> FR≥30 · <b>B</b> PA&lt;90×60 · idade ≥<b>65</b>. 0–1 casa · 2 internar · ≥3 grave/UTI."},
+{type:"basic",front:"PAC ambulatorial, hígido — ATB",back:"Amoxicilina (dose alta) <i>ou</i> macrolídeo <i>ou</i> doxiciclina."},
+{type:"basic",front:"PAC internado / com comorbidade — ATB",back:"<b>β-lactâmico + macrolídeo</b> ou <b>fluoroquinolona respiratória</b> (levo/moxi)."},
+{type:"truefalse",front:"V ou F: na UTI pode-se usar fluoroquinolona isolada.",back:"<b>FALSO.</b> Na UTI: β-lactâmico + macrolídeo (ou + fluoroquinolona). Nunca fluoroquinolona isolada."},
+{type:"basic",front:"PAH x PAV (definição)",color:"red",back:"PAH = ≥48h de internação. PAV = ≥48h de intubação. Cobrir possíveis <b>MDR</b> (Pseudomonas/MRSA) conforme risco."},
+{type:"basic",front:"Critérios IDSA/ATS para UTI",back:"1 MAIOR (choque com vasopressor OU necessidade de VM) ou ≥3 MENORES (FR≥30, P/F≤250, multilobar, confusão, ureia, leucopenia, plaquetopenia, hipotermia, hipotensão)."},
+{type:"basic",front:"Derrame parapneumônico — conduta",back:"Toracocentese; se empiema/complicado (pus, pH&lt;7,2, glicose baixa) → <b>drenagem</b> torácica."},
+{type:"cloze",front:"Duração mínima da PAC: {{5 dias}} (afebril 48–72h, estável).",back:"5 dias, se afebril 48–72h e estável."},
+{type:"basic",front:"Pista de Legionella",back:"Quadro grave + <b>hiponatremia</b>, diarreia, ↑transaminases; exposição a água/ar-condicionado. Antígeno urinário."},
+{type:"basic",front:"Influenza em internado grave",back:"Acrescentar <b>oseltamivir</b> (idealmente &lt;48h), além do antibiótico para coinfecção."}
+];
+
+const PNM_CASES = [
+{title:"Caso 1 — PAC ambulatorial",
+hist:"Mulher, 34 anos, hígida, com febre, tosse produtiva e dor pleurítica à direita há 2 dias.",
+exam:"Tax 38,4 °C, FR 18, PA 120×76, SatO₂ 97%, lúcida. Crepitações em base direita.",
+exams:"RX: consolidação em base direita, sem derrame. CURB-65 = 0.",
+reason:"PAC com baixa gravidade (CURB-65 = 0), paciente hígida e bem oxigenada → tratamento ambulatorial, sem necessidade de culturas de rotina.",
+dx:"Pneumonia adquirida na comunidade, baixo risco.",
+tto:"Antibiótico ambulatorial: <b>amoxicilina em dose alta</b> (ou macrolídeo/doxiciclina), sintomáticos, hidratação e orientação de retorno se piora. Reavaliar em 48–72 h. Duração ≥ 5 dias."},
+{title:"Caso 2 — PAC grave na emergência",
+hist:"Homem, 68 anos, DPOC, com febre, tosse e dispneia intensa há 3 dias, confuso nas últimas horas.",
+exam:"FR 34, PA 86×54, SatO₂ 86% em ar ambiente, confuso. Crepitações difusas à direita.",
+exams:"RX: consolidação multilobar à direita. Ureia 62, leucocitose. CURB-65 = 5. P/F &lt; 250.",
+reason:"Múltiplos critérios de gravidade (CURB-65 alto, hipotensão, hipoxemia, infiltrado multilobar) → critérios IDSA/ATS satisfeitos para UTI.",
+dx:"PAC grave com indicação de UTI.",
+tto:"Internação em UTI; suporte (O₂/ventilação, ressuscitação volêmica, vasopressor se necessário); <b>β-lactâmico + macrolídeo</b> (ou + fluoroquinolona); coletar hemoculturas e antígenos urinários; considerar cobertura para Pseudomonas pelo DPOC/risco e oseltamivir se influenza. Desescalonar conforme culturas."}
+];
+
+const PNM_FLOW_DX = {
+  start:"a",
+  nodes:{
+    a:{t:"Suspeita de pneumonia (febre, tosse, dispneia, dor pleurítica)",type:"q",opts:[{l:"Solicitar RX de tórax",to:"b"}]},
+    b:{t:"RX: opacidade/consolidação nova?",type:"q",opts:[{l:"Sim",to:"c"},{l:"Não / dúvida",to:"alt"}]},
+    c:{t:"Confirma pneumonia → classificar (comunitária x hospitalar) e avaliar gravidade (CURB-65, SatO₂, comorbidades)",type:"q",opts:[{l:"Definir local de tratamento",to:"d"}]},
+    d:{t:"CURB-65 0–1 → ambulatorial · 2 → internar · ≥3 → grave (avaliar UTI pelos critérios IDSA/ATS)",type:"end"},
+    alt:{t:"Reavaliar diferenciais (TB, neoplasia, TEP, congestão); considerar TC se persistir a suspeita",type:"end"}
+  }
+};
+const PNM_FLOW_COND = {
+  start:"a",
+  nodes:{
+    a:{t:"Pneumonia confirmada — onde será tratada?",type:"q",opts:[{l:"Ambulatorial",to:"amb"},{l:"Enfermaria",to:"enf"},{l:"UTI",to:"uti"}]},
+    amb:{t:"Hígido: amoxicilina/macrolídeo/doxiciclina · Comorbidade: β-lactâmico + macrolídeo OU fluoroquinolona respiratória. Reavaliar 48–72h",type:"end"},
+    enf:{t:"β-lactâmico (ceftriaxona) + macrolídeo OU fluoroquinolona respiratória. Culturas/antígenos. Influenza → oseltamivir",type:"end"},
+    uti:{t:"β-lactâmico + macrolídeo (ou + fluoroquinolona). Cobrir MRSA/Pseudomonas se fatores de risco. Suporte e desescalonar pela cultura",type:"end"}
+  }
+};
+const PNM_MIND = {
+  center:"Pneumonia",
+  branches:[
+    {h:"Classificação",ic:"🗂️",leaves:["<b>PAC</b> (comunidade)","<b>PAH</b> ≥48h internação","<b>PAV</b> ≥48h intubação","Aspirativa (anaeróbios)"]},
+    {h:"Agentes",ic:"🦠",leaves:["<b>Pneumococo</b> (nº1)","Atípicos: Mycoplasma, Legionella","Pós-influenza: S. aureus","PAH/PAV: Pseudomonas, MRSA"]},
+    {h:"Diagnóstico",ic:"🩻",leaves:["Clínica + <b>opacidade nova no RX</b>","Graves: culturas, antígenos urinários","Atípica: RX intersticial","Reavaliar se não melhora (TB/CA)"]},
+    {h:"Gravidade",ic:"📊",leaves:["<b>CURB-65</b> (0–1/2/≥3)","PSI/PORT (5 classes)","UTI: IDSA/ATS (1 maior ou ≥3 menores)","SatO₂, comorbidades"]},
+    {h:"Tratamento",ic:"💊",leaves:["Amb hígido: amoxi/macrolídeo","Internado: β-lactâmico + macrolídeo","UTI: nunca FQ isolada","Mín. <b>5 dias</b>; derrame → toracocentese"]}
+  ]
+};
+
+const PNM_CONTENT = {
+  subtopics:[
+    {id:"def",t:"Definição/classificação"},{id:"agentes",t:"Agentes etiológicos"},{id:"clin",t:"Quadro clínico"},
+    {id:"dx",t:"Diagnóstico"},{id:"grav",t:"Gravidade (CURB-65/PSI)"},{id:"tto",t:"Tratamento da PAC"},
+    {id:"pah",t:"PAH/PAV"},{id:"asp",t:"Aspirativa"},{id:"complic",t:"Complicações (derrame/empiema)"},
+    {id:"viral",t:"Pneumonia viral"},{id:"prova",t:"Pegadinhas de prova"}
+  ],
+  teach: PNM_TEACH, scores: PNM_SCORES, compare: PNM_COMPARE, erros: PNM_ERROS, summary: PNM_SUMMARY,
+  questions: PNM_Q, flashcards: PNM_FC, cases: PNM_CASES, flowDx: PNM_FLOW_DX, flowCond: PNM_FLOW_COND, mind: PNM_MIND, vespera: PNM_SUMMARY,
+  checklist:["Sei diagnosticar","Sei avaliar gravidade (CURB-65)","Sei tratar PAC","Sei manejar PAH/PAV e complicações","Dominei o tema"]
+};
+
+
+/* ============================================================
+   TUBERCULOSE — módulo completo
+   ============================================================ */
+const SVG_TB_HISTORY = `
+<div class="svg-fig">
+<svg viewBox="0 0 470 200" xmlns="http://www.w3.org/2000/svg">
+  <text x="60" y="20" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--brand)">Inalação do bacilo</text>
+  <circle cx="60" cy="60" r="6" fill="var(--coral-500)"/><circle cx="48" cy="50" r="4" fill="var(--coral-400)"/><circle cx="72" cy="48" r="4" fill="var(--coral-400)"/>
+  <path d="M85 60 L135 60" stroke="var(--txt-3)" stroke-width="2" marker-end="url(#a)"/>
+  <defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6Z" fill="var(--txt-3)"/></marker></defs>
+  <ellipse cx="180" cy="60" rx="44" ry="34" fill="var(--hl-teal)" stroke="var(--teal-500)" stroke-width="2"/>
+  <circle cx="180" cy="60" r="7" fill="var(--bad)"/>
+  <text x="180" y="108" text-anchor="middle" font-size="9.5" fill="var(--txt-2)">foco de Ghon (pulmão)</text>
+  <path d="M226 50 L300 30" stroke="var(--ok)" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M226 72 L300 110" stroke="var(--warn)" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="300" y="14" width="160" height="36" rx="8" fill="var(--ok)" opacity=".18" stroke="var(--ok)"/>
+  <text x="380" y="30" text-anchor="middle" font-size="10" font-weight="700" fill="var(--ok)">ILTB (latente) ~90%</text>
+  <text x="380" y="44" text-anchor="middle" font-size="8.5" fill="var(--txt-2)">bacilo "dormindo", assintomático</text>
+  <rect x="300" y="92" width="160" height="36" rx="8" fill="var(--bad)" opacity=".16" stroke="var(--bad)"/>
+  <text x="380" y="108" text-anchor="middle" font-size="10" font-weight="700" fill="var(--bad)">TB ativa (doença)</text>
+  <text x="380" y="122" text-anchor="middle" font-size="8.5" fill="var(--txt-2)">primária ou por reativação</text>
+  <path d="M380 50 L380 92" stroke="var(--warn)" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#a)"/>
+  <text x="396" y="74" font-size="8.5" fill="var(--warn)">reativação (imunossupressão)</text>
+</svg>
+<div class="cap">Ao inalar o bacilo, o corpo o "prende" num foco (Ghon). Na maioria (~90%) ele fica <b>latente</b> (ILTB) — sem sintomas e <b>sem transmitir</b>. Se a imunidade cai (HIV, idade, desnutrição), pode <b>reativar</b> e virar <b>TB ativa</b>.</div>
+</div>`;
+
+const SVG_TB_RHZE = `
+<div class="svg-fig">
+<svg viewBox="0 0 460 130" xmlns="http://www.w3.org/2000/svg">
+  <text x="20" y="20" font-size="12" font-weight="700" fill="var(--txt-1)">Esquema básico (6 meses)</text>
+  <rect x="20" y="40" width="140" height="34" rx="8" fill="var(--coral-500)" opacity=".55"/>
+  <text x="90" y="61" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">2 RHZE</text>
+  <rect x="170" y="40" width="270" height="34" rx="8" fill="var(--teal-500)" opacity=".55"/>
+  <text x="305" y="61" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">4 RH</text>
+  <text x="90" y="92" text-anchor="middle" font-size="9.5" fill="var(--coral-500)">fase intensiva (2 meses)</text>
+  <text x="305" y="92" text-anchor="middle" font-size="9.5" fill="var(--teal-500)">fase de manutenção (4 meses)</text>
+  <text x="230" y="116" text-anchor="middle" font-size="9.5" fill="var(--txt-2)">R rifampicina · H isoniazida · Z pirazinamida · E etambutol</text>
+</svg>
+<div class="cap">Esquema básico de TB no Brasil: <b>2 meses de RHZE</b> (4 fármacos) seguidos de <b>4 meses de RH</b>. Total de 6 meses, idealmente com <b>tratamento diretamente observado (TDO)</b>.</div>
+</div>`;
+
+const TB_TEACH = `
+<h3>Entendendo do zero</h3>
+<p class="lead">A ideia central, em linguagem simples.</p>
+<p>A tuberculose é uma <b>infecção causada por uma bactéria</b> (o <i>Mycobacterium tuberculosis</i>, ou bacilo de Koch) que ataca principalmente os <b>pulmões</b>. Ela se espalha pelo <b>ar</b>: quando uma pessoa com TB ativa nos pulmões tosse ou fala, lança "gotículas" com o bacilo, que outra pessoa respira. É uma bactéria <b>lenta e teimosa</b> — cresce devagar e se esconde dentro das próprias células de defesa do corpo.</p>
+<p>Aqui está o ponto que mais confunde: respirar o bacilo <b>não</b> significa adoecer. Na maioria das pessoas, o sistema imune "prende" o bacilo e ele fica <b>adormecido</b> por anos — é a <b>infecção latente (ILTB)</b>: a pessoa <b>não tem sintomas e não transmite</b>. Só uma minoria desenvolve a <b>doença ativa</b> — logo após a infecção ou quando a imunidade cai (HIV, idade avançada, desnutrição, uso de imunossupressores). Pense numa <b>brasa sob as cinzas</b>: pode ficar apagando por anos, mas se vier o "vento" da imunossupressão, reacende.</p>
+<p>Quem tem TB ativa nos pulmões costuma ter <b>tosse por semanas</b>, <b>febre no fim da tarde</b>, <b>suor à noite</b>, <b>emagrecimento</b> e cansaço. A boa notícia: <b>tem cura</b>, com um tratamento de <b>6 meses</b> com remédios combinados — mas exige tomar tudo certinho até o fim (parar no meio cria bactérias <b>resistentes</b>). Por ser um problema de saúde pública e transmissível, é de <b>notificação obrigatória</b>, com busca dos contatos e acompanhamento.</p>
+<div class="note tip"><div class="nh">💡 Guarde esta frase</div>TB = bactéria do <b>ar</b> que ataca o pulmão. Diferencie sempre <b>ILTB</b> (latente, sem sintoma, não transmite) de <b>TB ativa</b> (doença, transmite). O tratamento clássico é <b>6 meses (2RHZE + 4RH)</b> e tem cura.</div>
+
+<h3>1. O que é a TB e por que importa (saúde pública)</h3>
+<p>A tuberculose é uma doença infecciosa causada pelo <i>Mycobacterium tuberculosis</i>, uma das principais causas de morte por agente infeccioso no mundo. No Brasil é uma <b>prioridade de saúde pública</b>, de <b>notificação compulsória</b>, com estratégia de busca ativa de <b>sintomáticos respiratórios</b>, tratamento gratuito e controle de contatos. Entender a TB é entender também medidas coletivas: isolamento respiratório do bacilífero, TDO e investigação dos comunicantes.</p>
+
+<h3>2. Transmissão e história natural</h3>
+<p>A transmissão é <b>aérea</b>, por aerossóis eliminados pelo doente <b>bacilífero</b> (TB pulmonar/laríngea com baciloscopia positiva). Ao ser inalado, o bacilo chega aos alvéolos e forma o <b>foco primário (foco de Ghon)</b>; com o gânglio satélite, compõe o <b>complexo de Ghon/Ranke</b>.</p>
+` + SVG_TB_HISTORY + `
+<p>Daí seguem dois caminhos:</p>
+<ul>
+<li><b>Infecção latente (ILTB)</b> — na maioria (~90%), a imunidade contém o bacilo, que fica dormente. <b>Sem sintomas, sem transmissão.</b> O teste tuberculínico (PPD) ou o IGRA ficam positivos (memória imune), mas a pessoa não está doente.</li>
+<li><b>TB doença (ativa)</b> — em ~5–10%, evolui para doença: logo após a infecção (<b>TB primária</b>, comum em crianças) ou anos depois por <b>reativação</b> (TB pós-primária do adulto, típica nos <b>ápices</b> pulmonares, podendo <b>cavitar</b>).</li>
+</ul>
+
+<h3>3. Fatores de risco</h3>
+<ul>
+<li><b>HIV/aids</b> — o maior fator de risco para adoecimento e para formas graves/disseminadas.</li>
+<li>Imunossupressão: corticoide crônico, <b>anti-TNF</b>, quimioterapia, transplante; diabetes; desnutrição; etilismo; tabagismo.</li>
+<li>Idade (extremos), silicose, insuficiência renal/diálise.</li>
+<li><b>Aglomeração e vulnerabilidade</b>: pessoas privadas de liberdade (PPL), em situação de rua, indígenas, contatos de bacilíferos, profissionais de saúde.</li>
+</ul>
+
+<h3>4. Quadro clínico</h3>
+<p>A <b>TB pulmonar</b> clássica do adulto cursa com <b>tosse por ≥ 3 semanas</b> (o "<b>sintomático respiratório</b>"), <b>febre vespertina</b>, <b>sudorese noturna</b>, <b>perda de peso</b>, astenia e, às vezes, <b>hemoptise</b>. A evolução é arrastada (semanas a meses), diferentemente da pneumonia bacteriana aguda.</p>
+<div class="note key"><div class="nh">🔑 Sintomático respiratório (SR)</div>Toda pessoa com <b>tosse ≥ 3 semanas</b> deve ser investigada para TB. Em populações especiais (HIV, PPL, profissionais de saúde, indígenas, contatos), investiga-se com <b>qualquer</b> tosse/sintoma — o limiar é menor.</div>
+<p>A <b>TB extrapulmonar</b> (mais comum em imunossuprimidos/HIV) inclui: <b>pleural</b> (a forma extrapulmonar mais comum no Brasil — derrame exsudativo com ADA elevada), <b>ganglionar</b> (escrófula), <b>meningoencefálica</b> (grave, exige tratamento prolongado + corticoide), <b>miliar/disseminada</b>, óssea (mal de Pott), renal, peritoneal, pericárdica.</p>
+
+<h3>5. Diagnóstico</h3>
+<p>O diagnóstico combina <b>clínica + microbiologia + imagem</b>. No Brasil, o exame de <b>escolha inicial</b> é o teste molecular:</p>
+<ul>
+<li><b>TRM-TB (Xpert MTB/RIF)</b> — teste molecular rápido recomendado como <b>primeira escolha</b>: detecta o DNA do <i>M. tuberculosis</i> e, simultaneamente, <b>resistência à rifampicina</b> (em horas).</li>
+<li><b>Baciloscopia (pesquisa de BAAR, Ziehl-Neelsen)</b> — barata e útil para identificar o <b>bacilífero</b> e monitorar; menos sensível que o TRM.</li>
+<li><b>Cultura + teste de sensibilidade (TSA)</b> — padrão-ouro; indicada em <b>retratamento</b>, suspeita de <b>resistência</b>, HIV, populações vulneráveis e formas paucibacilares (lenta: semanas).</li>
+<li><b>Radiografia de tórax</b> — apoia o diagnóstico: infiltrados/<b>cavitações em ápices</b> (reativação), padrão miliar; ajuda a avaliar extensão e diferenciais.</li>
+<li><b>PPD (teste tuberculínico) e IGRA</b> — diagnosticam <b>infecção (ILTB)</b>, não a doença ativa.</li>
+</ul>
+
+<h3>6. Tratamento da TB ativa</h3>
+<p>O tratamento usa <b>combinação de fármacos</b> por tempo prolongado, em duas fases, para eliminar o bacilo e evitar resistência. O esquema básico (adultos e adolescentes) é:</p>
+` + SVG_TB_RHZE + `
+<ul>
+<li><b>Fase intensiva (2 meses):</b> <b>RHZE</b> = Rifampicina + Isoniazida + Pirazinamida + Etambutol (comprimido em dose fixa combinada, ajustado por <b>peso</b>).</li>
+<li><b>Fase de manutenção (4 meses):</b> <b>RH</b> = Rifampicina + Isoniazida.</li>
+</ul>
+<p><b>Formas especiais</b>: TB <b>meningoencefálica</b> e <b>osteoarticular</b> → fase de manutenção prolongada para <b>10 meses</b> (total <b>12 meses</b>: 2RHZE + 10RH); na <b>meníngea</b>, associar <b>corticoide</b> (reduz sequelas). Recomenda-se o <b>tratamento diretamente observado (TDO)</b> para garantir adesão e prevenir resistência.</p>
+<div class="note trap"><div class="nh">🚫 Não interrompa o tratamento</div>Abandonar ou tomar de forma irregular é a principal causa de <b>resistência (MDR)</b> e de recidiva. Por isso o TDO, a notificação e a busca ativa. Avalie cura por critérios clínicos e baciloscopia de controle.</div>
+
+<h3>7. Efeitos adversos e monitorização</h3>
+<table class="t"><thead><tr><th>Fármaco</th><th>Efeito clássico</th><th>Conduta-chave</th></tr></thead><tbody>
+<tr><td><b>R</b>ifampicina</td><td>Hepatite; secreção <b>alaranjada</b>; reduz eficácia de ACO; trombocitopenia/nefrite</td><td>Avisar sobre cor; rever interações (ACO, antirretrovirais)</td></tr>
+<tr><td><b>H</b> Isoniazida</td><td>Hepatite; <b>neuropatia periférica</b></td><td><b>Piridoxina (B6)</b> em grupos de risco (gestante, HIV, etilista, desnutrido)</td></tr>
+<tr><td><b>Z</b> Pirazinamida</td><td>Hepatite; <b>hiperuricemia</b>/artralgia</td><td>Monitorar; tratar gota sintomática</td></tr>
+<tr><td><b>E</b>tambutol</td><td><b>Neurite óptica</b> (↓ acuidade e visão de cores)</td><td>Avaliar visão; suspender se alterar</td></tr>
+</tbody></table>
+<p>A <b>hepatotoxicidade</b> (principalmente R, H e Z) é o efeito mais relevante: monitorar sintomas e transaminases; suspender e reintroduzir conforme protocolo se TGO/TGP &gt; 3–5× o normal com sintomas ou &gt; 5× sem sintomas.</p>
+
+<h3>8. TB resistente, TB/HIV e infecção latente (ILTB)</h3>
+<ul>
+<li><b>TB resistente:</b> o TRM-TB já sinaliza <b>resistência à rifampicina (RR-TB)</b>; <b>MDR</b> = resistência a R + H. Esses casos vão para esquemas especiais (referência), com tendência atual a <b>regimes totalmente orais e mais curtos com bedaquilina</b> (ex.: BPaLM), conforme recomendações da OMS — sempre guiados por TSA.</li>
+<li><b>TB/HIV:</b> coinfecção frequente e de pior prognóstico. <b>Inicie o tratamento da TB</b> e, em seguida, a <b>TARV precocemente</b> (em geral em 2–8 semanas; mais cedo se CD4 muito baixo), atento à <b>síndrome inflamatória de reconstituição imune (IRIS)</b> e às <b>interações com a rifampicina</b> (ajuste de antirretrovirais).</li>
+<li><b>Tratamento da ILTB</b> (latente): após excluir doença ativa, trata-se quem tem maior risco (contatos, HIV, imunossuprimidos, PPD/IGRA positivos conforme corte). Opções: <b>isoniazida</b> (6–9 meses), <b>rifampicina</b> (4 meses — boa adesão/menos hepatotoxicidade) ou <b>3HP</b> (isoniazida + rifapentina semanal por 12 doses).</li>
+</ul>
+`;
+
+const TB_SCORES = `
+<h3>Sintomático respiratório (quando investigar)</h3>
+<div class="note key"><div class="nh">🔑 Definição</div><b>Tosse ≥ 3 semanas</b> = sintomático respiratório → investigar TB (TRM-TB/baciloscopia + RX). Em <b>HIV, PPL, indígenas, contatos e profissionais de saúde</b>, investigar com qualquer sintoma respiratório.</div>
+
+<h3>Interpretação do TRM-TB (Xpert MTB/RIF)</h3>
+<table class="t"><thead><tr><th>Resultado</th><th>Significado / conduta</th></tr></thead><tbody>
+<tr><td><i>M. tuberculosis</i> NÃO detectado</td><td>TB improvável por este método; reavaliar clínica, RX, cultura se persistir suspeita</td></tr>
+<tr><td>Detectado, <b>sensível</b> à rifampicina</td><td>Iniciar <b>esquema básico (RHZE)</b></td></tr>
+<tr><td>Detectado, <b>resistente</b> à rifampicina (RR)</td><td>Encaminhar à referência; solicitar cultura + TSA; provável <b>MDR</b></td></tr>
+</tbody></table>
+
+<h3>Esquema básico — doses por peso (DFC)</h3>
+<table class="t"><thead><tr><th>Peso</th><th>RHZE (fase intensiva)</th></tr></thead><tbody>
+<tr><td>20–35 kg</td><td>2 comprimidos/dia</td></tr>
+<tr><td>36–50 kg</td><td>3 comprimidos/dia</td></tr>
+<tr><td>&gt; 50 kg</td><td>4 comprimidos/dia</td></tr>
+</tbody></table>
+<p style="font-size:.85rem;color:var(--txt-2)">Comprimido em dose fixa combinada (R150/H75/Z400/E275). Manutenção com RH na mesma lógica de peso.</p>
+
+<h3>ILTB — testar e tratar</h3>
+<div class="note tip"><div class="nh">PPD / IGRA (infecção latente)</div>
+<ul style="margin:6px 0 0">
+<li>Diagnosticam <b>infecção</b>, não doença ativa (sempre <b>excluir TB ativa</b> antes de tratar a ILTB).</li>
+<li>Cortes do PPD variam pelo risco (ex.: ≥ 5 mm em HIV/imunossuprimidos/contatos; valores maiores em menor risco). O <b>IGRA</b> é alternativa, útil em vacinados com BCG.</li>
+<li>Tratamento da ILTB: <b>isoniazida</b> (6–9 m), <b>rifampicina</b> (4 m) ou <b>3HP</b> (isoniazida+rifapentina semanal, 12 doses).</li>
+</ul></div>
+
+<h3>Formas especiais (duração)</h3>
+<table class="t"><thead><tr><th>Forma</th><th>Esquema</th></tr></thead><tbody>
+<tr><td>Pulmonar/maioria</td><td>2RHZE + 4RH (6 meses)</td></tr>
+<tr><td>Meningoencefálica / osteoarticular</td><td>2RHZE + 10RH (12 meses); meníngea + <b>corticoide</b></td></tr>
+</tbody></table>`;
+
+const TB_COMPARE = `
+<h3>TB x pneumonia bacteriana</h3>
+<table class="t"><thead><tr><th>Característica</th><th>Tuberculose</th><th>Pneumonia bacteriana</th></tr></thead><tbody>
+<tr><td>Evolução</td><td>Arrastada (semanas–meses)</td><td>Aguda (dias)</td></tr>
+<tr><td>Sintomas</td><td>Tosse ≥3 sem, sudorese noturna, emagrecimento</td><td>Febre alta, calafrio, tosse produtiva súbita</td></tr>
+<tr><td>RX</td><td><b>Ápices</b>, cavitação, miliar</td><td>Consolidação lobar/baixa</td></tr>
+<tr><td>Confirmação</td><td>TRM-TB / BAAR / cultura</td><td>Clínica + RX; culturas se grave</td></tr>
+</tbody></table>
+<h4>Outros diferenciais</h4>
+<p>Cavitação e nódulos podem ser <b>neoplasia</b>, <b>micoses</b> (paracoccidioidomicose, histoplasmose), abscesso e <b>bronquiectasias infectadas</b>. Em imunossuprimidos, ampliar o leque (micobactérias não tuberculosas, fungos).</p>`;
+
+const TB_ERROS = `
+<h3>❌ Erros mais comuns</h3>
+<ul>
+<li><b>Confundir ILTB com doença ativa.</b> PPD/IGRA positivos indicam infecção, não doença — sempre excluir TB ativa antes de tratar a latente.</li>
+<li><b>Não pedir TRM-TB</b> como teste inicial quando disponível (ele ainda detecta resistência à R).</li>
+<li><b>Tratar TB sem investigar HIV.</b> Toda TB deve ter sorologia para HIV oferecida.</li>
+<li><b>Interromper o tratamento</b> ao melhorar dos sintomas → resistência/recidiva. Completar 6 meses (TDO).</li>
+<li><b>Esquecer a piridoxina (B6)</b> com isoniazida em grupos de risco (neuropatia).</li>
+<li><b>Não notificar</b> e não investigar contatos — é doença de notificação compulsória.</li>
+<li><b>Ignorar a neurite óptica do etambutol</b> (avaliar visão/cores) e a hepatotoxicidade (R/H/Z).</li>
+</ul>`;
+
+const TB_SUMMARY = `
+<h3>⚡ Resumo Ultra-Rápido (revisão de véspera)</h3>
+<div class="note key"><div class="nh">🩻 O essencial</div>
+<ul style="margin:6px 0 0">
+<li>Transmissão <b>aérea</b>. <b>ILTB</b> (latente, não transmite) ≠ <b>TB ativa</b> (doença, transmite).</li>
+<li><b>Sintomático respiratório</b> = tosse ≥ 3 semanas → investigar (qualquer sintoma em HIV/PPL/contatos).</li>
+<li>Dx: <b>TRM-TB</b> é o teste inicial (detecta MTB + resistência à R); baciloscopia; <b>cultura+TSA</b> em retratamento/resistência/HIV; RX (ápices/cavitação).</li>
+<li>Tratamento: <b>2RHZE + 4RH</b> (6 meses). Meníngea/óssea: <b>12 meses</b>; meníngea + corticoide. <b>TDO</b>.</li>
+<li>Efeitos: hepatotox (R/H/Z), neuropatia (H → <b>B6</b>), neurite óptica (E), secreção alaranjada (R).</li>
+<li><b>TB/HIV</b>: TARV precoce (2–8 sem), cuidado com IRIS e interação da rifampicina. <b>ILTB</b>: isoniazida 6–9m, rifampicina 4m ou 3HP.</li>
+</ul></div>`;
+
+const TB_Q = [
+{stem:"Homem de 40 anos com tosse há 5 semanas, febre vespertina, sudorese noturna e emagrecimento. Qual a melhor conduta diagnóstica inicial no Brasil?",
+opts:["Iniciar antibiótico para pneumonia e observar","Solicitar TRM-TB (Xpert MTB/RIF)","Apenas radiografia de tórax","Solicitar PPD para confirmar doença ativa","Sorologia para TB"],
+correct:1, expl:"Trata-se de <b>sintomático respiratório</b> (tosse ≥3 semanas) com sintomas clássicos. O teste inicial recomendado é o <b>TRM-TB</b>, que detecta o bacilo e a resistência à rifampicina."},
+{stem:"O TRM-TB detecta M. tuberculosis com resistência à rifampicina. Qual a conduta?",
+opts:["Iniciar esquema básico RHZE","Encaminhar à referência e solicitar cultura + TSA (provável MDR)","Tratar como ILTB","Repetir baciloscopia e aguardar","Suspender qualquer tratamento"],
+correct:1, expl:"Resistência à rifampicina (RR) sugere <b>TB multirresistente</b>. Encaminhar à referência, solicitar <b>cultura + teste de sensibilidade</b> e usar esquema especial guiado pelo TSA."},
+{stem:"Qual é o esquema básico de tratamento da TB pulmonar no adulto?",
+opts:["6 meses de RH","2 meses de RHZE + 4 meses de RH","3 meses de RHZE","2 meses de RH + 4 meses de RHZE","9 meses de isoniazida"],
+correct:1, expl:"Esquema básico: <b>2 meses de RHZE</b> (fase intensiva) + <b>4 meses de RH</b> (manutenção), totalizando 6 meses."},
+{stem:"Paciente em uso de isoniazida desenvolve parestesias e queixa de formigamento em mãos e pés. Qual a medida preventiva/terapêutica?",
+opts:["Suspender todo o esquema","Administrar piridoxina (vitamina B6)","Trocar por etambutol","Adicionar corticoide","Reduzir a rifampicina"],
+correct:1, expl:"A isoniazida causa <b>neuropatia periférica</b>; a <b>piridoxina (B6)</b> previne/trata, sobretudo em grupos de risco (gestante, HIV, etilista, desnutrido)."},
+{stem:"Diferencie ILTB de TB doença. Qual afirmação está correta?",
+opts:["ILTB transmite a doença","Na ILTB o paciente é assintomático e não transmite","PPD positivo confirma TB ativa","ILTB sempre evolui para doença","ILTB é tratada com RHZE por 6 meses"],
+correct:1, expl:"Na <b>infecção latente (ILTB)</b> o paciente é <b>assintomático e não transmite</b>; o PPD/IGRA apenas indica infecção. O tratamento da ILTB difere (isoniazida, rifampicina ou 3HP)."},
+{stem:"Sobre a forma meningoencefálica da TB, assinale a correta:",
+opts:["Trata-se por 6 meses, como a pulmonar","Trata-se por 12 meses (2RHZE + 10RH) e associa-se corticoide","Não usa rifampicina","Dispensa tratamento","Usa apenas etambutol"],
+correct:1, expl:"A TB meningoencefálica (e a osteoarticular) tem fase de manutenção prolongada (<b>12 meses</b>: 2RHZE + 10RH); na meníngea, associa-se <b>corticoide</b> para reduzir sequelas."},
+{stem:"Paciente com TB recém-diagnosticada e HIV (CD4 baixo). Quando iniciar a TARV?",
+opts:["Nunca durante o tratamento de TB","Precocemente, em geral entre 2 e 8 semanas após iniciar o tratamento da TB","Somente após terminar os 6 meses de TB","Apenas se houver IRIS","No mesmo minuto, junto à primeira dose"],
+correct:1, expl:"Na coinfecção TB/HIV, inicia-se o tratamento da TB e, em seguida, a <b>TARV precocemente</b> (2–8 semanas; mais cedo se CD4 muito baixo), atento à <b>IRIS</b> e às interações com a rifampicina."},
+{stem:"Qual o efeito adverso clássico do etambutol que exige monitorização?",
+opts:["Neurite óptica (alteração da acuidade e da visão de cores)","Secreção alaranjada","Hiperuricemia","Surdez","Tosse seca"],
+correct:0, expl:"O etambutol pode causar <b>neurite óptica</b> (redução da acuidade visual e da discriminação de cores). Avaliar a visão e suspender se houver alteração."}
+];
+
+const TB_FC = [
+{type:"basic",front:"Transmissão da TB",back:"<b>Aérea</b>, por aerossóis do doente bacilífero (TB pulmonar/laríngea). ILTB não transmite."},
+{type:"truefalse",front:"V ou F: PPD positivo confirma TB ativa.",back:"<b>FALSO.</b> PPD/IGRA indicam <b>infecção (ILTB)</b>, não doença ativa."},
+{type:"basic",front:"Sintomático respiratório",back:"Tosse ≥ <b>3 semanas</b> → investigar TB. Em HIV/PPL/contatos: qualquer sintoma."},
+{type:"basic",front:"Teste diagnóstico inicial no Brasil",back:"<b>TRM-TB (Xpert MTB/RIF)</b> — detecta MTB + resistência à rifampicina."},
+{type:"basic",front:"Esquema básico de TB",color:"red",back:"<b>2RHZE + 4RH</b> (6 meses). Meníngea/óssea: 12 meses; meníngea + corticoide. TDO."},
+{type:"cloze",front:"Isoniazida causa neuropatia → administrar {{piridoxina (B6)}} em grupos de risco.",back:"Piridoxina (vitamina B6)."},
+{type:"basic",front:"Efeitos adversos por fármaco",back:"R: hepatite/secreção alaranjada · H: hepatite/neuropatia · Z: hepatite/hiperuricemia · E: <b>neurite óptica</b>."},
+{type:"basic",front:"Cultura + TSA — quando?",back:"Retratamento, suspeita de resistência, HIV, populações vulneráveis e formas paucibacilares. Padrão-ouro."},
+{type:"basic",front:"TB extrapulmonar mais comum no Brasil",back:"<b>Pleural</b> (derrame exsudativo, ADA elevada)."},
+{type:"basic",front:"TB resistente — TRM detecta",back:"Resistência à <b>rifampicina (RR)</b>. MDR = resistente a R + H → esquema especial (tendência a regimes orais curtos com bedaquilina)."},
+{type:"basic",front:"TB/HIV — quando iniciar TARV",back:"Precocemente (2–8 semanas após início da TB; mais cedo se CD4 baixo). Atenção a IRIS e interação da rifampicina."},
+{type:"basic",front:"Tratamento da ILTB",back:"Excluir TB ativa, então: isoniazida 6–9m, rifampicina 4m, ou 3HP (isoniazida+rifapentina semanal, 12 doses)."}
+];
+
+const TB_CASES = [
+{title:"Caso 1 — TB pulmonar clássica",
+hist:"Homem, 38 anos, etilista, com tosse há 6 semanas, febre no fim da tarde, sudorese noturna e perda de 6 kg.",
+exam:"Emagrecido, Tax 37,9 °C, ausculta com estertores em ápice direito.",
+exams:"RX: infiltrado com cavitação no ápice direito. TRM-TB: M. tuberculosis detectado, sensível à rifampicina. Anti-HIV negativo.",
+reason:"Sintomático respiratório com quadro arrastado e RX de ápice/cavitação; TRM positivo e sensível confirma TB e indica esquema básico.",
+dx:"Tuberculose pulmonar (sensível à rifampicina).",
+tto:"Iniciar <b>2RHZE + 4RH</b> (dose por peso), preferencialmente em <b>TDO</b>; <b>piridoxina</b> pelo etilismo; notificação compulsória e investigação de contatos; baciloscopias de controle; orientar adesão e isolamento respiratório enquanto bacilífero."},
+{title:"Caso 2 — Contato com ILTB",
+hist:"Mulher, 30 anos, assintomática, contato domiciliar de um caso de TB pulmonar bacilífero. Procurou avaliação.",
+exam:"Exame físico normal, sem tosse, febre ou emagrecimento.",
+exams:"RX de tórax normal. PPD 12 mm (ou IGRA positivo). Sem sinais de doença ativa.",
+reason:"Contato assintomático com RX normal e teste de infecção positivo = <b>infecção latente (ILTB)</b>, após exclusão de doença ativa. Indica-se tratar a ILTB para prevenir adoecimento.",
+dx:"Infecção latente pelo M. tuberculosis (ILTB) em contato.",
+tto:"Excluída a TB ativa, tratar a ILTB: <b>rifampicina por 4 meses</b> (boa adesão/menos hepatotoxicidade) ou isoniazida 6–9 meses ou 3HP. Orientar sinais de adoecimento e seguimento."}
+];
+
+const TB_FLOW_DX = {
+  start:"a",
+  nodes:{
+    a:{t:"Tosse ≥ 3 semanas (sintomático respiratório) ou suspeita em grupo de risco",type:"q",opts:[{l:"Investigar",to:"b"}]},
+    b:{t:"Solicitar TRM-TB (+ RX de tórax); oferecer anti-HIV",type:"q",opts:[{l:"MTB detectado, sensível à R",to:"c"},{l:"MTB detectado, resistente à R",to:"rr"},{l:"Não detectado",to:"neg"}]},
+    c:{t:"✓ TB confirmada → iniciar esquema básico (2RHZE+4RH), TDO, notificar e investigar contatos",type:"end"},
+    rr:{t:"⚠ Resistência à rifampicina → referência + cultura/TSA (provável MDR) → esquema especial",type:"end"},
+    neg:{t:"Reavaliar clínica/RX; coletar cultura se persistir suspeita; considerar outros diagnósticos",type:"end"}
+  }
+};
+const TB_FLOW_COND = {
+  start:"a",
+  nodes:{
+    a:{t:"Diagnóstico definido — qual situação?",type:"q",opts:[{l:"TB pulmonar sensível",to:"basico"},{l:"Meníngea/óssea",to:"esp"},{l:"ILTB (latente)",to:"iltb"},{l:"TB + HIV",to:"hiv"}]},
+    basico:{t:"2RHZE + 4RH (6 meses), por peso, com TDO. Monitorar hepatotox; B6 se risco; baciloscopia de controle",type:"end"},
+    esp:{t:"2RHZE + 10RH (12 meses). Meníngea: associar CORTICOIDE",type:"end"},
+    iltb:{t:"Excluir TB ativa → tratar ILTB: rifampicina 4m OU isoniazida 6–9m OU 3HP (12 doses)",type:"end"},
+    hiv:{t:"Tratar TB + iniciar TARV precoce (2–8 sem). Atenção a IRIS e interação com rifampicina",type:"end"}
+  }
+};
+const TB_MIND = {
+  center:"TB",
+  branches:[
+    {h:"História natural",ic:"🔬",leaves:["Transmissão <b>aérea</b>","Foco de Ghon","<b>ILTB</b> (~90%, não transmite)","Reativação → TB ativa (ápices)"]},
+    {h:"Clínica",ic:"🩺",leaves:["<b>Tosse ≥3 sem</b> (SR)","Febre vespertina, sudorese noturna","Emagrecimento, hemoptise","Extrapulmonar: pleural (mais comum)"]},
+    {h:"Diagnóstico",ic:"🧪",leaves:["<b>TRM-TB</b> (inicial; + resistência R)","Baciloscopia (BAAR)","Cultura + TSA (padrão-ouro)","PPD/IGRA → infecção (ILTB)"]},
+    {h:"Tratamento",ic:"💊",leaves:["<b>2RHZE + 4RH</b> (6 m)","Meníngea/óssea: 12 m + corticoide","<b>TDO</b>; notificação","Efeitos: H→B6, E→neurite óptica"]},
+    {h:"Especiais",ic:"⭐",leaves:["<b>TB/HIV</b>: TARV precoce, IRIS","MDR → referência (bedaquilina)","ILTB: isoniazida/rifampicina/3HP","Controle de contatos"]}
+  ]
+};
+
+const TB_CONTENT = {
+  subtopics:[
+    {id:"epi",t:"Epidemiologia/saúde pública"},{id:"transm",t:"Transmissão e história natural"},{id:"iltb",t:"ILTB x doença ativa"},
+    {id:"risco",t:"Fatores de risco"},{id:"clin",t:"Quadro clínico"},{id:"dx",t:"Diagnóstico (TRM-TB)"},
+    {id:"trat",t:"Tratamento (RHZE)"},{id:"efeitos",t:"Efeitos adversos"},{id:"resist",t:"TB resistente"},
+    {id:"hiv",t:"TB/HIV e ILTB"},{id:"prova",t:"Pegadinhas de prova"}
+  ],
+  teach: TB_TEACH, scores: TB_SCORES, compare: TB_COMPARE, erros: TB_ERROS, summary: TB_SUMMARY,
+  questions: TB_Q, flashcards: TB_FC, cases: TB_CASES, flowDx: TB_FLOW_DX, flowCond: TB_FLOW_COND, mind: TB_MIND, vespera: TB_SUMMARY,
+  checklist:["Sei a história natural (ILTB x ativa)","Sei diagnosticar (TRM-TB)","Sei o esquema RHZE","Sei manejar efeitos/TB-HIV/ILTB","Dominei o tema"]
+};
+
+
 function subList(arr){ return {subtopics: arr.map((t,i)=>({id:"s"+i,t}))}; }
 
 const MODULES = [
@@ -2074,11 +2644,11 @@ const MODULES = [
 
   {id:"pneumonias",n:4,emoji:"🦠",title:"Pneumonias",desc:"PAC, PAH/PAV, CURB-65, PSI e antibioticoterapia.",
    prev:PREV(96,95,92,90,90,92),
-   topics:[{id:"pneumonias",title:"Pneumonias",content:subList(["Pneumonia comunitária","Pneumonia hospitalar","Pneumonia associada à ventilação","Pneumonia aspirativa","Pneumonia atípica","Pneumonia viral","Pneumonia por influenza","COVID","CURB-65","PSI","Antibioticoterapia"])}]},
+   topics:[{id:"pneumonias",title:"Pneumonias — aula completa",content:PNM_CONTENT}]},
 
   {id:"tb",n:5,emoji:"🩻",title:"Tuberculose",desc:"Prioridade de saúde pública: TRM-TB, RHZE, TB/HIV.",
    prev:PREV(94,96,95,92,90,93),
-   topics:[{id:"tb",title:"Tuberculose",content:subList(["Epidemiologia","Fisiopatologia","Tuberculose pulmonar","Tuberculose extrapulmonar","Diagnóstico","TRM-TB","Baciloscopia","Cultura","Radiologia","Tratamento","Esquema RHZE","TB resistente","TB/HIV"])}]},
+   topics:[{id:"tb",title:"Tuberculose — aula completa",content:TB_CONTENT}]},
 
   {id:"intersticiais",n:6,emoji:"🕸️",title:"Doenças Intersticiais",desc:"FPI, pneumonite de hipersensibilidade, sarcoidose, pneumoconioses.",
    prev:PREV(60,58,55,52,50,55),
@@ -2822,7 +3392,7 @@ const ROUTES = {
         <div class="bar" style="margin-bottom:8px"><span data-w="${pct}"></span></div>
         <div class="foot"><span>${done}/${subs.length} subtópicos</span><span style="color:var(--brand);font-weight:800">${pct}%</span></div></div>`;
     }).join("");
-    $("#view").innerHTML=`${H("📚 Módulos de Pneumologia")}${SUB("13 módulos cobrindo todo o conteúdo de Pneumologia para residência. <b>Asma</b>, <b>DPOC</b> e <b>TEP</b> estão 100% desenvolvidos (aula, escores, questões, flashcards, casos e fluxogramas); os demais trazem a estrutura completa e serão aprofundados na mesma profundidade.")}<div class="grid g-3">${cards}</div>`;
+    $("#view").innerHTML=`${H("📚 Módulos de Pneumologia")}${SUB("13 módulos cobrindo todo o conteúdo de Pneumologia para residência. <b>Asma</b>, <b>DPOC</b>, <b>TEP</b>, <b>Pneumonias</b> e <b>Tuberculose</b> estão 100% desenvolvidos (com 'Entendendo do zero', aula em sub-abas, escores, questões, flashcards, casos e fluxogramas); os demais serão aprofundados na mesma profundidade.")}<div class="grid g-3">${cards}</div>`;
     animateBars();
   },
 
