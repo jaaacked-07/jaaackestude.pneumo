@@ -554,8 +554,8 @@ const DEFAULT_STATE = () => ({
 /* ============ PERSISTÊNCIA FIRESTORE ============ */
 // Caminho isolado por usuário e por plataforma:
 // users/{uid}/platforms/PNEUMO/state/main
-function stateRef(){ 
-  return doc(db, "users", "E0hknJEUyfaubbaNlMKEoE0BEWs2", "platforms", "PNEUMO"); 
+function stateRef(){
+  return doc(db, "users", UID, "platforms", PLATFORM_ID);
 }
 
 async function loadState(){
